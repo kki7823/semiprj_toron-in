@@ -20,7 +20,7 @@ public abstract class DAO {
     protected String delete_query;
 
     //DB 접속
-    protected Connection connect_db() {
+    protected Connection getConnection() {
         try {
             Class.forName(ORACLE_DRIVER);
             System.out.println("ORACLE DRIVER LOADING : SUCCESS");
