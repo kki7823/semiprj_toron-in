@@ -1,8 +1,8 @@
-package test;
+package com.toron.dao;
 
 import java.sql.ResultSet;
 
-public class MemberDAO extends DAO{
+public class MemberDAO extends DAO {
 
     private MemberDAO() {
     }
