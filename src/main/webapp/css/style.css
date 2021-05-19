@@ -1,0 +1,50 @@
+@charset "UTF-8";
+/* 공통 */
+
+/* Main Page */
+#container{
+    height: 1260px;
+    width: 1300px;
+}
+
+#main_header_top{
+    margin-top: 50px;
+    border: 1pt solid;
+}
+
+#main_searchbox{
+    text-align: center;
+}
+
+#main_memobox{
+    float: right;
+    text-align: right;
+    border: 1pt solid;
+}
+
+#main_header_bottom{
+    border: 1pt solid;
+}
+
+#main_loginbox{
+    text-align: right;
+}
+
+#main_profile_photo{
+	float: left;
+}
+
+#main_profile_info{
+	 margin-top: 10px;
+	 text-align: center;
+}
+
+
+#hot_word{
+	text-align: center;
+}
+
+.main_hotK{
+	 padding:20px;
+   	 border: 1pt solid;
+}
