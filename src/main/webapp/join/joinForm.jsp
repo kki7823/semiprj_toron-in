@@ -9,202 +9,143 @@
             integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
             crossorigin="anonymous"></script>
 
-    <link href="../css/style1.css?ver=r " rel="stylesheet" type="text/css">
+    <link href="../css/style1.css?ver=1w " rel="stylesheet" type="text/css">
     <title>회원가입</title>
 </head>
 <body>
-    <div id="container" class="container-lg" style="border: 1pt solid; ">
-            <div id="join_box" class="py-5 text-center" style="border: 1pt solid">
-                <h2>회원 가입</h2>
+    <div id="join_container" class="container-lg">
+        <div id="join_title" class="py-5 text-center">
+            <h2>회원 가입</h2>
+            <hr class="my-4">
+        </div>
+        <form id="join_form" class="needs-validation" novalidate="">
+            <div>
+
             </div>
-
-            <div id="join_container" class="col-md-7 col-lg-8" style="border: 1pt solid">
-                <form class="needs-validation" novalidate="">
-                    <div class="row g-3" style="border: 1pt solid">
-
-                        <div id="join_idbox" class="col-sm-6" >
-                            <label for="join_idbar" class="form-label">아이디</label>
-                            <input type="text" class="form-control" id="join_idbar" placeholder="Id" value="" required="required"/>
-                            <div class="invalid-feedback">
-                                Valid first name is required.
-                            </div>
-                        </div>
-
-                        <div class="col-sm-6">
-                            <label for="username1" class="form-label">Username</label>
-                            <div class="input-group has-validation">
-                                <input type="text" class="form-control" id="username1" placeholder="Username"
-                                       required="">
-                                <div class="invalid-feedback">
-                                    Your username is required.
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-6">
-                            <label for="lastName" class="form-label">Last name</label>
-                            <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
-                            <div class="invalid-feedback">
-                                Valid last name is required.
-                            </div>
-                        </div>
-
-                        <div class="col-sm-6">
-                            <label for="lastName" class="form-label">Last name</label>
-                            <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
-                            <div class="invalid-feedback">
-                                Valid last name is required.
-                            </div>
-                        </div>
-
-                        <div class="col-12">
-                            <label for="username" class="form-label">Username</label>
-                            <div class="input-group has-validation">
-                                <span class="input-group-text">@</span>
-                                <input type="text" class="form-control" id="username" placeholder="Username"
-                                       required="">
-                                <div class="invalid-feedback">
-                                    Your username is required.
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-12">
-                            <label for="email" class="form-label">Email <span
-                                    class="text-muted">(Optional)</span></label>
-                            <input type="email" class="form-control" id="email" placeholder="you@example.com">
-                            <div class="invalid-feedback">
-                                Please enter a valid email address for shipping updates.
-                            </div>
-                        </div>
-
-                        <div class="col-12">
-                            <label for="address" class="form-label">Address</label>
-                            <input type="text" class="form-control" id="address" placeholder="1234 Main St" required="">
-                            <div class="invalid-feedback">
-                                Please enter your shipping address.
-                            </div>
-                        </div>
-
-                        <div class="col-12">
-                            <label for="address2" class="form-label">Address 2 <span
-                                    class="text-muted">(Optional)</span></label>
-                            <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
-                        </div>
-
-                        <div class="col-md-5">
-                            <label for="country" class="form-label">Country</label>
-                            <select class="form-select" id="country" required="">
-                                <option value="">Choose...</option>
-                                <option>United States</option>
-                            </select>
-                            <div class="invalid-feedback">
-                                Please select a valid country.
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <label for="state" class="form-label">State</label>
-                            <select class="form-select" id="state" required="">
-                                <option value="">Choose...</option>
-                                <option>California</option>
-                            </select>
-                            <div class="invalid-feedback">
-                                Please provide a valid state.
-                            </div>
-                        </div>
-
-                        <div class="col-md-3">
-                            <label for="zip" class="form-label">Zip</label>
-                            <input type="text" class="form-control" id="zip" placeholder="" required="">
-                            <div class="invalid-feedback">
-                                Zip code required.
-                            </div>
-                        </div>
+            <div id="join_mainbox" class="row g-3">
+                <div id="join_idbox" class="col-sm-6">
+                    <span>아이디</span>
+                    <input type="text" class="form-control" id="join_idbar" placeholder="영문소문자/숫자, 4~16자" value=""
+                           required="required"/>
+                    <div class="invalid-feedback">
+                        Valid id is required.
                     </div>
+                </div>
+                <div id="join_pwbox" class="col-sm-6">
+                    <span>비밀번호</span>
+                    <input type="text" class="form-control" id="join_pwbar"
+                           placeholder="영문 대소문자/숫자/특수문자 중 2가지 이상 조합, 10자~16자" value=""
+                           required="required"/>
+                    <div class="invalid-feedback">
+                        Valid password is required.
+                    </div>
+                </div>
+                <div id="join_pwbox2" class="col-sm-6">
+                    <span>비밀번호 확인</span>
+                    <input type="password" class="form-control" id="join_pwbar2"
+                           placeholder="영문 대소문자/숫자/특수문자 중 2가지 이상 조합, 10자~16자" value=""
+                           required="required"/>
+                    <div class="invalid-feedback">
+                        Valid password is required.
+                    </div>
+                </div>
 
-                    <hr class="my-4">
+                <div id="join_namebox" class="col-sm-6">
+                    <span>이름</span>
+                    <input type="password" class="form-control" id="join_namebar" value=""
+                           required="required"/>
+                    <div class="invalid-feedback">
+                        Valid name is required.
+                    </div>
+                </div>
 
+                <div id="join_nick" class="col-sm-6">
+                    <span>닉네임</span>
+                    <input type="text" class="form-control" id="join_nickbar" value=""
+                           required="required"/>
+                    <div class="invalid-feedback">
+                        Valid name is required.
+                    </div>
+                </div>
+
+                <div id="join_phone" class="col-sm-6">
+                    <span>전화번호</span>
+                    <input type="text" class="form-control" id="join_phonebar" placeholder="000-0000-0000" value=""
+                           required="required"/>
+                    <div class="invalid-feedback">
+                        Valid name is required.
+                    </div>
+                </div>
+
+                <div id="join_email" class="col-sm-6">
+                    <span>이메일</span>
+                    <input type="email" class="form-control" id="join_emailbar" placeholder="email@example.com" value=""
+                           required="required"/>
+                    <div class="invalid-feedback">
+                        Valid name is required.
+                    </div>
+                </div>
+
+                <div id="join_address" class="col-sm-6">
+                    <span>주소</span>
+                    <input type="text" class="form-control" id="join_addressbar" value=""
+                           required="required"/>
+                    <div class="invalid-feedback">
+                        Valid name is required.
+                    </div>
+                </div>
+
+                <div id="join_postal" class="col-sm-6">
+                    <span>우편번호</span>
+                    <input type="text" class="form-control" id="join_postalbar" value=""
+                           required="required"/>
+                    <div class="invalid-feedback">
+                        Valid name is required.
+                    </div>
+                </div>
+
+                <div id="join_interest" class="my-3">
+                    <span>관심분야<br/></span>
                     <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="same-address">
-                        <label class="form-check-label" for="same-address">Shipping address is the same as my billing
-                            address</label>
+                        <input id="social" name="interest" type="radio" class="form-check-input" checked="checked">
+                        <label class="form-check-label" for="social">사회</label>
                     </div>
-
                     <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="save-info">
-                        <label class="form-check-label" for="save-info">Save this information for next time</label>
+                        <input id="health" name="interest" type="radio" class="form-check-input">
+                        <label class="form-check-label" for="health">건강</label>
                     </div>
-
-                    <hr class="my-4">
-
-                    <h4 class="mb-3">Payment</h4>
-
-                    <div class="my-3">
-                        <div class="form-check">
-                            <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked=""
-                                   required="">
-                            <label class="form-check-label" for="credit">Credit card</label>
-                        </div>
-                        <div class="form-check">
-                            <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required="">
-                            <label class="form-check-label" for="debit">Debit card</label>
-                        </div>
-                        <div class="form-check">
-                            <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required="">
-                            <label class="form-check-label" for="paypal">PayPal</label>
-                        </div>
+                    <div class="form-check">
+                        <input id="love" name="interest" type="radio" class="form-check-input">
+                        <label class="form-check-label" for="love">연애</label>
                     </div>
-
-                    <div class="row gy-3">
-                        <div class="col-md-6">
-                            <label for="cc-name" class="form-label">Name on card</label>
-                            <input type="text" class="form-control" id="cc-name" placeholder="" required="">
-                            <small class="text-muted">Full name as displayed on card</small>
-                            <div class="invalid-feedback">
-                                Name on card is required
-                            </div>
-                        </div>
-
-                        <div class="col-md-6">
-                            <label for="cc-number" class="form-label">Credit card number</label>
-                            <input type="text" class="form-control" id="cc-number" placeholder="" required="">
-                            <div class="invalid-feedback">
-                                Credit card number is required
-                            </div>
-                        </div>
-
-                        <div class="col-md-3">
-                            <label for="cc-expiration" class="form-label">Expiration</label>
-                            <input type="text" class="form-control" id="cc-expiration" placeholder="" required="">
-                            <div class="invalid-feedback">
-                                Expiration date required
-                            </div>
-                        </div>
-
-                        <div class="col-md-3">
-                            <label for="cc-cvv" class="form-label">CVV</label>
-                            <input type="text" class="form-control" id="cc-cvv" placeholder="" required="">
-                            <div class="invalid-feedback">
-                                Security code required
-                            </div>
-                        </div>
+                    <div class="form-check">
+                        <input id="study" name="interest" type="radio" class="form-check-input">
+                        <label class="form-check-label" for="study">학업</label>
                     </div>
+                    <div class="form-check">
+                        <input id="work" name="interest" type="radio" class="form-check-input">
+                        <label class="form-check-label" for="work">직장</label>
+                    </div>
+                </div>
 
-                    <hr class="my-4">
-
-                    <button class="w-100 btn btn-primary btn-lg" type="submit">Continue to checkout</button>
-                </form>
+                <div id="join_upload" class="col-sm-6">
+                    <span>파일 업로드</span>
+                    <input type="text" class="form-control" id="join_uploadbar"/>   <!--파일 업로드 구현할 것-->
+                </div>
+            </div>  <!-- End of join_mainbox -->
+            <div id="join_buttonbox" class="col-sm-6">
+                <button class="btn btn-primary" type="submit">확인</button>
+                <button class="btn btn-primary" type="submit">취소</button>
             </div>
+            <hr class="my-4">
 
-            <footer class="my-5 pt-5 text-muted text-center text-small">
-                <p class="mb-1">© 2017–2021 Company Name</p>
-                <ul class="list-inline">
-                    <li class="list-inline-item"><a href="#">Privacy</a></li>
-                    <li class="list-inline-item"><a href="#">Terms</a></li>
-                    <li class="list-inline-item"><a href="#">Support</a></li>
-                </ul>
-            </footer>
+        </form>
     </div>
+
+    <footer class="my-5 pt-5 text-muted text-center text-small">
+        <p class="mb-1">토론In 회원가입 : Updated by 김경일</p>
+        <ul class="list-inline">
+        </ul>
+    </footer>
 </body>
 </html>
