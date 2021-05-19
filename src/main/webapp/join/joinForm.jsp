@@ -9,7 +9,7 @@
             integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
             crossorigin="anonymous"></script>
 
-    <link href="../css/style1.css?ver=1w " rel="stylesheet" type="text/css">
+    <link href="../css/style1.css?ver=1wss " rel="stylesheet" type="text/css">
     <title>회원가입</title>
 </head>
 <body>
@@ -22,17 +22,19 @@
             <div>
 
             </div>
-            <div id="join_mainbox" class="row g-3">
-                <div id="join_idbox" class="col-sm-6">
-                    <span>아이디</span>
-                    <input type="text" class="form-control" id="join_idbar" placeholder="영문소문자/숫자, 4~16자" value=""
-                           required="required"/>
+            <div id="join_mainbox" class="row g-3" >
+                <div id="join_idbox" class="col-sm-6" >
+                    <span>아이디</span><span style="color:darkred;">&nbsp;*</span><br/>
+                    <input type="text" class="form-control" id="join_idbar" placeholder="영문소문자/숫자, 4~16자" value="" required="required" style="display: inline"/>
+                    <button class="btn btn-primary" type="submit" style="margin-bottom: 3px"> 아이디 중복 확인</button>
+
                     <div class="invalid-feedback">
                         Valid id is required.
                     </div>
                 </div>
+
                 <div id="join_pwbox" class="col-sm-6">
-                    <span>비밀번호</span>
+                    <span>비밀번호</span><span style="color:darkred;">&nbsp;*</span>
                     <input type="text" class="form-control" id="join_pwbar"
                            placeholder="영문 대소문자/숫자/특수문자 중 2가지 이상 조합, 10자~16자" value=""
                            required="required"/>
@@ -41,7 +43,7 @@
                     </div>
                 </div>
                 <div id="join_pwbox2" class="col-sm-6">
-                    <span>비밀번호 확인</span>
+                    <span>비밀번호 확인</span><span style="color:darkred;">&nbsp;*</span>
                     <input type="password" class="form-control" id="join_pwbar2"
                            placeholder="영문 대소문자/숫자/특수문자 중 2가지 이상 조합, 10자~16자" value=""
                            required="required"/>
@@ -51,7 +53,7 @@
                 </div>
 
                 <div id="join_namebox" class="col-sm-6">
-                    <span>이름</span>
+                    <span>이름</span><span style="color:darkred;">&nbsp;*</span>
                     <input type="password" class="form-control" id="join_namebar" value=""
                            required="required"/>
                     <div class="invalid-feedback">
@@ -60,7 +62,7 @@
                 </div>
 
                 <div id="join_nick" class="col-sm-6">
-                    <span>닉네임</span>
+                    <span>닉네임</span><span style="color:darkred;">&nbsp;*</span>
                     <input type="text" class="form-control" id="join_nickbar" value=""
                            required="required"/>
                     <div class="invalid-feedback">
@@ -86,8 +88,18 @@
                     </div>
                 </div>
 
+                <div id="join_postal" class="col-sm-6">
+                    <span>우편번호</span><span style="color:darkred;">&nbsp;*</span><br/>
+                    <input type="text" class="form-control" id="join_postalbar" value=""
+                           required="required" style="display: inline"/>
+                    <button class="btn btn-primary" type="submit" style="margin-bottom: 3px">우편번호 찾기</button>
+                    <div class="invalid-feedback">
+                        Valid name is required.
+                    </div>
+                </div>
+
                 <div id="join_address" class="col-sm-6">
-                    <span>주소</span>
+                    <span>주소</span><span style="color:darkred;">&nbsp;*</span>
                     <input type="text" class="form-control" id="join_addressbar" value=""
                            required="required"/>
                     <div class="invalid-feedback">
@@ -95,47 +107,41 @@
                     </div>
                 </div>
 
-                <div id="join_postal" class="col-sm-6">
-                    <span>우편번호</span>
-                    <input type="text" class="form-control" id="join_postalbar" value=""
-                           required="required"/>
-                    <div class="invalid-feedback">
-                        Valid name is required.
-                    </div>
-                </div>
+
 
                 <div id="join_interest" class="my-3">
                     <span>관심분야<br/></span>
                     <div class="form-check">
-                        <input id="social" name="interest" type="radio" class="form-check-input" checked="checked">
+                        <input id="social" name="interest" type="checkbox" class="form-check-input">
                         <label class="form-check-label" for="social">사회</label>
                     </div>
                     <div class="form-check">
-                        <input id="health" name="interest" type="radio" class="form-check-input">
+                        <input id="health" name="interest" type="checkbox" class="form-check-input">
                         <label class="form-check-label" for="health">건강</label>
                     </div>
                     <div class="form-check">
-                        <input id="love" name="interest" type="radio" class="form-check-input">
+                        <input id="love" name="interest" type="checkbox" class="form-check-input">
                         <label class="form-check-label" for="love">연애</label>
                     </div>
                     <div class="form-check">
-                        <input id="study" name="interest" type="radio" class="form-check-input">
+                        <input id="study" name="interest" type="checkbox" class="form-check-input">
                         <label class="form-check-label" for="study">학업</label>
                     </div>
                     <div class="form-check">
-                        <input id="work" name="interest" type="radio" class="form-check-input">
+                        <input id="work" name="interest" type="checkbox" class="form-check-input">
                         <label class="form-check-label" for="work">직장</label>
                     </div>
                 </div>
 
                 <div id="join_upload" class="col-sm-6">
-                    <span>파일 업로드</span>
-                    <input type="text" class="form-control" id="join_uploadbar"/>   <!--파일 업로드 구현할 것-->
+                <span>파일 업로드</span>
+                <input class="form-control" type="file" id="join_uploadbar"/>
                 </div>
+
             </div>  <!-- End of join_mainbox -->
             <div id="join_buttonbox" class="col-sm-6">
-                <button class="btn btn-primary" type="submit">확인</button>
-                <button class="btn btn-primary" type="submit">취소</button>
+                <button class="btn btn-primary btn-lg" type="submit">확인</button>
+                <button class="btn btn-primary btn-lg" type="submit">취소</button>
             </div>
             <hr class="my-4">
 
