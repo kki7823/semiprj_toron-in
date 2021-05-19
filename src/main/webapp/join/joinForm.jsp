@@ -107,8 +107,6 @@
                     </div>
                 </div>
 
-
-
                 <div id="join_interest" class="my-3">
                     <span>관심분야<br/></span>
                     <div class="form-check">
