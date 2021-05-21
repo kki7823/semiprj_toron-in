@@ -5,6 +5,9 @@
     overflow: hidden;
 }
 
+.comment_free{
+}
+
 /* Main */
 #main_header_top {
     margin-top: 50px;
@@ -184,6 +187,26 @@
 
 #listD_contents{
     text-align: left;
+}
+
+#listD_commentbox{
+    text-align: left;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+#listD_commentInbox{
+    width: 970px;
+    text-align: right;
+}
+
+#listD_commentIn{
+    resize: none;
+    outline: none;
+    border: white;
+    width: 930px;
+    margin-top: 6px;
+    margin-bottom: 10px;
 }
 
 
