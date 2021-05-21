@@ -5,8 +5,27 @@
     overflow: hidden;
 }
 
+#list_navbox{
+    margin-top: 50px;
+}
+
+.profile_box{
+    height: 45px;
+    width: 50px;
+    border-radius: 70%;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.profile_photo{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .comment_free{
 }
+
 
 /* Main */
 #main_header_top {
@@ -98,6 +117,11 @@
 }
 
 /* listView */
+#listV_mainbox{
+    width: 1400px;
+    height: 1200px;
+    margin-top: 50px;
+}
 #listV_table{
     text-align: center;
     margin-top: 50px;
@@ -108,7 +132,7 @@
 }
 
 #listV_tb_title{
-    width:841px;
+    width:820px;
 }
 
 #listV_tb_type{
@@ -120,7 +144,7 @@
 }
 
 #listV_tb_date{
-    width:120px;
+    width:140px;
 }
 
 #listV_tb_hit{
@@ -136,10 +160,7 @@
 #listU_mainbox {
     width: 1000px;
     height: 1200px;
-    margin-top: 160px;
-    margin-bottom: 100px;
-    border: 1pt solid;
-    text-align: center;
+    margin-top: 50px;
 }
 
 #listU_mainbox > div{
@@ -170,9 +191,16 @@
     width: 790px;
 }
 
+#listU_buttonbox{
+    float: right;
+}
+
 /* listDetail */
 #listD_container {
     text-align: center;
+    width: 1400px;
+    height: 1500px;
+    border: 1pt solid;
 }
 
 #listD_mainbox{
@@ -183,10 +211,40 @@
 
 #listD_titlebox{
     text-align: left;
+    border-bottom: 1pt solid;
+    padding-bottom: 10px;
+}
+
+#listD_title{
+    font-size: 20pt;
+}
+
+#listD_wdate{
+    display: block;
+    float: bottom;
+
+}
+
+#listD_profile{
+    width: 200px;
+    height: 51px;
+    display: inline-block;
+    border: 1pt solid;
+    float: right;
+    position: relative;
+    bottom : 55px;
+}
+
+#listD_profile_id{
+    display: inline-block;
 }
 
 #listD_contents{
     text-align: left;
+}
+
+#listD_contentsbox{
+    margin-top: 14px;
 }
 
 #listD_commentbox{
@@ -209,4 +267,98 @@
     margin-bottom: 10px;
 }
 
+#listD_buttonbox{
+    text-align: right;
+}
 
+/* listD - yes no */
+#listD_mainbox_y{
+    width: 850px;
+    height: 1200px;
+    margin-top: 50px;
+}
+
+#listD_commentInbox_y{
+    width: 831px;
+    text-align: right;
+}
+
+#listD_commentIn_y{
+    resize: none;
+    outline: none;
+    border: white;
+    width: 791px;
+    margin-top: 6px;
+    margin-bottom: 10px;
+}
+
+#listD_contentsbox_y{
+    margin-top: 14px;
+}
+
+#listD_yesno_nav{
+    margin-top: 50px;
+}
+
+/* 말풍선 */
+
+/* 1. 말풍선 찬성 */
+.balloon_yes {
+    position: relative;
+    background: #88b7d5;
+}
+.balloon_yes:after {
+    right: 100%;
+    top: 50%;
+    border: solid transparent;
+    content: "";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: rgba(136, 183, 213, 0);
+    border-right-color: #88b7d5;
+    border-width: 10px;
+    margin-top: -10px;
+}
+
+.balloon_yes {
+    /*position: static;*/
+    margin-left: 30px;
+    width: 368px;
+    /*height: 118px;*/
+    left: 42px;
+    top: 25px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+/* 2. 말풍선 반대 */
+.balloon_no {
+    position: relative;
+    background: #f0a8ed;
+}
+.balloon_no:after {
+    left: 100%;
+    top: 50%;
+    border: solid transparent;
+    content: "";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: rgba(240, 168, 237, 0);
+    border-left-color: #f0a8ed;
+    border-width: 9px;
+    margin-top: -9px;
+}
+/*customize*/
+.balloon_no {
+    position: fixed;
+    width: 368px;
+    /*height: 118px;*/
+    left: 1120px;
+    top: 25px;
+    text-align: center;
+    border-radius: 10px;
+}
