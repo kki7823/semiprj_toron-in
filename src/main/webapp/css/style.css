@@ -1,10 +1,25 @@
 @charset "UTF-8";
-/* 공통 */
 
-/* Main Page */
-#container{
-    height: 1260px;
+input[submit]{
+    !important;
+    background-color: #f0a8ed;
+}
+
+
+#main_container{
+    height: 1450px;
     width: 1300px;
+}
+
+#header_container{
+    border: 1pt solid;
+    background-color: #8FBC8F;
+}
+
+#footer_container{
+    height: 300px;
+    border: 1pt solid;
+    background-color: #8FBC8F;
 }
 
 #main_header_top{
@@ -26,6 +41,7 @@
 
 #main_header_bottom{
     border: 1pt solid;
+    background-color: #f2f2df;
 }
 
 #main_loginbox{
@@ -70,13 +86,5 @@
 	object-fit: cover;
 }
 
-#footer_container{
-	width: 1300px;
-	height:300px;
-	border: 1pt solid;
-}
 
-#header_container{
-	 width: 1300px;
-	 border: 1pt solid;
-}
+
