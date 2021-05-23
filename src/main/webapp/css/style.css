@@ -1,14 +1,28 @@
 @charset "UTF-8";
 
-input[submit]{
-    !important;
-    background-color: #f0a8ed;
+#main_container{
+    width: 1600px;
+    margin: 0 auto;
+    border: 1pt solid;
+    text-align: center;
 }
 
+#main_util{
+    width: 400px;
+    height: 500px;
+    display: inline-block;
+    border: 1pt solid;
+    padding: 10px;
+    margin: 10px;
+}
 
-#main_container{
-    height: 1450px;
-    width: 1300px;
+#main_best5{
+    width: 1000px;
+    height: 500px;
+    display: inline-block;
+    border: 1pt solid;
+    padding: 10px;
+    margin: 10px;
 }
 
 #header_container{
@@ -57,9 +71,6 @@ input[submit]{
 	 text-align: center;
 }
 
-
-
-
 #myList_container {
     height: 200px;
     width: 1300px;
@@ -86,5 +97,9 @@ input[submit]{
 	object-fit: cover;
 }
 
+/* hotkeyword */
+#hotkey_container{
+    height: 441px;
+}
 
 

@@ -14,7 +14,7 @@
             crossorigin="anonymous"></script>
 
     <!--custom css-->
-    <link href="css/style.css?1?31ds" type="text/css" rel="stylesheet">
+    <link href="css/style.css?hg2s" type="text/css" rel="stylesheet">
     <meta charset="UTF-8">
     <title>메인페이지</title>
 </head>
@@ -23,17 +23,16 @@
     <jsp:include page="header.jsp"/>
 
     <!-- body -->
-    <div id="main_container" class="container-lg" style="border: 1pt solid;">
-        <!-- 실시간 인기검색어 / best5 -->
-        <div id="utill">
-                <jsp:include page="utill/hotKeyword.jsp"/>
-            </div>
-            <div id="main_best5">
-                <jsp:include page="utill/best.jsp"/>
-            </div>
+    <div id="main_container" class="container-lg">
+        <!-- 실시간 인기검색어-->
+        <div id="main_util">
+            <jsp:include page="utill/hotKeyword2.jsp"/>
+        </div>
+        <!-- 베스트 5-->
+        <div id="main_best5">
+            <jsp:include page="utill/best.jsp"/>
         </div>
     </div>
-
     <!-- footer -->
     <jsp:include page="footer.jsp"/>
 </body>
