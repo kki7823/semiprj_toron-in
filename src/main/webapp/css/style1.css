@@ -28,6 +28,38 @@
 
 
 /* Main */
+
+/*#main_container{*/
+/*    width: 1600px;*/
+/*    margin: 0 auto;*/
+/*    border: 1pt solid;*/
+/*    text-align: center;*/
+/*}*/
+
+#main_container{
+    height: 1450px;
+    width: 1300px;
+    border-color: #8e9c90;
+    border: 2px solid;
+}
+
+#main_util{
+    width: 400px;
+    height: 500px;
+    display: inline-block;
+    border: 1pt solid;
+    padding: 10px;
+    margin: 10px;
+}
+
+#main_best5{
+    width: 1000px;
+    height: 500px;
+    display: inline-block;
+    border: 1pt solid;
+    padding: 10px;
+    margin: 10px;
+}
 #main_header_top {
     margin-top: 50px;
     border: 1pt solid;
@@ -362,3 +394,5 @@
     text-align: center;
     border-radius: 10px;
 }
+
+

@@ -30,7 +30,6 @@
                         </div>
                         <span id="listD_profile_id">야마가싹도노</span><!--아이디 들가는 곳-->
                     </div>
-
                 </div>
                 <div id="listD_contentsbox">
                     <p id="listD_contents">칼퇴근 가좌 칼퇴근 가좌 칼퇴근 가좌 칼퇴근 가좌 칼퇴근 가좌 칼퇴근

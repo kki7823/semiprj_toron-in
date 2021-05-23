@@ -55,13 +55,7 @@
                 <input class="btn btn-primary" type="submit" value="회원가입"/>
             </div>
         </div>
-        <div id="main_body" class="row">
-            <jsp:include page="list_free/listDetail_free.jsp"/>
-            <div id="main_" class="col">
-
-            </div>
-        </div>
-
     </div>
+
 </body>
 </html>
