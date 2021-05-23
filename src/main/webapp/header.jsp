@@ -48,7 +48,7 @@
 
         <div id="main_memobox" class="col">
             <div id="main_profile_photo">
-                <img alt="profile" src="image/default.jpg" height="85px" width="90px"/>
+                <img alt="profile" src="images/user_profile/sample1.jpeg" height="85px" width="90px"/>
             </div>
 
             <div id="main_profile_info">

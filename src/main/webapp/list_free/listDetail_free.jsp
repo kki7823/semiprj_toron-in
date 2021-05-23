@@ -8,7 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
             crossorigin="anonymous"></script>
-    <link href="../css/style1.css?ver=1Z2a1" rel="stylesheet" type="text/css">
+    <link href="../css/style1.css?ver=1Zgd1" rel="stylesheet" type="text/css">
 
     <title>상세보기-자유</title>
 </head>
@@ -45,23 +45,34 @@
                     </p>
                 </div>
                 <div id="listD_commentbox">
+                    <h4>comment</h4>
+                    <hr class="my-4"/>
+
                     <div class="comment_free">
-                        <h4>comment</h4>
-                        <hr class="my-4"/>
+                        <div class="profile_box">
+                            <img class="profile_photo" alt="profile" src="../images/user_profile/sample1.jpeg" height="85px" width="90px"/>
+                        </div>
+                        <div class="comment_id">
+                            경경경 님
+                        </div>
+                        <div class="comment">
+                            댓글 내용
+                        </div>
                     </div>
                 </div>
-                <div id="listD_commentInbox" class="rounded" style="border: 1pt solid slategrey">
-                    <h5 class="text-start" style="margin: 10px">댓글등록</h5>
-                    <textarea id="listD_commentIn" rows="4"></textarea>
-                    <button class="btn btn-outline-secondary btn-lg" type="submit" style="margin: 10px">등록</button>
-                </div>
-                <div id="listD_buttonbox">
-                    <hr class="my-4"/>
-                    <button class="btn btn-primary btn-sm" type="submit" style="margin-right: 20px;">목록으로</button>
-                </div>
-            </div> <!--End of mainbox-->
+            <div id="listD_commentInbox" class="rounded" style="border: 1pt solid slategrey">
+                <h5 class="text-start" style="margin: 10px">댓글등록</h5>
+                <textarea id="listD_commentIn" rows="4"></textarea>
+                <button class="btn btn-outline-secondary btn-lg" type="submit" style="margin: 10px">등록</button>
+            </div>
+            <div id="listD_buttonbox">
+                <hr class="my-4"/>
+                <button class="btn btn-primary btn-sm" type="submit" style="margin-right: 20px;">목록으로</button>
+            </div>
+            </div>
+        </div> <!--End of mainbox-->
 
-        </div>
+    </div>
 
     </div>
 </body>

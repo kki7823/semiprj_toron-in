@@ -24,6 +24,22 @@
 }
 
 .comment_free{
+    background-color: lightblue ;
+    height: 170px;
+}
+
+.comment_id{
+    display: inline-block;
+    position: relative;
+    bottom: 18px;
+}
+
+.comment{
+    background-color: #f2f2df;
+    border: 1pt solid slategray;
+    width: 960px;
+    height: 100px;
+    margin: 0 auto;
 }
 
 
@@ -288,6 +304,7 @@
 #listD_commentInbox{
     width: 970px;
     text-align: right;
+    margin: 0 auto;
 }
 
 #listD_commentIn{
@@ -313,6 +330,7 @@
 #listD_commentInbox_y{
     width: 831px;
     text-align: right;
+    margin-top: 40px;
 }
 
 #listD_commentIn_y{
@@ -356,12 +374,11 @@
 
 .balloon_yes {
     /*position: static;*/
-    margin-left: 30px;
+    margin-left: 10px;
     width: 368px;
     /*height: 118px;*/
-    left: 42px;
-    top: 25px;
-    text-align: center;
+    left: 5px;
+    text-align: left;
     border-radius: 10px;
 }
 
@@ -386,13 +403,15 @@
 }
 /*customize*/
 .balloon_no {
-    position: fixed;
+    /*position: fixed;*/
     width: 368px;
     /*height: 118px;*/
-    left: 1120px;
-    top: 25px;
-    text-align: center;
+    left: 440px;
+    text-align: left;
     border-radius: 10px;
 }
 
+.balloon_id{
+
+}
 
