@@ -2,14 +2,17 @@
 /* 공통 */
 
 /* Main Page */
-#container{
-    height: 1260px;
+#main_container{
+   height: 1450px;
     width: 1300px;
+    border-color: #8e9c90;
+    border: 2px solid;
 }
 
 #main_header_top{
-    margin-top: 50px;
-    border: 1pt solid;
+    margin-top: 30px;
+    border: 2pt solid;
+    border-color: #8e9c90;
 }
 
 #main_searchbox{
@@ -21,11 +24,15 @@
 #main_memobox{
     float: right;
     text-align: right;
-    border: 1pt solid;
+    border: 2pt solid;
+    border-color: #8e9c90;
+    border-radius:30px;
+    background-color: white;
 }
 
 #main_header_bottom{
     border: 1pt solid;
+    border-color: #8e9c90;
 }
 
 #main_loginbox{
@@ -71,12 +78,54 @@
 }
 
 #footer_container{
-	width: 1300px;
-	height:300px;
-	border: 1pt solid;
+	 height: 200px;
+    background-color: #8FBC8F;
+}
+
+#footer_content{
+	text-align: center;
+	padding:50px;
 }
 
 #header_container{
-	 width: 1300px;
 	 border: 1pt solid;
+    background-color: #8FBC8F;
+}
+
+#best_container{
+	width:700px;
+	background-color: white;
+}
+#hotK_container{
+	background-color: white;
+	width:400px;
+	height:300px;
+}
+
+#main_hotK{
+	matgin-top:50px;
+	margin-left:20px;
+	display: inline-block;
+}
+#main_best5{
+	margin-left:30px;
+	display: inline-block;
+}
+#utill{
+	margin-left: 30px;
+	margin-top: 30px;
+	width: 1200px;
+	height: 430px;
+	background-color: white;
+}
+
+
+#hotK_color{
+	background-color: #e8c992!important;
+}
+
+#main_list{
+	width: 1300px;
+	border: 1px solid;
+	padding: 20px;
 }

@@ -16,6 +16,7 @@
 
 <html>
 <head>
+
 <!--Bootstrap-->
 
 <link
@@ -30,34 +31,46 @@
 
 
 <link href="../css/style.css" type="text/css" rel="stylesheet">
+<style type="text/css">
+	.bg-primary {background-color: #e8c992!important;}
+</style>
+
 <title>Title</title>
+<style>
+.list-group{
+	margin-top:30px;
+}
+</style>
 </head>
 <body>
-	<div class="row g-5">
-		<div class="col-md-5 col-lg-4 order-md-last">
-			<h5 class="d-flex justify-content-between align-items-center mb-3">
+<div>
+	<div>
+		<div id="hotK_container">
+			<h5>
 				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
 					fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
   <path
 						d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
 </svg>
-				<span class="text-primary"><b>실시간 인기 검색어</b></span> <small
+				<span class="text-primary">
+				<font color="#198754" style="font-family:'MaplestoryOTFLight';">
+					<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;실시간 인기 검색어&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></font></span> <small
 					class="text-muted"><%= sf.format(nowTime) %></small>
 
 				</h4>
 				<ul class="list-group mb-3">
 					<li class="list-group-item d-flex justify-content-between bg-light">
 						<div class="text-success">
-							<span class="badge bg-primary rounded-pill">1</span>
+							<span id="hotK_color" class="badge bg-primary rounded-pill">1</span>
 							<div id="hot_word">
-								<h6 class="my-0">다이어트</h6>
+								<h6 class="my-0"><font>다이어트</font></h6>
 							</div>
 
 						</div> <span class="text-success">검색수: 39</span>
 					</li>
 					<li class="list-group-item d-flex justify-content-between lh-sm">
 						<div>
-							<span class="badge bg-primary rounded-pill">2</span>
+							<span id="hotK_color" class="badge bg-primary rounded-pill">2</span>
 							<h6 class="my-0">술먹을 때</h6>
 
 
@@ -65,21 +78,21 @@
 					</li>
 					<li class="list-group-item d-flex justify-content-between lh-sm">
 						<div>
-							<span class="badge bg-primary rounded-pill">3</span>
+							<span id="hotK_color" class="badge bg-primary rounded-pill">3</span>
 							<h6 class="my-0">데이트 코스</h6>
 
 						</div> <span class="text-muted">검색수: 19</span>
 					</li>
 					<li class="list-group-item d-flex justify-content-between lh-sm">
 						<div>
-							<span class="badge bg-primary rounded-pill">4</span>
+							<span id="hotK_color" class="badge bg-primary rounded-pill">4</span>
 							<h6 class="my-0">정치색깔</h6>
 
 						</div> <span class="text-muted">검색수: 14</span>
 					</li>
 					<li class="list-group-item d-flex justify-content-between lh-sm">
 						<div>
-							<span class="badge bg-primary rounded-pill">5</span>
+							<span id="hotK_color" class="badge bg-primary rounded-pill">5</span>
 							<h6 class="my-0">더치페이</h6>
 
 						</div> <span class="text-muted">검색수: 13</span>
@@ -87,5 +100,7 @@
 
 				</ul>
 		</div>
+		</div>
+</div>
 </body>
 </html>

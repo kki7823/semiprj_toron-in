@@ -15,18 +15,19 @@
 	crossorigin="anonymous"></script>
 
 <!--custom css-->
-<link href="css/style.css" type="text/css" rel="stylesheet">
+<link href="css/style.css?fdd" type="text/css" rel="stylesheet">
 <meta charset="UTF-8">
 <title>메인페이지</title>
+
 </head>
-<body>
+<body style="background-color:#e9f2e9;">
 
 	<div id="header_container">
 		<!-- header -->
 		<jsp:include page="header.jsp" />
 	</div>
 
-	<div id="container" class="container-lg" style="border: 1pt solid;">
+	<div id="main_container" class="container-lg" style="border: 1pt solid;">
 		<!-- 실시간 인기검색어 / best5 -->
 		<div id="utill">
 			<div id="main_hotK">
@@ -37,8 +38,14 @@
 				<jsp:include page="utill/best.jsp" />
 			</div>
 		</div>
-
+		
+		<!-- 최신글 -->
+		<div style="width:1300px; border:1px solid;">
+			ddd
+			<!-- <jsp:include page="newestList.jsp" /> -->
+		</div>
 	</div>
+
 
 	<div id="footer_container">
 		<!-- footer -->
