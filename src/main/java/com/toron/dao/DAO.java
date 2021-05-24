@@ -2,7 +2,7 @@ package com.toron.dao;
 
 import java.sql.*;
 
-public abstract class DAO {
+public class DAO {
     private final String ORACLE_DRIVER = "oracle.jdbc.driver.OracleDriver";
     private final String ORACLE_URL = "jdbc:oracle:thin:@13.124.230.151:1521:XE";
     private final String ORACLE_USER = "yama";
@@ -13,11 +13,6 @@ public abstract class DAO {
     protected PreparedStatement pstmt;
     protected ResultSet rs;
     protected int result = 0;
-
-    protected String select_query;
-    protected String insert_query;
-    protected String update_query;
-    protected String delete_query;
 
     //DB 접속
     protected Connection getConnection() {
@@ -81,15 +76,4 @@ public abstract class DAO {
             e.printStackTrace();
         }
     }
-
-
-    public abstract ResultSet select_query(String sql_select);
-
-    public abstract int insert_query(String sql_insert);
-
-    public abstract int update_query(String sql_update);
-
-    public abstract int delete_query(String sql_delete);
-
-
 }
