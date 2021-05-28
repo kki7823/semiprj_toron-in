@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="com.toron.dto.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,19 +45,18 @@
              
               </button>
         </div>
-        
-        
-        <div id="main_memobox" class="col">
-        	<div id="main_profile_photo">
-           		<img alt="profile" src="image/default.jpg" height="85px" width="90px"/>
-         	</div>
-          
-          <div id="main_profile_info">
-          	<font style="font-family:'MaplestoryOTFLight'; font-size:1em">2zero0</font> <br />
-          	<font style="font-family:'MaplestoryOTFLight';"><b>영영</b></font>님 환영합니다. <br />
-          	<a style="color: green; text-decoration: none;" href="member/memberProfile.jsp">마이페이지</a>
-          </div>
-        </div>
+        	<!-- 미니 -->
+	        <!-- 로그인 된 정보가 있으면 보이게하고 없으면 안보이게 -->
+        <%
+        	MemberBean member=new MemberBean();
+    		member=(MemberBean)session.getAttribute("loginUser");
+    		
+    		if(member != null){
+        %>
+	        <jsp:include page="member/memberProfileMini.jsp"/>
+        <%}else{%>
+        	 <jsp:include page="member/memberProfileMini_hidden.jsp"/>
+        <%} %>
     </div>
     
     
@@ -87,8 +87,14 @@
             </ul>
         </div>
         <div id="main_loginbox" class="d-flex justify-content-evenly align-items-center col">
-            <input class="btn btn-success" type="submit" value="로그인"/>
-            <input class="btn btn-success" type="submit" value="회원가입"/>
+        	<%
+	        	if(member == null){
+        	%>
+            <input class="btn btn-success" type="button" value="로그인" onclick="location.href='login/loginForm.jsp'"/>
+            <%}else{%>
+            <input class="btn btn-success" type="button" value="로그아웃" />
+            <%} %>
+            <input class="btn btn-success" type="submit" value="회원가입" onclick="location.href='join/joinForm.jsp'" />
         </div>
     </div>
     <div id="main_body" class="row">
