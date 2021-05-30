@@ -15,18 +15,17 @@ public class DAO {
     protected int result = 0;
 
     //DB 접속
-    protected Connection getConnection() {
-        try {
-            Class.forName(ORACLE_DRIVER);
+    protected Connection getConnection() throws SQLException{
+
+        try{
+        Class.forName(ORACLE_DRIVER);
             System.out.println("ORACLE DRIVER LOADING : SUCCESS");
             conn = DriverManager.getConnection(ORACLE_URL, ORACLE_USER, ORACLE_PW);
             System.out.println("CONNECTING ORACLE : SUCCESS");
-
-        } catch (ClassNotFoundException e) {
-            System.out.println("ORACLE DRIVER LOADING : FAIL - " + e.getMessage());
-        } catch (SQLException e) {
-            System.out.println("CONNECTING ORACLE : FAIL - " + e.getMessage());
+        }catch (ClassNotFoundException e){
+            System.out.println("ORACLE DRIVER LOADING : FAIL");
         }
+
         return conn;
     }
 

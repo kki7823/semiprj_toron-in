@@ -8,7 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
             crossorigin="anonymous"></script>
-    <link href="../css/style1.css?ver=1svZ" rel="stylesheet" type="text/css">
+    <link href="../css/style1.css?ver=1sv2Z" rel="stylesheet" type="text/css">
     <title>상세보기-찬반</title>
 </head>
 <body>
@@ -21,14 +21,14 @@
                 <div id="listD_mainbox_y" class="col">
                     <div id="listD_titlebox">
                 <span id="listD_title" style="width: 500px;">
-                    저녁 맛있는거먹기 vs 식단 ㄱㄱ
+                    ${sessionScope.sList.title}
                 </span>
-                        <span id="listD_wdate" style="width: 140px;">작성일 2021/05/21</span>
+                        <span id="listD_wdate" style="width: 140px;">작성일 ${sessionScope.sList.w_date}</span>
                         <div id="listD_profile" class="d-flex align-items-center text-center">
                             <div class="profile_box">
                                 <img class="profile_photo" alt="profile" src="../images/user_profile/sample1.jpeg"/>
                             </div>
-                            <span id="listD_profile_id">야마가싹도노</span><!--닉네임 들가는 곳-->
+                            <span id="listD_profile_id">${sessionScope.sList.id}</span><!--닉네임 들가는 곳-->
                         </div>
                     </div>
                     <!--말풍선 넣는곳-->
@@ -54,10 +54,14 @@
                             </div>
                         </div>
                     </div>
-
                     <div id="listD_commentInbox_y" class="rounded" style="border: 1pt solid slategrey">
-                        <h5 class="text-start" style="margin: 10px">댓글등록</h5>
+                        <h5 id="listD_commentInTitle_y" class="text-start" >댓글등록</h5>
+                        <div id="listD_radiobox_y">
+                            <input type="radio" name="yesno" value="yes"/>찬성
+                            <input type="radio" name="yesno" value="no"/>반대
+                        </div>
                         <textarea id="listD_commentIn_y" rows="4"></textarea>
+
                         <button class="btn btn-outline-secondary btn-lg" type="submit" style="margin: 10px">등록</button>
                     </div>
                     <div id="listD_buttonbox">

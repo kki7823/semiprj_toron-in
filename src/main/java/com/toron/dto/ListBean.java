@@ -5,7 +5,7 @@ public class ListBean {
     private String type = null;
     private String category = null;
     private String title = null;
-    private String contents = null;
+    private String content = null;
     private String id = null;
     private String w_date = null;
     private int hit = 0;
@@ -15,13 +15,9 @@ public class ListBean {
     public ListBean() {
     }
 
-    public int getNo() {
-        return no;
-    }
+    public int getNo() { return no; }
 
-    public void setNo(int no) {
-        this.no = no;
-    }
+    public void setNo(int no) { this.no = no; }
 
     public String getType() {
         return type;
@@ -47,12 +43,12 @@ public class ListBean {
         this.title = title;
     }
 
-    public String getContents() {
-        return contents;
+    public String getContent() {
+        return content;
     }
 
-    public void setContents(String contents) {
-        this.contents = contents;
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public String getId() {
@@ -94,6 +90,5 @@ public class ListBean {
     public void setGood(int good) {
         this.good = good;
     }
-
 
 }

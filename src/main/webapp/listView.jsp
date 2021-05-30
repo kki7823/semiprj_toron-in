@@ -1,19 +1,7 @@
-<jsp:useBean id="list_temp" class="com.toron.dto.ListBean"/>
-<%
-    //테스트 출력용 데이터 입력
-    list_temp.setNo(1972);
-    list_temp.setType("자유");
-    list_temp.setCategory("직장");
-    list_temp.setTitle("직장 상사가 퇴근하기전에 먼저 퇴근하면 안되나요?");
-    list_temp.setContents("칼퇴근 가좌");
-    list_temp.setId("gyeong1");
-    list_temp.setId("2021-05-20");
-    list_temp.setHit(31);
-    list_temp.setUpload("image.jpg");
-    list_temp.setGood(10);
-%>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <html>
 <head>
     <!--Bootstrap-->
@@ -24,13 +12,13 @@
             crossorigin="anonymous"></script>
 
     <!--custom css-->
-    <link href="css/style1.css?ver=w21r21s2" type="text/css" rel="stylesheet">
+    <link href="css/style1.css" type="text/css" rel="stylesheet">
     <title>글목록</title>
 </head>
 <body>
     <div id="listV_container" class="container-xxl">
         <div id="listV_mainrow" class="row">
-                <jsp:include page="listNav.jsp"/>
+            <jsp:include page="listNav.jsp"/>
             <div id="listV_mainbox" class="col">
                 <!--Start of listV_table-->
                 <table id="listV_table" class="table table-hover">
@@ -46,27 +34,21 @@
                     </thead>
                     <tbody>
                     <%--for문 작성--%>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>찬반</td>
-                        <td>직장 상사가 퇴근하기전에 먼저 퇴근하면 안되나요?</td>
-                        <td>Gyeong1</td>
-                        <td>2021-05-19</td>
-                        <td>30</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>자유</td>
-                        <td>야마돌때 해결법은?</td>
-                        <td>yamakim</td>
-                        <td>2021-05-20</td>
-                        <td>2103</td>
-                    </tr>
+                    <c:forEach var="list" items="${requestScope.sList}" begin="0" end="${requestScope.sList.size()}">
+                        <tr>
+                            <th scope="row">${list.no}</th>
+                            <td>${list.type}</td>
+                            <td><a href="ListDetail?type=${list.type}&no=${list.no}">${list.title}</a></td>
+                            <td>${list.id}</td>
+                            <td>${list.w_date}</td>
+                            <td>${list.hit}</td>
+                        </tr>
+                    </c:forEach>
                     </tbody>
                 </table><!--End of listV_table-->
                 <div id="listV_buttonbox">
                     <hr class="my-4"/>
-                    <button class="btn btn-primary btn-sm" type="submit">글작성</button>
+                    <button class="btn btn-primary btn-sm" onclick="location.href='listUpload.jsp'">글작성</button>
                 </div>
             </div>
         </div>

@@ -5,11 +5,11 @@
     overflow: hidden;
 }
 
-#list_navbox{
+#list_navbox {
     margin-top: 50px;
 }
 
-.profile_box{
+.profile_box {
     height: 45px;
     width: 50px;
     border-radius: 70%;
@@ -17,29 +17,34 @@
     display: inline-block;
 }
 
-.profile_photo{
+.profile_photo {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.comment_free{
-    background-color: lightblue ;
-    height: 170px;
+.comment_free {
+    background-color: lightblue;
+    height: 190px;
 }
 
-.comment_id{
+.comment_id {
     display: inline-block;
     position: relative;
     bottom: 18px;
 }
 
-.comment{
+.comment {
     background-color: #f2f2df;
     border: 1pt solid slategray;
     width: 960px;
     height: 100px;
     margin: 0 auto;
+}
+
+.comment_btnbox {
+    float: right;
+    margin: 5px;
 }
 
 
@@ -52,14 +57,14 @@
 /*    text-align: center;*/
 /*}*/
 
-#main_container{
+#main_container {
     height: 1450px;
     width: 1300px;
     border-color: #8e9c90;
     border: 2px solid;
 }
 
-#main_util{
+#main_util {
     width: 400px;
     height: 500px;
     display: inline-block;
@@ -68,14 +73,6 @@
     margin: 10px;
 }
 
-#main_best5{
-    width: 1000px;
-    height: 500px;
-    display: inline-block;
-    border: 1pt solid;
-    padding: 10px;
-    margin: 10px;
-}
 #main_header_top {
     margin-top: 50px;
     border: 1pt solid;
@@ -139,7 +136,7 @@
     padding: 20px;
 }
 
-#join_idbar{
+#join_idbar {
     width: 320px;
 }
 
@@ -160,46 +157,47 @@
     width: 150px;
 }
 
-#join_postalbar{
+#join_postalbar {
     width: 340px;
 }
 
 /* listView */
-#listV_mainbox{
+#listV_mainbox {
     width: 1400px;
     height: 1200px;
     margin-top: 50px;
 }
-#listV_table{
+
+#listV_table {
     text-align: center;
     margin-top: 50px;
 }
 
-#listV_tb_num{
+#listV_tb_num {
     width: 100px;
 }
 
-#listV_tb_title{
-    width:820px;
+#listV_tb_title {
+    width: 820px;
 }
 
-#listV_tb_type{
-    width:100px;
+#listV_tb_type {
+    width: 100px;
 }
 
-#listV_tb_id{
-    width:150px;
+#listV_tb_id {
+    width: 150px;
 }
 
-#listV_tb_date{
-    width:140px;
+#listV_tb_date {
+    width: 140px;
 }
 
-#listV_tb_hit{
-    width:100px;
+#listV_tb_hit {
+    width: 100px;
 }
 
-#listV_buttonbox{
+#listV_buttonbox {
     margin-top: 50px;
     text-align: right;
 }
@@ -211,35 +209,40 @@
     margin-top: 50px;
 }
 
-#listU_mainbox > div{
+#listU_mainbox > div {
     margin: 20px;
 }
 
-#listU_titleheader{
+#listU_titleheader {
     height: 127px;
 }
 
-#listU_format{
+#listU_format {
     display: inline;
     width: 300px;
 }
 
-#listU_category{
+#listU_format:focus {
+    border: 1pt solid black;
+}
+
+
+#listU_category {
     display: inline;
     width: 300px;
 }
 
-#listU_titlebar{
+#listU_titlebar {
     display: inline;
     width: 790px;
 }
 
-#listU_uploadbar{
+#listU_uploadbar {
     display: inline;
     width: 790px;
 }
 
-#listU_buttonbox{
+#listU_buttonbox {
     float: right;
 }
 
@@ -251,63 +254,63 @@
     border: 1pt solid;
 }
 
-#listD_mainbox{
+#listD_mainbox {
     width: 1000px;
     height: 1200px;
     margin-top: 50px;
 }
 
-#listD_titlebox{
+#listD_titlebox {
     text-align: left;
     border-bottom: 1pt solid;
     padding-bottom: 10px;
 }
 
-#listD_title{
+#listD_title {
     font-size: 20pt;
 }
 
-#listD_wdate{
+#listD_wdate {
     display: block;
     float: bottom;
 
 }
 
-#listD_profile{
+#listD_profile {
     width: 200px;
     height: 51px;
     display: inline-block;
     border: 1pt solid;
     float: right;
     position: relative;
-    bottom : 55px;
+    bottom: 55px;
 }
 
-#listD_profile_id{
+#listD_profile_id {
     display: inline-block;
 }
 
-#listD_contents{
+#listD_contents {
     text-align: left;
 }
 
-#listD_contentsbox{
+#listD_contentsbox {
     margin-top: 14px;
 }
 
-#listD_commentbox{
+#listD_commentbox {
     text-align: left;
     margin-top: 30px;
     margin-bottom: 30px;
 }
 
-#listD_commentInbox{
+#listD_commentInbox {
     width: 970px;
     text-align: right;
     margin: 0 auto;
 }
 
-#listD_commentIn{
+#listD_commentIn {
     resize: none;
     outline: none;
     border: white;
@@ -316,24 +319,24 @@
     margin-bottom: 10px;
 }
 
-#listD_buttonbox{
+#listD_buttonbox {
     text-align: right;
 }
 
 /* listD - yes no */
-#listD_mainbox_y{
+#listD_mainbox_y {
     width: 850px;
     height: 1200px;
     margin-top: 50px;
 }
 
-#listD_commentInbox_y{
+#listD_commentInbox_y {
     width: 831px;
     text-align: right;
     margin-top: 40px;
 }
 
-#listD_commentIn_y{
+#listD_commentIn_y {
     resize: none;
     outline: none;
     border: white;
@@ -342,12 +345,23 @@
     margin-bottom: 10px;
 }
 
-#listD_contentsbox_y{
+#listD_contentsbox_y {
     margin-top: 14px;
 }
 
-#listD_yesno_nav{
+#listD_yesno_nav {
     margin-top: 50px;
+}
+
+#listD_commentInTitle_y {
+    margin: 10px;
+    display: inline-block;
+    float: left;
+}
+
+#listD_radiobox_y{
+    display: inline-block;
+    margin: 13px;
 }
 
 /* 말풍선 */
@@ -357,6 +371,7 @@
     position: relative;
     background: #88b7d5;
 }
+
 .balloon_yes:after {
     right: 100%;
     top: 50%;
@@ -387,6 +402,7 @@
     position: relative;
     background: #f0a8ed;
 }
+
 .balloon_no:after {
     left: 100%;
     top: 50%;
@@ -401,6 +417,7 @@
     border-width: 9px;
     margin-top: -9px;
 }
+
 /*customize*/
 .balloon_no {
     /*position: fixed;*/
@@ -411,7 +428,260 @@
     border-radius: 10px;
 }
 
-.balloon_id{
+.balloon_id {
 
 }
 
+
+
+/* -------------------------------------------------------------------------------- */
+#myList_container {
+    height: 200px;
+    width: 1300px;
+    margin-top: 100px;
+
+}
+
+#member_photo_box{
+    height: 170px;
+    width: 170px;
+    border-radius:30%;
+    overflow: hidden;
+    float:left;
+}
+
+#member_photo{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/**best.jsp**/
+#best_container{
+    width:700px;
+    background-color: white;
+}
+
+/**hotKeyword.jsp**/
+#hotK_container{
+    background-color: white;
+    width:400px;
+    height:300px;
+}
+
+#hotK_color{
+    background-color: #e8c992!important;
+}
+
+/**newestList.jsp**/
+#new_title{
+    padding: 20px;
+}
+
+#listV_buttonbox{
+    text-align:right;
+}
+
+/* Main Page */
+#main_container{
+    width: 1300px;
+    height:auto;
+}
+
+/**메인**/
+#utill{
+    margin-left: 30px;
+    margin-top: 30px;
+    width: 1200px;
+    height: 430px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+#main_hotK{
+    matgin-top:50px;
+    margin-left:20px;
+    display: inline-block;
+}
+
+#main_best5{
+    margin-left:30px;
+    display: inline-block;
+}
+
+#main_newestbox{
+    margin-top: 30px;
+    margin-bottom: 40px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+/**헤더**/
+#header_container{
+    border: 1pt solid;
+    background-color: #8FBC8F;
+}
+
+#main_header_top{
+    margin-top: 30px;
+    border: 2pt solid;
+    border-color: #8e9c90;
+}
+
+#main_searchbox{
+    margin-top:30px;
+    text-align: center;
+    display:inline-block;
+}
+
+#main_memobox{
+    float: right;
+    text-align: right;
+    border: 2pt solid;
+    border-color: #8e9c90;
+    border-radius:30px;
+    background-color: white;
+}
+
+#main_header_bottom{
+    border: 1pt solid;
+    border-color: #8e9c90;
+}
+
+#main_loginbox{
+    text-align: right;
+}
+
+#main_profile_photo{
+    float: left;
+    border-radius: 70%;
+    overflow: hidden;
+}
+
+#main_profile_info{
+    margin-top: 10px;
+    text-align: center;
+}
+
+
+
+/**마이페이지**/
+
+#member_photo_box{
+    height: 170px;
+    width: 170px;
+    border-radius:30%;
+    overflow: hidden;
+    float:left;
+}
+
+#member_photo{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/**푸터**/
+#footer_container{
+    height: 200px;
+    background-color: #8FBC8F;
+}
+
+#footer_content{
+    text-align: center;
+    padding:50px;
+}
+
+/**best.jsp**/
+#best_container{
+    width:700px;
+    background-color: white;
+}
+
+/**hotKeyword.jsp**/
+#hotK_container{
+    background-color: white;
+    width:400px;
+    height:300px;
+}
+
+#hotK_color{
+    background-color: #e8c992!important;
+}
+
+
+/**newestList.jsp**/
+#new_title{
+    padding: 20px;
+}
+
+#listV_buttonbox{
+    text-align:right;
+}
+
+/******************************************/
+/* Login */
+#login_form {
+    margin: 300px auto;
+    width: 500px;
+    height: 500px;
+    text-align: center;
+}
+
+#login_title {
+    margin-top: 50px;
+}
+
+#login_idbox {
+    margin-top: 50px;
+}
+
+#login_button {
+    margin-top: 50px;
+}
+
+/*************************************/
+/* Join */
+#join_container {
+    height: 1500px;
+    width: 1300px;
+    margin: 0 auto;
+}
+
+#join_mainbox {
+    width: 1000px;
+    height: 1200px;
+    margin: 0 auto;
+    display: block;
+}
+
+#join_mainbox > div {
+    width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+#join_idbar{
+    width: 320px;
+}
+
+#join_interest > div {
+    display: inline-block;
+    margin-left: 20px;
+    margin-right: 15px;
+}
+
+#join_buttonbox {
+    margin: 0 auto;
+    text-align: center;
+}
+
+#join_buttonbox > button {
+    margin-right: 60px;
+    margin-left: 60px;
+    width: 150px;
+}
+
+#join_postalbar{
+    width: 340px;
+}
