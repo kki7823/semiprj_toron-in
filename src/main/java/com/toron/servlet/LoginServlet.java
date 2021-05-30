@@ -51,6 +51,7 @@ public class LoginServlet extends HttpServlet {
     		MemberBean member=dao.select_member_one(login_id);
     		
 			session.setAttribute("loginUser", member);
+			//session.setAttribute("userId", login_id);
 			
 			//request.setAttribute("message", "로그인되었습니다.");	
 			url="index.jsp";

@@ -77,7 +77,7 @@ function ckeckJoin(){
 		join.userId.focus();
 		return false;
 	}
-	return true;
+	document.join.submit();
 }
 
 /**아이디 중복확인**/

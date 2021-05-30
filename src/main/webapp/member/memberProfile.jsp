@@ -10,16 +10,17 @@
 <%@ page import="java.util.*" %>
 
 <%@ page import="com.toron.dao.*, com.toron.dto.*" %>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
 
 <%
+
 	request.setCharacterEncoding("UTF-8");
 
 	Date nowTime = new Date();
 	SimpleDateFormat sf = new SimpleDateFormat("YY.MM.dd HH:mm");
 	
-	MemberDAO dao=MemberDAO.getInstance();
-	MemberBean m=dao.select_member_one("test1");
+	//MemberDAO dao=MemberDAO.getInstance();
+	//MemberBean m=dao.select_member_one("test1");
 %>
 <html>
 <head>
@@ -45,21 +46,22 @@
 			<div class="row g-3">
 
 				<div id="member_photo_box">
-					<img id="member_photo" src="../image/<%=m.getPhoto() %>" />
+					<!-- 파일 구현 후 수정 -->
+					<img id="member_photo" src="../image/${loginUser.photo }" />
 				</div>
 				<div></div>
 				
 				<div class="col-sm-6">
 					<span>아이디</span><span style="color: darkred;">&nbsp;*</span><br />
 					<input type="text" name="id" class="form-control" id="join_idbar"
-						placeholder="영문소문자/숫자, 4~16자" value="<%=m.getId()%>" required="required"
+						placeholder="영문소문자/숫자, 4~16자" value="${loginUser.id }" required="required"
 						style="display: inline" readonly />
 
 				</div>
 
 				<div class="col-sm-6">
 					<span>닉네임</span><span style="color: darkred;">&nbsp;*</span> 
-					<input type="text" name="nick" class="form-control" id="join_nickbar" value="<%=m.getNick()%>"
+					<input type="text" name="nick" class="form-control" id="join_nickbar" value="${loginUser.nick }"
 						required="required" />
 					<div class="invalid-feedback">Valid name is required.</div>
 				</div>
@@ -67,7 +69,7 @@
 
 				<div class="col-sm-6">
 					<span>이름</span><span style="color: darkred;">&nbsp;*</span> 
-					<input type="text" name="name" class="form-control" id="join_namebar" value="<%=m.getName() %>"
+					<input type="text" name="name" class="form-control" id="join_namebar" value="${loginUser.name }"
 						required="required" readonly />
 					<div class="invalid-feedback">Valid name is required.</div>
 				</div>
@@ -75,21 +77,21 @@
 
 				<div class="col-sm-6">
 					<span>전화번호</span> <span style="color: darkred;">&nbsp;*</span>
-					<input type="text" name="phone" class="form-control" id="join_phonebar" value="<%=m.getPhone()%>" required="required" />
+					<input type="text" name="phone" class="form-control" id="join_phonebar" value="${loginUser.phone }" required="required" />
 					<div class="invalid-feedback">Valid name is required.</div>
 				</div>
 
 				<div class="col-sm-6">
 					<span>비밀번호</span><span style="color: darkred;">&nbsp;*</span> 
 					<input type="password" name="pwd" class="form-control" id="join_pwbar"
-						placeholder="영문 대소문자/숫자/특수문자 중 2가지 이상 조합, 10자~16자" value="<%=m.getPwd() %>"
+						placeholder="영문 대소문자/숫자/특수문자 중 2가지 이상 조합, 10자~16자" value="${loginUser.pwd }"
 						required="required" />
 					<div class="invalid-feedback">Valid password is required.</div>
 				</div>
 				<div class="col-sm-6">
 					<span>비밀번호 확인</span><span style="color: darkred;">&nbsp;*</span> 
 					<input type="password" name="pwd2" class="form-control" id="join_pwbar2"
-						placeholder="영문 대소문자/숫자/특수문자 중 2가지 이상 조합, 10자~16자" value="<%=m.getPwd() %>"
+						placeholder="영문 대소문자/숫자/특수문자 중 2가지 이상 조합, 10자~16자" value="${loginUser.pwd }"
 						required="required" />
 					<div class="invalid-feedback">Valid password is required.</div>
 				</div>
@@ -97,14 +99,14 @@
 				<div style="width: 800px;" class="col-sm-6">
 					<span>이메일</span> <span style="color: darkred;">&nbsp;*</span>
 					<input type="email" name="email" class="form-control" id="join_emailbar" placeholder="email@example.com"
-						value="<%=m.getEmail() %>" required="required" />
+						value="${loginUser.email }" required="required" />
 					<div class="invalid-feedback">Valid name is required.</div>
 				</div>
 
 				<div class="col-sm-6">
 					<span>우편번호</span><span style="color: darkred;">&nbsp;*</span><br />
 					<input type="text" name="zipcode" class="form-control" id="join_postalbar"
-						value="<%=m.getZipcode() %>" required="required"
+						value="${loginUser.zipcode }" required="required"
 						style="display: inline" />
 
 					<div class="invalid-feedback">Valid name is required.</div>
@@ -113,51 +115,46 @@
 				<div class="col-sm-6">
 					<span>주소</span><span style="color: darkred;">&nbsp;*</span> 
 					<input type="text" name="address" class="form-control" id="join_addressbar"
-						value="<%=m.getAddress() %>" required="required" />
+						value="${loginUser.address }" required="required" />
 					<div class="invalid-feedback">Valid name is required.</div>
 				</div>
-				<%
 				
-					String list[]={"사회","건강","연애","학업","직장","기타"};
-					
-					//010100 (건강, 학업)
-					String interests[]=m.getInterest();
-				%>
+				
 				<div class="my-3">
 					<span>관심분야<br /></span>
 					<div class="form-check">
 						<input id="social" name="interest" type="checkbox"
-							class="form-check-input" value="사회" <%out.println(interests[0].equals("1") ? "checked" : "");%>> 
+							class="form-check-input" value="사회" <c:if test="${loginUser.interest[0] == '1'}">checked</c:if> /> 
 							<label class="form-check-label" for="social">사회</label>
 					</div>
 					<div class="form-check">
 						<input id="health" name="interest" type="checkbox"
-							class="form-check-input" value="건강" <%out.println(interests[1].equals("1") ? "checked" : "");%>> 
+							class="form-check-input" value="건강" <c:if test="${loginUser.interest[1] == '1'}">checked</c:if>> 
 							<label class="form-check-label" for="health">건강</label>
 					</div>
 					<div class="form-check">
 						<input id="love" name="interest" type="checkbox"
-							class="form-check-input" value="연애" <%out.println(interests[2].equals("1") ? "checked" : "");%>> 
+							class="form-check-input" value="연애" <c:if test="${loginUser.interest[2] == '1'}">checked</c:if>> 
 							<label class="form-check-label" for="love">연애</label>
 					</div>
 					<div class="form-check">
 						<input id="study" name="interest" type="checkbox"
-							class="form-check-input" value="학업" <%out.println(interests[3].equals("1") ? "checked" : "");%>> <label
+							class="form-check-input" value="학업" <c:if test="${loginUser.interest[3] == '1'}">checked</c:if>> <label
 							class="form-check-label" for="study">학업</label>
 					</div>
 					<div class="form-check">
 						<input id="work" name="interest" type="checkbox"
-							class="form-check-input" value="직장" <%out.println(interests[4].equals("1") ? "checked" : "");%>> 
+							class="form-check-input" value="직장" <c:if test="${loginUser.interest[4] == '1'}">checked</c:if>> 
 							<label class="form-check-label" for="work">직장</label>
 					</div>
 					<div class="form-check">
 						<input id="etc" name="interest" type="checkbox"
-							class="form-check-input" value="기타" <%out.println(interests[5].equals("1") ? "checked" : "");%>> 
+							class="form-check-input" value="기타" <c:if test="${loginUser.interest[5] == '1'}">checked</c:if>> 
 							<label class="form-check-label" for="ect">기타</label>
 					</div>
 				</div>
-
-
+				
+				
 			</div>
 			<!-- End of join_mainbox -->
 			<div id="join_buttonbox">
@@ -191,8 +188,9 @@
 					</thead>
 					<tbody>
 					<%
+						String userId=((MemberBean)session.getAttribute("loginUser")).getId();
 						ListDAO dao2=ListDAO.getInstance();
-						ArrayList<ListBeanFree> m_list=dao2.member_myList("test1");
+						ArrayList<ListBeanFree> m_list=dao2.member_myList(userId);
 						for(int i=0; i<m_list.size();i++){
 							ListBeanFree m_list_one = m_list.get(i);
 					%>

@@ -146,6 +146,73 @@ public class MemberDAO extends DAO {
     	return member;
     }
 
+    /**회원가입(멤버 인서트)**/
+    public MemberBean insert_member_one(MemberBean member) {
+    	Connection conn=null;
+		PreparedStatement pstmt=null;
+		String query=null;
+		boolean flag = false;
+		
+		try {
+			conn=getConnection();
+			query="insert into tblmember (id, pwd, name, nick, phone, email, address, zipcode, interest, photo) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			
+			pstmt=conn.prepareStatement(query);
+			pstmt.setString(1, member.getId());
+			pstmt.setString(2, member.getPwd());
+			pstmt.setString(3, member.getName());
+			
+			pstmt.setString(4, member.getNick());
+			pstmt.setString(5, member.getPhone());
+			pstmt.setString(6, member.getEmail());
+			pstmt.setString(7, member.getAddress());
+			pstmt.setString(8, member.getZipcode());
+			
+			//관심분야
+			//사회, 건강, 연애, 학업, 직장, 기타
+			String interests[]=member.getInterest();
+			
+			char list_num[]= {'0','0','0','0','0','0'};
+			String list_str[]= {"사회", "건강", "연애", "학업", "직장", "기타"};
+			if(interests != null) {
+				for(int i=0; i<interests.length; i++) {
+					for(int j=0; j<list_str.length; j++) {
+						if(interests[i].equals(list_str[j])) {
+							list_num[j]='1';
+							break;
+						}
+					}
+				}
+			}
+			pstmt.setString(9, new String(list_num));
+			
+			pstmt.setString(10, member.getPhoto());
+			
+			if(pstmt.executeUpdate() == 1) {
+				flag=true;
+				System.out.println("회원 집어넣기 성공!!ㅜㅜ");
+			}
+			
+		}catch(SQLException e) {
+			System.err.println("insert_member_one SQL ERR: "+e.getMessage());
+		
+		}finally {
+			try {
+				if(pstmt!=null) {
+					pstmt.close();
+				}
+				if(conn!=null) {
+					conn.close();
+				}
+			}catch(SQLException e) {
+				System.err.println("insert_member_one CLOSE ERR: "+e.getMessage());
+			}
+		}
+		
+    	return member;
+    }
+    
+    
     /**아이디 중복확인 메소드**/
     public boolean checkId(String id) {
 		Connection conn = null;
