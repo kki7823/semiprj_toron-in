@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Vector;
 
 
@@ -119,7 +120,6 @@ public class MemberDAO extends DAO {
                 }
             }
             pstmt.setString(7, new String(list_num));
-
             pstmt.setString(8, member.getId());
 
             if(pstmt.executeUpdate() == 1) {

@@ -6,7 +6,7 @@ public class CommentBeanYesno {
     private String id=null;
     private String comment =null;
     private String c_date=null;
-    private String agree=null;
+    private String yesno =null;
 
     public CommentBeanYesno() {
     }
@@ -51,11 +51,11 @@ public class CommentBeanYesno {
         this.c_date = c_date;
     }
 
-    public String getAgree() {
-        return agree;
+    public String getYesno() {
+        return yesno;
     }
 
-    public void setAgree(String agree) {
-        this.agree = agree;
+    public void setYesno(String yesno) {
+        this.yesno = yesno;
     }
 }

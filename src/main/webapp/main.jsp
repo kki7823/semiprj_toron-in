@@ -2,11 +2,12 @@
          pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page import="com.toron.dto.*" %>
+<%@ page import="javax.servlet.*, java.io.*"%>
 <%
-    MemberBean member = new MemberBean();
-    member = (MemberBean) session.getAttribute("loginUser");
+    MemberBean member=new MemberBean();
+    member=(MemberBean)session.getAttribute("loginUser");
 
-    if (member != null) {%>
+    if(member != null){%>
 <script>
     alert("로그인되었습니다.");
 </script>
@@ -23,17 +24,20 @@
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
             crossorigin="anonymous"></script>
+
     <!--custom css-->
-    <link href="css/style1.css?ver1121" type="text/css" rel="stylesheet">
+    <link href="css/style1.css?l1g" type="text/css" rel="stylesheet">
     <meta charset="UTF-8">
     <title>메인페이지</title>
+
 </head>
 <body style="background-color:#e9f2e9;">
     <div id="header_container">
         <!-- header -->
         <jsp:include page="header.jsp"/>
     </div>
-    <div id="container" class="container-lg">
+
+    <div class="container-lg">
         <!-- 실시간 인기검색어 / best5 -->
         <div id="utill">
             <div id="main_hotK">
@@ -43,15 +47,21 @@
             <div id="main_best5">
                 <jsp:include page="utill/best.jsp"/>
             </div>
+
             <!-- 최신글 -->
             <div id="main_newestbox">
                 <jsp:include page="newestList.jsp"/>
             </div>
+
         </div>
+
     </div>
+
     <div id="footer_container">
         <!-- footer -->
         <jsp:include page="footer.jsp"/>
+
     </div>
+
 </body>
 </html>

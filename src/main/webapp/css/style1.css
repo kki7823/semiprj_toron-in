@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* 공통 */
 #container {
     height: 1660px;
@@ -5,97 +6,153 @@
     overflow: hidden;
 }
 
-#list_navbox {
-    margin-top: 50px;
+
+/* Main Page */
+#main_container{
+    width: 1300px;
+    height:auto;
 }
 
-.profile_box {
-    height: 45px;
-    width: 50px;
-    border-radius: 70%;
-    overflow: hidden;
+
+/**메인**/
+#utill{
+    margin-left: 30px;
+    margin-top: 30px;
+    width: 1200px;
+    height: 430px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+#main_hotK{
+    matgin-top:50px;
+    margin-left:20px;
     display: inline-block;
 }
 
-.profile_photo {
+#main_best5{
+    margin-left:30px;
+    display: inline-block;
+}
+
+#main_newestbox{
+    margin-top: 30px;
+    margin-bottom: 40px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+
+/**헤더**/
+#header_container{
+    border: 1pt solid;
+    background-color: #8FBC8F;
+}
+
+#main_header_top{
+    margin-top: 30px;
+    border: 2pt solid;
+    border-color: #8e9c90;
+}
+
+#main_searchbox{
+    margin-top:30px;
+    text-align: center;
+    display:inline-block;
+}
+
+#main_memobox{
+    float: right;
+    text-align: right;
+    border: 2pt solid;
+    border-color: #8e9c90;
+    border-radius:30px;
+    background-color: white;
+}
+
+#main_header_bottom{
+    border: 1pt solid;
+    border-color: #8e9c90;
+}
+
+#main_loginbox{
+    text-align: right;
+}
+
+#main_profile_photo{
+    float: left;
+    border-radius: 70%;
+    overflow: hidden;
+}
+
+#main_profile_info{
+    margin-top: 10px;
+    text-align: center;
+}
+
+
+/**마이페이지**/
+#myList_container {
+    height: 200px;
+    width: 1300px;
+    margin-top: 100px;
+
+}
+
+#member_photo_box{
+    height: 170px;
+    width: 170px;
+    border-radius:30%;
+    overflow: hidden;
+    float:left;
+}
+
+#member_photo{
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.comment_free {
-    background-color: lightblue;
-    height: 190px;
+
+/**푸터**/
+#footer_container{
+    height: 200px;
+    background-color: #8FBC8F;
 }
 
-.comment_id {
-    display: inline-block;
-    position: relative;
-    bottom: 18px;
-}
-
-.comment {
-    background-color: #f2f2df;
-    border: 1pt solid slategray;
-    width: 960px;
-    height: 100px;
-    margin: 0 auto;
-}
-
-.comment_btnbox {
-    float: right;
-    margin: 5px;
-}
-
-
-/* Main */
-
-/*#main_container{*/
-/*    width: 1600px;*/
-/*    margin: 0 auto;*/
-/*    border: 1pt solid;*/
-/*    text-align: center;*/
-/*}*/
-
-#main_container {
-    height: 1450px;
-    width: 1300px;
-    border-color: #8e9c90;
-    border: 2px solid;
-}
-
-#main_util {
-    width: 400px;
-    height: 500px;
-    display: inline-block;
-    border: 1pt solid;
-    padding: 10px;
-    margin: 10px;
-}
-
-#main_header_top {
-    margin-top: 50px;
-    border: 1pt solid;
-}
-
-#main_searchbox {
+#footer_content{
     text-align: center;
+    padding:50px;
 }
 
-#main_memobox {
-    float: right;
-    text-align: right;
-    border: 1pt solid;
+
+/**best.jsp**/
+#best_container{
+    width:700px;
+    background-color: white;
 }
 
-#main_header_bottom {
-    border: 1pt solid;
+/**hotKeyword.jsp**/
+#hotK_container{
+    background-color: white;
+    width:400px;
+    height:300px;
 }
 
-#main_loginbox {
-    text-align: right;
+#hotK_color{
+    background-color: #e8c992!important;
 }
 
+/**newestList.jsp**/
+#new_title{
+    padding: 20px;
+}
+
+#listV_buttonbox{
+    text-align:right;
+}
+
+/******************************************/
 /* Login */
 #login_form {
     margin: 300px auto;
@@ -116,6 +173,7 @@
     margin-top: 50px;
 }
 
+/*************************************/
 /* Join */
 #join_container {
     height: 1500px;
@@ -161,6 +219,11 @@
     width: 340px;
 }
 
+/******리스트******************/
+#list_navbox {
+    margin-top: 50px;
+}
+
 /* listView */
 #listV_mainbox {
     width: 1400px;
@@ -201,6 +264,7 @@
     margin-top: 50px;
     text-align: right;
 }
+
 
 /* listUpload */
 #listU_mainbox {
@@ -246,6 +310,7 @@
     float: right;
 }
 
+
 /* listDetail */
 #listD_container {
     text-align: center;
@@ -258,6 +323,52 @@
     width: 1000px;
     height: 1200px;
     margin-top: 50px;
+}
+
+
+/* listD - yes no */
+#listD_mainbox_y {
+    width: 850px;
+    height: 1200px;
+    margin-top: 50px;
+}
+
+#listD_commentInbox_y {
+    width: 831px;
+    text-align: right;
+    margin-top: 40px;
+}
+
+#listD_commentIn_y {
+    resize: none;
+    outline: none;
+    border: white;
+    width: 791px;
+    margin-top: 6px;
+    margin-bottom: 10px;
+}
+
+#listD_yesno_nav {
+    margin-top: 50px;
+}
+
+#listD_commentInTitle_y {
+    margin: 10px;
+    display: inline-block;
+    float: left;
+}
+
+#listD_radiobox_y {
+    display: inline-block;
+    margin: 13px;
+}
+
+#listD_button_del {
+    float: right;
+    position: relative;
+    left: 9px;
+    bottom: 22px;
+    border: none;
 }
 
 #listD_titlebox {
@@ -273,7 +384,6 @@
 #listD_wdate {
     display: block;
     float: bottom;
-
 }
 
 #listD_profile {
@@ -323,49 +433,8 @@
     text-align: right;
 }
 
-/* listD - yes no */
-#listD_mainbox_y {
-    width: 850px;
-    height: 1200px;
-    margin-top: 50px;
-}
 
-#listD_commentInbox_y {
-    width: 831px;
-    text-align: right;
-    margin-top: 40px;
-}
-
-#listD_commentIn_y {
-    resize: none;
-    outline: none;
-    border: white;
-    width: 791px;
-    margin-top: 6px;
-    margin-bottom: 10px;
-}
-
-#listD_contentsbox_y {
-    margin-top: 14px;
-}
-
-#listD_yesno_nav {
-    margin-top: 50px;
-}
-
-#listD_commentInTitle_y {
-    margin: 10px;
-    display: inline-block;
-    float: left;
-}
-
-#listD_radiobox_y{
-    display: inline-block;
-    margin: 13px;
-}
-
-/* 말풍선 */
-
+/**********말풍선***********/
 /* 1. 말풍선 찬성 */
 .balloon_yes {
     position: relative;
@@ -432,256 +501,44 @@
 
 }
 
-
-
-/* -------------------------------------------------------------------------------- */
-#myList_container {
-    height: 200px;
-    width: 1300px;
-    margin-top: 100px;
-
+.listD_contentsbox {
+    margin-top: 14px;
 }
 
-#member_photo_box{
-    height: 170px;
-    width: 170px;
-    border-radius:30%;
-    overflow: hidden;
-    float:left;
-}
-
-#member_photo{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/**best.jsp**/
-#best_container{
-    width:700px;
-    background-color: white;
-}
-
-/**hotKeyword.jsp**/
-#hotK_container{
-    background-color: white;
-    width:400px;
-    height:300px;
-}
-
-#hotK_color{
-    background-color: #e8c992!important;
-}
-
-/**newestList.jsp**/
-#new_title{
-    padding: 20px;
-}
-
-#listV_buttonbox{
-    text-align:right;
-}
-
-/* Main Page */
-#main_container{
-    width: 1300px;
-    height:auto;
-}
-
-/**메인**/
-#utill{
-    margin-left: 30px;
-    margin-top: 30px;
-    width: 1200px;
-    height: 430px;
-    background-color: white;
-    border-radius: 10px;
-}
-
-#main_hotK{
-    matgin-top:50px;
-    margin-left:20px;
-    display: inline-block;
-}
-
-#main_best5{
-    margin-left:30px;
-    display: inline-block;
-}
-
-#main_newestbox{
-    margin-top: 30px;
-    margin-bottom: 40px;
-    background-color: white;
-    border-radius: 10px;
-}
-
-/**헤더**/
-#header_container{
-    border: 1pt solid;
-    background-color: #8FBC8F;
-}
-
-#main_header_top{
-    margin-top: 30px;
-    border: 2pt solid;
-    border-color: #8e9c90;
-}
-
-#main_searchbox{
-    margin-top:30px;
-    text-align: center;
-    display:inline-block;
-}
-
-#main_memobox{
-    float: right;
-    text-align: right;
-    border: 2pt solid;
-    border-color: #8e9c90;
-    border-radius:30px;
-    background-color: white;
-}
-
-#main_header_bottom{
-    border: 1pt solid;
-    border-color: #8e9c90;
-}
-
-#main_loginbox{
-    text-align: right;
-}
-
-#main_profile_photo{
-    float: left;
+.profile_box {
+    height: 45px;
+    width: 50px;
     border-radius: 70%;
     overflow: hidden;
+    display: inline-block;
 }
 
-#main_profile_info{
-    margin-top: 10px;
-    text-align: center;
-}
-
-
-
-/**마이페이지**/
-
-#member_photo_box{
-    height: 170px;
-    width: 170px;
-    border-radius:30%;
-    overflow: hidden;
-    float:left;
-}
-
-#member_photo{
+.profile_photo {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-/**푸터**/
-#footer_container{
-    height: 200px;
-    background-color: #8FBC8F;
+.comment_free {
+    background-color: lightblue;
+    height: 190px;
 }
 
-#footer_content{
-    text-align: center;
-    padding:50px;
-}
-
-/**best.jsp**/
-#best_container{
-    width:700px;
-    background-color: white;
-}
-
-/**hotKeyword.jsp**/
-#hotK_container{
-    background-color: white;
-    width:400px;
-    height:300px;
-}
-
-#hotK_color{
-    background-color: #e8c992!important;
-}
-
-
-/**newestList.jsp**/
-#new_title{
-    padding: 20px;
-}
-
-#listV_buttonbox{
-    text-align:right;
-}
-
-/******************************************/
-/* Login */
-#login_form {
-    margin: 300px auto;
-    width: 500px;
-    height: 500px;
-    text-align: center;
-}
-
-#login_title {
-    margin-top: 50px;
-}
-
-#login_idbox {
-    margin-top: 50px;
-}
-
-#login_button {
-    margin-top: 50px;
-}
-
-/*************************************/
-/* Join */
-#join_container {
-    height: 1500px;
-    width: 1300px;
-    margin: 0 auto;
-}
-
-#join_mainbox {
-    width: 1000px;
-    height: 1200px;
-    margin: 0 auto;
-    display: block;
-}
-
-#join_mainbox > div {
-    width: 500px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-#join_idbar{
-    width: 320px;
-}
-
-#join_interest > div {
+.comment_id {
     display: inline-block;
-    margin-left: 20px;
-    margin-right: 15px;
+    position: relative;
+    bottom: 18px;
 }
 
-#join_buttonbox {
+.comment {
+    background-color: #f2f2df;
+    border: 1pt solid slategray;
+    width: 960px;
+    height: 100px;
     margin: 0 auto;
-    text-align: center;
 }
 
-#join_buttonbox > button {
-    margin-right: 60px;
-    margin-left: 60px;
-    width: 150px;
-}
-
-#join_postalbar{
-    width: 340px;
+.comment_btnbox {
+    float: right;
+    margin: 5px;
 }

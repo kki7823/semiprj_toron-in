@@ -1,6 +1,8 @@
 package com.toron.dao;
 
 import com.toron.dto.CommentBeanFree;
+import com.toron.dto.CommentBeanYesno;
+
 import javax.servlet.http.HttpServletResponse;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -40,7 +42,7 @@ public class CommentDAO extends DAO{
 
         return result;
     }
-    //insert - 댓글 입력 (자유)
+    //insert - 댓글 입력 (찬반)
     public int insertComment_yesno(int no, String id, String comment,String yesno) {
         try {
             String query = "insert into tblcomment_yesno (no,commentno,id,comments,yesno) values (?,seqcomment_free.nextval,?,?,?)";
@@ -54,11 +56,10 @@ public class CommentDAO extends DAO{
             System.out.println("댓글 삽입 완료 _ 찬반"); // 추후 로그처리
 
         } catch (SQLException e) {
-            System.out.println("insertComment_free : FAIL - " + e.getMessage());
+            System.out.println("insertComment_yesno : FAIL - " + e.getMessage());
         } finally {
             closeConnection(conn, pstmt);
         }
-
         return result;
     }
 
@@ -96,6 +97,41 @@ public class CommentDAO extends DAO{
         return comm_list;
     }
 
+    //댓글 select - 글번호 (찬반토론)
+    public ArrayList<CommentBeanYesno> selectCommentYesno(int no) {
+        conn = null;
+        pstmt = null;
+        rs = null;
+        String query = "SELECT * FROM TBLCOMMENT_YESNO WHERE no=?";
+        ArrayList<CommentBeanYesno> comm_list = new ArrayList<CommentBeanYesno>();
+
+        try {
+            conn = getConnection();
+            pstmt = conn.prepareStatement(query);
+            pstmt.setInt(1, no);
+            rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                CommentBeanYesno commBean = new CommentBeanYesno();
+
+                commBean.setNo(rs.getInt("no"));
+                commBean.setCommnetNo(rs.getInt("commentno"));
+                commBean.setId(rs.getString("id"));
+                commBean.setComment(rs.getString("comments"));
+                commBean.setC_date(rs.getString("c_date"));
+                commBean.setYesno(rs.getString("yesno"));
+                comm_list.add(commBean);
+            }
+        } catch (SQLException e) {
+            System.err.println("selectCommentYesno SQL ERR: " + e.getMessage());
+
+        } finally {
+            closeConnection(conn, pstmt, rs);
+        }
+
+        return comm_list;
+    }
+
     //댓글 delete - 댓글번호로
     public int deleteCommentFree(int commentNo) {
         conn = null;
@@ -114,7 +150,33 @@ public class CommentDAO extends DAO{
             result = pstmt.executeUpdate();
 
         } catch (SQLException e) {
-            System.err.println("selectCommentFree SQL ERR: " + e.getMessage());
+            System.err.println("deleteCommentFree SQL ERR: " + e.getMessage());
+        }finally {
+            closeConnection(conn, pstmt, rs);
+        }
+
+        return result;
+    }
+
+    //댓글 delete - 댓글번호로
+    public int deleteCommentYn(int commentNo) {
+        conn = null;
+        pstmt = null;
+        rs = null;
+        String query = "delete tblcomment_yesno WHERE commentno=?";
+        int result = 0;
+
+        HttpServletResponse response = null;
+        PrintWriter out = null;
+
+        try {
+            conn = getConnection();
+            pstmt = conn.prepareStatement(query);
+            pstmt.setInt(1, commentNo);
+            result = pstmt.executeUpdate();
+
+        } catch (SQLException e) {
+            System.err.println("deleteCommentYn SQL ERR: " + e.getMessage());
         }finally {
             closeConnection(conn, pstmt, rs);
         }

@@ -28,6 +28,7 @@ public class MemberUpdateServlet extends HttpServlet {
 
         String id = request.getParameter("id");
         String nick = request.getParameter("nick");
+        String name=request.getParameter("name");
         String phone = request.getParameter("phone");
         String pwd = request.getParameter("pwd");
         String pwd2 = request.getParameter("pwd2"); // 비밀번호확인
@@ -36,10 +37,11 @@ public class MemberUpdateServlet extends HttpServlet {
         String address = request.getParameter("address");
 
         String[] interest = request.getParameterValues("interest");
-        // System.out.println(Arrays.toString(interest));
+        //System.out.println(Arrays.toString(interest));
 
         MemberBean member = new MemberBean();
         member.setId(id);
+        member.setName(name);
         member.setNick(nick);
         member.setPhone(phone);
         member.setPwd(pwd);
@@ -48,10 +50,17 @@ public class MemberUpdateServlet extends HttpServlet {
         member.setAddress(address);
         member.setInterest(interest);
 
+
         MemberDAO dao = MemberDAO.getInstance();
         dao.update_member_one(member);
+
+        member=dao.select_member_one(id);
+
+        HttpSession session=request.getSession();
+        session.setAttribute("loginUser", member);
 
         response.sendRedirect("member/memberProfile.jsp");
 
     }
 }
+

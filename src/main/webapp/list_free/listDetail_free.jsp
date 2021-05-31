@@ -83,7 +83,7 @@
                     <h5 class="text-start" style="margin: 10px">댓글등록</h5>
                     <form name="comment_from" action="../Comment" method="post">
                         <textarea name="comment_i" id="listD_commentIn" rows="4"></textarea>
-                        <input name="comment_id" type="text" value="test1" hidden="hidden"><!--session에서 id받아와야됨-->
+                        <input name="comment_id" type="text" value=${sessionScope.loginUser.id} hidden="hidden"><!--session에서 id받아와야됨-->
                         <input name="comment_postno" type="text" value="${sessionScope.sList.no}" hidden="hidden">
                         <!-- 글번호 -->
                         <button class="btn btn-outline-secondary btn-lg" type="submit" style="margin: 10px">등록</button>
