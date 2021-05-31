@@ -119,7 +119,6 @@
 					<div class="invalid-feedback">Valid name is required.</div>
 				</div>
 				
-				
 				<div class="my-3">
 					<span>관심분야<br /></span>
 					<div class="form-check">
@@ -158,7 +157,7 @@
 			</div>
 			<!-- End of join_mainbox -->
 			<div id="join_buttonbox">
-				<button class="w-100 btn btn-primary btn-lg" type="submit" onclick="memberUpdate()">개인정보수정</button>
+				<button class="w-100 btn btn-primary btn-lg" type="button" onclick="memberUpdate()">개인정보수정</button>
 			</div>
 
 		</form>

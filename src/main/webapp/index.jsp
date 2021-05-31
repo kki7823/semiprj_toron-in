@@ -37,7 +37,7 @@
         <jsp:include page="header.jsp"/>
     </div>
 
-    <div id="container" class="container-lg">
+    <div class="container-lg">
         <!-- 실시간 인기검색어 / best5 -->
         <div id="utill">
             <div id="main_hotK">

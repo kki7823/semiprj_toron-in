@@ -1,0 +1,38 @@
+
+.profile_box {
+    height: 45px;
+    width: 50px;
+    border-radius: 70%;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.profile_photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.comment_free {
+    background-color: lightblue;
+    height: 190px;
+}
+
+.comment_id {
+    display: inline-block;
+    position: relative;
+    bottom: 18px;
+}
+
+.comment {
+    background-color: #f2f2df;
+    border: 1pt solid slategray;
+    width: 960px;
+    height: 100px;
+    margin: 0 auto;
+}
+
+.comment_btnbox {
+    float: right;
+    margin: 5px;
+}

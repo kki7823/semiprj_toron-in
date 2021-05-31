@@ -1,11 +1,18 @@
 @charset "UTF-8";
 /* 공통 */
+#container {
+    height: 1660px;
+    width: 1300px;
+    overflow: hidden;
+}
+
 
 /* Main Page */
 #main_container{
     width: 1300px;
     height:auto;
 }
+
 
 /**메인**/
 #utill{
@@ -34,6 +41,7 @@
     background-color: white;
     border-radius: 10px;
 }
+
 
 /**헤더**/
 #header_container{
@@ -83,7 +91,6 @@
 }
 
 
-
 /**마이페이지**/
 #myList_container {
     height: 200px;
@@ -106,6 +113,7 @@
 	object-fit: cover;
 }
 
+
 /**푸터**/
 #footer_container{
 	 height: 200px;
@@ -117,11 +125,13 @@
 	padding:50px;
 }
 
+
 /**best.jsp**/
 #best_container{
 	width:700px;
 	background-color: white;
 }
+
 
 /**hotKeyword.jsp**/
 #hotK_container{
@@ -144,6 +154,7 @@
 	text-align:right;
 }
 
+
 /******************************************/
 /* Login */
 #login_form {
@@ -164,6 +175,7 @@
 #login_button {
     margin-top: 50px;
 }
+
 
 /*************************************/
 /* Join */
@@ -186,7 +198,7 @@
     padding: 20px;
 }
 
-#join_idbar{
+#join_idbar {
     width: 320px;
 }
 
@@ -207,6 +219,334 @@
     width: 150px;
 }
 
-#join_postalbar{
+#join_postalbar {
     width: 340px;
+}
+
+
+/******리스트******************/
+#list_navbox {
+    margin-top: 50px;
+}
+
+
+/* listView */
+#listV_mainbox {
+    width: 1400px;
+    height: 1200px;
+    margin-top: 50px;
+}
+
+#listV_table {
+    text-align: center;
+    margin-top: 50px;
+}
+
+#listV_tb_num {
+    width: 100px;
+}
+
+#listV_tb_title {
+    width: 820px;
+}
+
+#listV_tb_type {
+    width: 100px;
+}
+
+#listV_tb_id {
+    width: 150px;
+}
+
+#listV_tb_date {
+    width: 140px;
+}
+
+#listV_tb_hit {
+    width: 100px;
+}
+
+#listV_buttonbox {
+    margin-top: 50px;
+    text-align: right;
+}
+
+
+/* listUpload */
+#listU_mainbox {
+    width: 1000px;
+    height: 1200px;
+    margin-top: 50px;
+}
+
+#listU_mainbox > div {
+    margin: 20px;
+}
+
+#listU_titleheader {
+    height: 127px;
+}
+
+#listU_format {
+    display: inline;
+    width: 300px;
+}
+
+#listU_format:focus {
+    border: 1pt solid black;
+}
+
+
+#listU_category {
+    display: inline;
+    width: 300px;
+}
+
+#listU_titlebar {
+    display: inline;
+    width: 790px;
+}
+
+#listU_uploadbar {
+    display: inline;
+    width: 790px;
+}
+
+#listU_buttonbox {
+    float: right;
+}
+
+
+/* listDetail */
+#listD_container {
+    text-align: center;
+    width: 1400px;
+    height: 1500px;
+    border: 1pt solid;
+}
+
+#listD_mainbox {
+    width: 1000px;
+    height: 1200px;
+    margin-top: 50px;
+}
+
+
+/* listD - yes no */
+#listD_mainbox_y {
+    width: 850px;
+    height: 1200px;
+    margin-top: 50px;
+}
+
+#listD_commentInbox_y {
+    width: 831px;
+    text-align: right;
+    margin-top: 40px;
+}
+
+#listD_commentIn_y {
+    resize: none;
+    outline: none;
+    border: white;
+    width: 791px;
+    margin-top: 6px;
+    margin-bottom: 10px;
+}
+
+
+#listD_yesno_nav {
+    margin-top: 50px;
+}
+
+#listD_commentInTitle_y {
+    margin: 10px;
+    display: inline-block;
+    float: left;
+}
+
+#listD_radiobox_y {
+    display: inline-block;
+    margin: 13px;
+}
+
+#listD_button_del {
+    float: right;
+    position: relative;
+    left: 45px;
+    bottom: 30px;
+    border: none;
+}
+
+#listD_titlebox {
+    text-align: left;
+    border-bottom: 1pt solid;
+    padding-bottom: 10px;
+}
+
+#listD_title {
+    font-size: 20pt;
+}
+
+#listD_wdate {
+    display: block;
+    float: bottom;
+
+}
+
+#listD_profile {
+    width: 200px;
+    height: 51px;
+    display: inline-block;
+    border: 1pt solid;
+    float: right;
+    position: relative;
+    bottom: 55px;
+}
+
+#listD_profile_id {
+    display: inline-block;
+}
+
+#listD_contents {
+    text-align: left;
+}
+
+#listD_contentsbox {
+    margin-top: 14px;
+}
+
+#listD_commentbox {
+    text-align: left;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+#listD_commentInbox {
+    width: 970px;
+    text-align: right;
+    margin: 0 auto;
+}
+
+#listD_commentIn {
+    resize: none;
+    outline: none;
+    border: white;
+    width: 930px;
+    margin-top: 6px;
+    margin-bottom: 10px;
+}
+
+#listD_buttonbox {
+    text-align: right;
+}
+
+
+/**********말풍선***********/
+/* 1. 말풍선 찬성 */
+.balloon_yes {
+    position: relative;
+    background: #88b7d5;
+}
+
+.balloon_yes:after {
+    right: 100%;
+    top: 50%;
+    border: solid transparent;
+    content: "";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: rgba(136, 183, 213, 0);
+    border-right-color: #88b7d5;
+    border-width: 10px;
+    margin-top: -10px;
+}
+
+.balloon_yes {
+    /*position: static;*/
+    margin-left: 10px;
+    width: 368px;
+    /*height: 118px;*/
+    left: 5px;
+    text-align: left;
+    border-radius: 10px;
+}
+
+/* 2. 말풍선 반대 */
+.balloon_no {
+    position: relative;
+    background: #f0a8ed;
+}
+
+.balloon_no:after {
+    left: 100%;
+    top: 50%;
+    border: solid transparent;
+    content: "";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: rgba(240, 168, 237, 0);
+    border-left-color: #f0a8ed;
+    border-width: 9px;
+    margin-top: -9px;
+}
+
+/*customize*/
+.balloon_no {
+    /*position: fixed;*/
+    width: 368px;
+    /*height: 118px;*/
+    left: 440px;
+    text-align: left;
+    border-radius: 10px;
+}
+
+.balloon_id {
+
+}
+
+.listD_contentsbox {
+    margin-top: 14px;
+}
+
+.profile_box {
+    height: 45px;
+    width: 50px;
+    border-radius: 70%;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.profile_photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.comment_free {
+    background-color: lightblue;
+    height: 190px;
+}
+
+.comment_id {
+    display: inline-block;
+    position: relative;
+    bottom: 18px;
+}
+
+.comment {
+    background-color: #f2f2df;
+    border: 1pt solid slategray;
+    width: 960px;
+    height: 100px;
+    margin: 0 auto;
+}
+
+.comment_btnbox {
+    float: right;
+    margin: 5px;
 }
