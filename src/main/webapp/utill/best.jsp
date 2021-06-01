@@ -81,7 +81,7 @@
             </a> 
 
             <% for (int i=1; i<5; i++) { %>
-	            <a href="#"
+	            <a href="ListDetail?type=<%=bestList.get(i).getType() %>&no=<%=bestList.get(i).getNo() %>&category_num=<%=categorys[i] %>"
 	                    class="list-group-item list-group-item-action py-3 lh-tight">
 	            <div class="d-flex w-100 align-items-center justify-content-between">
 	                <small><%=bestList.get(i).getType() %> > <%=bestList.get(i).getCategory() %></small> <strong class="mb-1"><%=bestList.get(i).getTitle() %></strong> <small

@@ -91,7 +91,7 @@
                 </div>
                 <div id="listD_buttonbox">
                     <hr class="my-4"/>
-                    <button class="btn btn-primary btn-sm" onclick="location.href='../List?cat=3'" style="margin-right: 20px;">목록으로</button>
+                    <button class="btn btn-primary btn-sm" onclick="window.location=document.referrer;" style="margin-right: 20px;">목록으로</button>
                 </div>
             </div>
         </div> <!--End of mainbox-->
