@@ -189,9 +189,9 @@
 					<%
 						String userId=((MemberBean)session.getAttribute("loginUser")).getId();
 						ListDAO dao2=ListDAO.getInstance();
-						ArrayList<ListBeanFree> m_list=dao2.member_myList(userId);
+						ArrayList<ListBean> m_list=dao2.member_myList(userId);
 						for(int i=0; i<m_list.size();i++){
-							ListBeanFree m_list_one = m_list.get(i);
+							ListBean m_list_one = m_list.get(i);
 					%>
 						<tr>
 							<td><%=m_list_one.getNo() %></td>

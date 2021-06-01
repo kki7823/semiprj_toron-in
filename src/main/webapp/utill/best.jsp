@@ -1,11 +1,7 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: gimgyeong-il
-  Date: 2021/05/18
-  Time: 5:25 오후
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="com.toron.dto.*, com.toron.dao.*" %>
+<%@ page import="java.util.*, java.sql.*" %>
 <html>
 <head>
     <title>Title</title>
@@ -29,6 +25,37 @@
 	</style>
 </head>
 <body>
+	<%
+		ListDAO dao=ListDAO.getInstance();
+		ArrayList<ListBean> bestList=dao.selectListByHit();
+		
+		String cate;
+		String category_num="0";
+		String[] categorys=new String[bestList.size()];
+		for(int i=0; i<bestList.size();i++){
+				cate=bestList.get(i).getCategory();
+				
+				switch (cate) {
+	            case "사회":
+	            	category_num = "1";
+	                break;
+	            case "건강":
+	            	category_num = "2";
+	                break;
+	            case "연애":
+	            	category_num = "3";
+	                break;
+	            case "학교":
+	            	category_num = "4";
+	                break;
+	            case "직장":
+	            	category_num = "5";
+	                break;
+	            
+	        }
+			categorys[i]=category_num;
+		}
+	%>
 	<div id="best_container">
     <div>
         <div style="margin-top:10px;">
@@ -40,49 +67,29 @@
             </svg>
             <span class="fs-5 fw-semibold"><font color="#198754" style="font-family:'MaplestoryOTFLight';"><b>&nbsp;&nbsp;&nbsp;Best5</b></font></span>
         </div>
+        
+         
         <div style="margin-top:10px;" class="list-group list-group-flush border-bottom scrollarea">
-            <a href="#"
+            <a href="ListDetail?type=<%=bestList.get(0).getType() %>&no=<%=bestList.get(0).getNo() %>&category_num=<%=categorys[0] %>"
                class="list-group-item list-group-item-action active py-3 lh-tight"
                aria-current="true" style="background-color:#e8c992;">
                 <div class="d-flex w-100 align-items-center justify-content-between">
-                    <small>자유토론>연애</small> <strong class="mb-1">사랑은 원래 이런거냐??</strong>
-                    <small>2zero0</small>
-
+                    <small><%=bestList.get(0).getType() %> > <%=bestList.get(0).getCategory() %></small> 
+                    <strong class="mb-1"><%=bestList.get(0).getTitle() %></strong>
+                    <small><%=bestList.get(0).getId() %></small>
                 </div>
-                <div class="col-10 mb-1 small" style="text-align:center;">아니 남자친구랑 어제 카페갔는데...</div>
             </a> 
-            
-            <a href="#"
-                    class="list-group-item list-group-item-action py-3 lh-tight">
-            <div class="d-flex w-100 align-items-center justify-content-between">
-                <small>자유토론>건강</small> <strong class="mb-1">다이어트할 때</strong> <small
-                    class="text-muted">Gyeong</small>
-            </div>
-            <div class="col-10 mb-1 small" style="text-align:center;">극단적으로 탄수화물 끊기 가능???...</div>
-        </a> <a href="#"
-                class="list-group-item list-group-item-action py-3 lh-tight">
-            <div class="d-flex w-100 align-items-center justify-content-between">
-                <small>찬반토론</small> <strong class="mb-1">화가 나면 그냥 낸다 VS
-                참는다</strong> <small class="text-muted">jw0710</small>
-            </div>
 
-        </a> <a href="#"
-                class="list-group-item list-group-item-action py-3 lh-tight"
-                aria-current="true">
-            <div class="d-flex w-100 align-items-center justify-content-between">
-                <small>찬반토론</small> <strong class="mb-1">똥 맛 카레 VS 카레 맛 똥</strong>
-                <small class="text-muted">jw0710</small>
-            </div>
-
-        </a> <a href="#"
-                class="list-group-item list-group-item-action py-3 lh-tight">
-            <div class="d-flex w-100 align-items-center justify-content-between">
-                <small>자유토론>학업</small> <strong class="mb-1">이 길이 맞나 싶어요 ㅠㅠ</strong>
-                <small class="text-muted">wook121</small>
-            </div>
-            <div class="col-10 mb-1 small" style="text-align:center;">아무리 생각해도 개발자 못해묵겠는데 다들...</div>
-        </a>
-
+            <% for (int i=1; i<5; i++) { %>
+	            <a href="#"
+	                    class="list-group-item list-group-item-action py-3 lh-tight">
+	            <div class="d-flex w-100 align-items-center justify-content-between">
+	                <small><%=bestList.get(i).getType() %> > <%=bestList.get(i).getCategory() %></small> <strong class="mb-1"><%=bestList.get(i).getTitle() %></strong> <small
+	                    class="text-muted"><%=bestList.get(i).getId() %></small>
+	            </div>
+	        	</a> 
+        	<%} %>
+        	
         </div>
     </div>
     </div>

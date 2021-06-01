@@ -67,22 +67,22 @@
                     <a class="nav-link active" id="nav_all" aria-current="page" href="#"><font color="gray">전체</font></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><font color="#fb8c00"><b>사회</b></font></a>
+                    <a class="nav-link" href="List?cat=1"><font color="#fb8c00"><b>사회</b></font></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><font color="#4db6ac"><b>건강</b></font></a>
+                    <a class="nav-link" href="List?cat=2"><font color="#4db6ac"><b>건강</b></font></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><font color="#fb8c00"><b>연애</b></font></a>
+                    <a class="nav-link" href="List?cat=3"><font color="#fb8c00"><b>연애</b></font></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><font color="#4db6ac"><b>학업</b></font></a>
+                    <a class="nav-link" href="List?cat=4"><font color="#4db6ac"><b>학업</b></font></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><font color="#fb8c00"><b>직장</b></font></a>
+                    <a class="nav-link" href="List?cat=5"><font color="#fb8c00"><b>직장</b></font></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><font color="#4db6ac"><b>기타</b></font></a>
+                    <a class="nav-link" href="List?cat=99"><font color="#4db6ac"><b>기타</b></font></a>
                 </li>
             </ul>
         </div>

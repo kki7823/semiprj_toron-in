@@ -4,17 +4,17 @@
 	
 	<span><font color="#198754" style="font-family:'MaplestoryOTFLight'; font-size:1.5em;"><b>최신글 보기</b></font></span>
 	</div>
-    <div id="listV_mainbox" class="col">
+    <div id="main_list_mainbox" class="col">
         <!--Start of listV_table-->
-        <table id="listV_table" class="table table-hover">
+        <table id="main_list_table" class="table table-hover">
             <thead>
             <tr>
-                <th id="listV_tb_num" scope="col">번호</th>
-                <th id="listV_tb_type" scope="col">종류</th>
-                <th id="listV_tb_title" scope="col">제목</th>
-                <th id="listV_tb_id" scope="col">작성자</th>
-                <th id="listV_tb_date" scope="col">작성일</th>
-                <th id="listV_tb_hit" scope="col">조회수</th>
+                <th id="main_list_tb_num" scope="col">번호</th>
+                <th id="main_list_tb_type" scope="col">종류</th>
+                <th id="main_list_tb_title" scope="col">제목</th>
+                <th id="main_list_tb_id" scope="col">작성자</th>
+                <th id="main_list_tb_date" scope="col">작성일</th>
+                <th id="main_list_tb_hit" scope="col">조회수</th>
             </tr>
             </thead>
             <tbody>
@@ -38,7 +38,7 @@
             </tbody>
         </table>
         <!--End of listV_table-->
-        <div id="listV_buttonbox">
+        <div id="main_list_buttonbox" style="text-align:right;">
             <hr class="my-4"/>
             <button class="btn btn-success" type="submit">글작성</button>
         </div>

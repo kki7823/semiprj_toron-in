@@ -26,7 +26,7 @@
             crossorigin="anonymous"></script>
 
     <!--custom css-->
-    <link href="css/style.css?lg" type="text/css" rel="stylesheet">
+    <link href="css/style.css" type="text/css" rel="stylesheet">
     <meta charset="UTF-8">
     <title>메인페이지</title>
 
