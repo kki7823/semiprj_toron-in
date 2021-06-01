@@ -1,9 +1,11 @@
 package com.toron.dao;
 
 import com.toron.dto.ListBean;
+import com.toron.dto.ListSum_id;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class ListDAO extends DAO {
 
@@ -342,7 +344,7 @@ public class ListDAO extends DAO {
 
     }
     
-    /****best.jsp에서 사용하는 인기글(조회수 기준) 메소드****/
+    /****utill/best.jsp에서 사용하는 인기글(조회수 기준) 메소드****/
     public ArrayList<ListBean> selectListByHit(){
     	Connection conn = null;
         Statement stmt = null;
@@ -379,5 +381,82 @@ public class ListDAO extends DAO {
         }
 
         return best_list;
+    }
+    
+    /**newestList.jsp에서 사용하는 최신글 메소드**/
+    public ArrayList<ListBean> selectList_newest() {
+        Connection conn = null;
+        Statement stmt = null;
+        ResultSet rs = null;
+        String query = "SELECT NO,TYPE,category,title,ID,W_DATE,hit FROM TBLLIST_FREE \n" + 
+        		"UNION \n" + 
+        		"SELECT NO,TYPE,category,title,ID,W_DATE,hit FROM TBLLIST_YESNO \n" + 
+        		"order by w_date desc";
+
+        ArrayList<ListBean> newest_list = new ArrayList<ListBean>();
+
+        try {
+            conn = getConnection();
+            stmt = conn.createStatement();
+            rs = stmt.executeQuery(query);
+
+            while (rs.next()) {
+                ListBean n_list_one = new ListBean();
+                n_list_one.setNo(rs.getInt("no"));
+                n_list_one.setType(rs.getString("type"));
+                n_list_one.setCategory(rs.getString("category"));
+                n_list_one.setTitle(rs.getString("title"));
+                n_list_one.setId(rs.getString("id"));
+                n_list_one.setW_date(rs.getString("w_date"));
+                n_list_one.setHit(rs.getInt("hit"));
+                
+                newest_list.add(n_list_one);
+            }
+        } catch (SQLException e) {
+            System.err.println("ListDAO - selectList_newest SQL ERR: " + e.getMessage());
+
+        } finally {
+            closeConnection(conn, pstmt, rs);
+        }
+
+        return newest_list;
+    }
+    
+    /**utill/hotKeyword.jsp에서 사용하는 토론왕(글 작성 개수 기준) 메소드**/
+    public ArrayList<ListSum_id> bestUser(){
+    	 Connection conn = null;
+         Statement stmt = null;
+         ResultSet rs = null;
+         String query ="select id, count(id) as list_sum \n" + 
+         		"from tbllist_free \n" + 
+         		"group by id \n" + 
+         		"union \n" + 
+         		"select id, count(id) as list_sum \n" + 
+         		"from tbllist_yesno \n" + 
+         		"group by id";
+        		 
+         ArrayList<ListSum_id> m_list = new ArrayList<ListSum_id>();
+    	
+    	try {
+            conn = getConnection();
+            stmt = conn.createStatement();
+            rs = stmt.executeQuery(query);
+
+            while (rs.next()) {
+            	ListSum_id n_list_one = new ListSum_id();
+                 n_list_one.setId(rs.getString("id"));
+                 n_list_one.setListSum(rs.getInt("list_sum"));
+                 
+                 m_list.add(n_list_one);
+            }
+            
+        } catch (SQLException e) {
+            System.err.println("ListDAO - bestUser ERR: " + e.getMessage());
+
+        } finally {
+            closeConnection(conn, pstmt, rs);
+        }
+
+        return m_list;
     }
 }

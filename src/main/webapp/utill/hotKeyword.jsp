@@ -1,17 +1,17 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: gimgyeong-il
-  Date: 2021/05/19
-  Time: 11:35 오전
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%@ page import="java.util.Date"%>
 <%@ page import="java.text.SimpleDateFormat"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="com.toron.dto.*, com.toron.dao.*" %>
+<%@ page import="java.util.*, java.sql.*" %>
 
 <%
 	Date nowTime = new Date();
-	SimpleDateFormat sf = new SimpleDateFormat("MM/dd HH:mm");
+	SimpleDateFormat sf = new SimpleDateFormat("MM/dd");
+	
+	ListDAO dao=ListDAO.getInstance();
+	
+	ArrayList<ListSum_id> m_list=dao.bestUser();
 %>
 
 <html>
@@ -54,49 +54,38 @@
 </svg>
 				<span class="text-primary">
 				<font color="#198754" style="font-family:'MaplestoryOTFLight';">
-					<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;실시간 인기 검색어&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></font></span> <small
+					<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;오늘의 토론 왕!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></font></span> <small
 					class="text-muted"><%= sf.format(nowTime) %></small>
 
 				</h4>
 				<ul class="list-group mb-3">
+					
+					<!-- 첫번째 li -->
 					<li class="list-group-item d-flex justify-content-between bg-light">
 						<div class="text-success">
 							<span id="hotK_color" class="badge bg-primary rounded-pill">1</span>
 							<div id="hot_word">
-								<h6 class="my-0"><font>다이어트</font></h6>
+								<h6 class="my-0"><font><%=m_list.get(0).getId() %></font></h6>
 							</div>
 
-						</div> <span class="text-success">검색수: 39</span>
+						</div> <span class="text-success">글 작성수: <%=m_list.get(0).getListSum() %></span>
 					</li>
+					
+					<!-- 두번째 li -->
+					<%
+						for(int i=1; i<4; i++){
+					%>
+					
 					<li class="list-group-item d-flex justify-content-between lh-sm">
 						<div>
-							<span id="hotK_color" class="badge bg-primary rounded-pill">2</span>
-							<h6 class="my-0">술먹을 때</h6>
+							<span id="hotK_color" class="badge bg-primary rounded-pill"><%=i+1 %></span>
+							<h6 class="my-0"><%=m_list.get(i).getId() %></h6>
 
 
-						</div> <span class="text-muted">검색수: 22</span>
+						</div> <span class="text-muted">글 작성수: <%=m_list.get(i).getListSum() %></span>
 					</li>
-					<li class="list-group-item d-flex justify-content-between lh-sm">
-						<div>
-							<span id="hotK_color" class="badge bg-primary rounded-pill">3</span>
-							<h6 class="my-0">데이트 코스</h6>
-
-						</div> <span class="text-muted">검색수: 19</span>
-					</li>
-					<li class="list-group-item d-flex justify-content-between lh-sm">
-						<div>
-							<span id="hotK_color" class="badge bg-primary rounded-pill">4</span>
-							<h6 class="my-0">정치색깔</h6>
-
-						</div> <span class="text-muted">검색수: 14</span>
-					</li>
-					<li class="list-group-item d-flex justify-content-between lh-sm">
-						<div>
-							<span id="hotK_color" class="badge bg-primary rounded-pill">5</span>
-							<h6 class="my-0">더치페이</h6>
-
-						</div> <span class="text-muted">검색수: 13</span>
-					</li>
+					
+					<%} %>
 
 				</ul>
 		</div>
