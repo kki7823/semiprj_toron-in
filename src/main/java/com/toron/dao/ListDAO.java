@@ -301,6 +301,44 @@ public class ListDAO extends DAO {
 
         return m_list;
     }
+
+    //작성글 select - 키워드로 제목 검색
+    public ArrayList<ListBean> selectListByKey(String keyword) {
+        conn = null;
+        pstmt = null;
+        rs = null;
+        String query = "SELECT NO,TYPE,title,ID,W_DATE,hit FROM TBLLIST_FREE WHERE title like ?\n" +
+                "UNION \n" +
+                "SELECT NO,TYPE,title,ID,W_DATE,hit FROM TBLLIST_YESNO WHERE title like ?";
+        ArrayList<ListBean> c_list = new ArrayList<ListBean>();
+
+        try {
+            conn = getConnection();
+            pstmt = conn.prepareStatement(query);
+            pstmt.setString(1, "%"+keyword+"%");
+            pstmt.setString(2, "%"+keyword+"%");
+            rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                ListBean c_list_one = new ListBean();
+
+                c_list_one.setNo(rs.getInt("no"));
+                c_list_one.setType(rs.getString("type"));
+                c_list_one.setTitle(rs.getString("title"));
+                c_list_one.setId(rs.getString("id"));
+                c_list_one.setW_date(rs.getString("w_date"));
+                c_list_one.setHit(rs.getInt("hit"));
+                c_list.add(c_list_one);
+            }
+        } catch (SQLException e) {
+            System.err.println("selectListByKey SQL ERR: " + e.getMessage());
+
+        } finally {
+            closeConnection(conn, pstmt, rs);
+        }
+
+        return c_list;
+    }
 }
 
 

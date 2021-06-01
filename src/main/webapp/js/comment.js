@@ -7,13 +7,22 @@ function editComment(commentNo) {
     editArea.focus();
 }
 
-function lineBreak(){
-    document.getElementById("listD_commentIn_y").addEventListener('keyup',count)
-
-
+function loginLock_yn(id){
+    var commentBox = document.getElementById("listD_commentIn_y")
+    if(id == null){
+        commentBox.setAttribute('readonly','readonly');
+        commentBox.innerText = "로그인이 필요합니다.";
+    }else {
+        commentBox.removeAttribute("readonly");
+    }
 }
 
-function count(){
-    var textlen = document.getElementById("listD_commentIn_y").value.length;
-    document.getElementById("temp1").innerText = textlen;
+function loginLock_free(id){
+    var commentBox = document.getElementById("listD_commentIn")
+    if(id == null){
+        commentBox.setAttribute('readonly','readonly');
+        commentBox.innerText = "로그인이 필요합니다.";
+    }else {
+        commentBox.removeAttribute("readonly");
+    }
 }

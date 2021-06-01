@@ -10,19 +10,19 @@
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
         <li class="nav-item">
-            <a href="ListIdx?type=0" class="nav-link active" aria-current="page">
+            <a href="/semiprj_toron_in/ListIdx?type=0" class="nav-link active" aria-current="page">
                 <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
                 전체글보기
             </a>
         </li>
         <li>
-            <a href="ListIdx?type=1" class="nav-link link-dark">
+            <a href="/semiprj_toron_in/ListIdx?type=1" class="nav-link link-dark">
                 <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
                 자유토론
             </a>
         </li>
         <li>
-            <a href="ListIdx?type=2" class="nav-link link-dark">
+            <a href="/semiprj_toron_in/ListIdx?type=2" class="nav-link link-dark">
                 <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
                 찬반토론
             </a>

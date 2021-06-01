@@ -13,11 +13,22 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 @WebServlet(name = "LoginServlet", value = "/Login")
 public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //로그아웃
+        HttpSession session=request.getSession();
+        session.invalidate();
+
+        PrintWriter out = response.getWriter();
+        response.setContentType("text/html; charset=UTF-8");
+        response.setCharacterEncoding("UTF-8");
+
+        out.println("<script>alert('로그아웃 되었습니다.'); location.href='main.jsp';</script>");
+        out.flush();
 
     }
 

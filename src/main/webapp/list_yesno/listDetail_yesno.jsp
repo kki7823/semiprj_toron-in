@@ -19,7 +19,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
             crossorigin="anonymous"></script>
-    <link href="../css/style1.css?ver=22Z" rel="stylesheet" type="text/css">
+    <link href="../css/style1.css?ver=22Z2" rel="stylesheet" type="text/css">
     <script src="../js/comment.js" type="text/javascript"></script>
     <title>상세보기-찬반</title>
 </head>
@@ -81,21 +81,13 @@
                             <input type="radio" name="yesno" value="no"/>반대
                         </div>
                         <textarea name="comment_i" id="listD_commentIn_y" rows="4"></textarea>
-<%--                        <c:choose>--%>
-<%--                            <c:when test="${sessionScope.loginUser eq null}">--%>
-<%--                                <script>alert("로그인을 하세요")</script>--%>
-<%--                            </c:when>--%>
-<%--                            <c:when test="${sessionScope.loginUser eq !null}">--%>
                                 <input name="comment_id" type="text" value="${sessionScope.loginUser.id}" hidden="hidden">
-<%--                            </c:when>--%>
-<%--                        </c:choose>--%>
                         <input name="comment_postno" type="text" value="${sessionScope.sList.no}"
                                hidden="hidden">
                         <button class="btn btn-outline-secondary btn-lg" type="submit" style="margin: 10px">등록
                         </button>
                     </div>
                 </form>
-                <textarea name="comment_i" id="temp1" rows="4"></textarea>
                 <div id="listD_buttonbox">
                     <hr class="my-4"/>
                     <button class="btn btn-primary btn-sm" type="submit" style="margin-right: 20px;">목록으로
@@ -111,5 +103,6 @@
             </div>
         </div>
     </div>
+    <script>loginLock_yn(${sessionScope.loginUser.id})</script>
 </body>
 </html>

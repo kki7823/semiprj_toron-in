@@ -60,19 +60,24 @@
                                     ${commList.id}
                             </div>
                             <form action="../CommentUpdate" method="get">
-                                <textarea name="comment" id="comment-${commList.commnetNo}" class="comment" readonly="readonly"
+                                <textarea name="comment" id="comment-${commList.commnetNo}" class="comment"
+                                          readonly="readonly"
                                           style="resize: none">${commList.comment}</textarea>
                                 <input name="commentno" type="text" value="${commList.commnetNo}" hidden="hidden"/>
                                     <%--                            <c:if test="${commList.id eq sessionScope.id}">--%>
                                     <%--                                    로그인 id == 댓글 id 인 경우에만 버튼 활성화 --%>
                                     <%--                            </c:if>--%>
                                 <div class="comment_btnbox">
-                                    <button id="comment_btn_edit-${commList.commnetNo}" type="button" class="btn btn-primary btn-sm" onclick="editComment(${commList.commnetNo})">수정
+                                    <button id="comment_btn_edit-${commList.commnetNo}" type="button"
+                                            class="btn btn-primary btn-sm" onclick="editComment(${commList.commnetNo})">
+                                        수정
                                     </button>
-                                    <button id="comment_btn_editconf-${commList.commnetNo}" class="btn btn-primary btn-sm" type="submit" style="display: none">완료
+                                    <button id="comment_btn_editconf-${commList.commnetNo}"
+                                            class="btn btn-primary btn-sm" type="submit" style="display: none">완료
                                     </button>
                                     <button class="btn btn-primary btn-sm"
-                                            onclick="location.href='../Comment?action=del&commentNo=${commList.commnetNo}'">삭제
+                                            onclick="location.href='../Comment?action=del&commentNo=${commList.commnetNo}'">
+                                        삭제
                                     </button>
                                 </div>
                             </form>
@@ -83,7 +88,8 @@
                     <h5 class="text-start" style="margin: 10px">댓글등록</h5>
                     <form name="comment_from" action="../Comment" method="post">
                         <textarea name="comment_i" id="listD_commentIn" rows="4"></textarea>
-                        <input name="comment_id" type="text" value=${sessionScope.loginUser.id} hidden="hidden"><!--session에서 id받아와야됨-->
+                        <input name="comment_id" type="text" value="${sessionScope.loginUser.id}" hidden="hidden">
+                        <!--session에서 id받아와야됨-->
                         <input name="comment_postno" type="text" value="${sessionScope.sList.no}" hidden="hidden">
                         <!-- 글번호 -->
                         <button class="btn btn-outline-secondary btn-lg" type="submit" style="margin: 10px">등록</button>
@@ -96,6 +102,7 @@
             </div>
         </div> <!--End of mainbox-->
     </div>
+    <script>loginLock_free(${sessionScope.loginUser.id})</script>
 </body>
 </html>
 <%-- 프로필 사진 업데이트 하는 방법--%>
