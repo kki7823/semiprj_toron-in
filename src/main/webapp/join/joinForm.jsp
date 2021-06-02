@@ -28,7 +28,7 @@
             <div id="join_mainbox" class="row g-3" >
                 <div id="join_idbox" class="col-sm-6" >
                     <span>아이디</span><span style="color:darkred;">&nbsp;*</span><br/>
-                    <input type="text" name="userId" class="form-control" id="join_idbar" placeholder="영문소문자/숫자, 4~16자" required="required" style="display: inline"/>
+                    <input type="text" name="userId" class="form-control" id="join_idbar" placeholder="영문대소문자/숫자, 4~12자" required="required" style="display: inline"/>
                     <!--  중복확인 여부 확인용--><input type="hidden" name="hidden_idCheck" />
                     <input type="button" class="btn btn-primary" style="margin-bottom: 3px" value="아이디 중복 확인" onclick="idCheck()" />
 
@@ -40,7 +40,7 @@
                 <div id="join_pwbox" class="col-sm-6">
                     <span>비밀번호</span><span style="color:darkred;">&nbsp;*</span>
                     <input type="password" name="userPwd" class="form-control" id="join_pwbar"
-                           placeholder="영문 대소문자/숫자/특수문자 중 2가지 이상 조합, 10자~16자" required="required"/>
+                           placeholder="영문 대소문자/숫자/특수문자 중 2가지 이상 조합, 10자~20자" required="required"/>
                     <div class="invalid-feedback">
                         Valid password is required.
                     </div>

@@ -32,12 +32,19 @@
             crossorigin="anonymous"></script>
 
     <!--custom css-->
-    <link href="../css/style.css" type="text/css" rel="stylesheet">
+    <link href="../css/style.css?n" type="text/css" rel="stylesheet">
     <meta charset="UTF-8">
     <title>memberProfile</title>
 </head>
 <body>
-	<div id="memberP_con" class="container-lg">
+	<div style="background-color:#e9f2e9;">
+	 <div id="header_container">
+        <!-- header -->
+        <jsp:include page="../header.jsp"/>
+    </div>
+    
+	<div class="container-lg" style="background-color:white; margin-top:35px;">
+	<div id="memberP_con" class="container-lg" style="margin-top:20px; padding:30px;">
 		<div id="memP_title">
 			<h2>개인정보</h2>
 			<hr class="my-4">
@@ -123,7 +130,7 @@
 					<span>관심분야<br /></span>
 					<div class="form-check">
 						<input id="social" name="interest" type="checkbox"
-							class="form-check-input" value="사회" <c:if test="${loginUser.interest[0] == '1'}">checked</c:if> /> 
+							class="form-check-input" style="" value="사회" <c:if test="${loginUser.interest[0] == '1'}">checked</c:if> /> 
 							<label class="form-check-label" for="social">사회</label>
 					</div>
 					<div class="form-check">
@@ -157,7 +164,7 @@
 			</div>
 			<!-- End of join_mainbox -->
 			<div id="join_buttonbox">
-				<button class="w-100 btn btn-primary btn-lg" type="button" onclick="memberUpdate()">개인정보수정</button>
+				<button class="w-100 btn btn-primary btn-lg" type="button" onclick="memberUpdate()" style="background-color:green; border:1px solid white; margin:0 auto;">개인정보수정</button>
 			</div>
 
 		</form>
@@ -190,6 +197,35 @@
 						String userId=((MemberBean)session.getAttribute("loginUser")).getId();
 						ListDAO dao2=ListDAO.getInstance();
 						ArrayList<ListBean> m_list=dao2.member_myList(userId);
+						
+						String cate;
+						String category_num="0";
+						String[] categorys=new String[m_list.size()];
+						for(int i=0; i<m_list.size();i++){
+								cate=m_list.get(i).getCategory();
+								
+								switch (cate) {
+					            case "사회":
+					            	category_num = "1";
+					                break;
+					            case "건강":
+					            	category_num = "2";
+					                break;
+					            case "연애":
+					            	category_num = "3";
+					                break;
+					            case "학교":
+					            	category_num = "4";
+					                break;
+					            case "직장":
+					            	category_num = "5";
+					                break;
+					            
+					        }
+							categorys[i]=category_num;
+						}
+
+						
 						for(int i=0; i<m_list.size();i++){
 							ListBean m_list_one = m_list.get(i);
 					%>
@@ -197,15 +233,15 @@
 							<td><%=m_list_one.getNo() %></td>
 							<td><%=m_list_one.getType() %></td>
 							<td><%=m_list_one.getCategory() %></td>
-							
+                
 							<!-- 여기에 해당 글로 갈 수 있게 링크-->
-							<td><a href="#"><%=m_list_one.getTitle() %></a></td>
+							<td><a style="color: green; text-decoration: none;" href="ListDetail?type=<%=m_list_one.getType() %>&no=<%=m_list_one.getNo() %>&category_num=<%=categorys[i] %>"><%=m_list_one.getTitle() %></a></td>
 							
 							<td><%=m_list_one.getW_date()%></td>
 							<td><%=m_list_one.getHit() %></td>
 							<td><%=m_list_one.getGood() %></td>
 							<td>
-								<input class="btn btn-primary" type="button" value="삭제"/>
+								<input class="btn btn-success" type="button" value="삭제"/>
 							</td>
 						</tr>
 						<%} %>
@@ -239,7 +275,7 @@
 							<td>1</td>
 							<td>화가 날 수도 있죠 당연히 사람인데</td>
 							<td>
-								<input class="btn btn-primary" type="button" value="해당글이동"/>
+								<input class="btn btn-success" type="button" value="해당글이동"/>
 							</td>
 						</tr>
 						
@@ -249,6 +285,15 @@
 
 		</form>
 </div>
+</div>
+
+<div id="footer_container" style="margin-top:35px;">
+        <!-- footer -->
+        <jsp:include page="../footer.jsp"/>
+
+</div>
+
+</div> <!-- 이게 끝!!!! -->
 
 <script src="../js/script.js"></script>
 </body>

@@ -24,11 +24,13 @@ public class JoinServlet extends HttpServlet {
     	request.setCharacterEncoding("UTF-8");
 
 		/**파일 업로드**/
-    	String savePath = request.getServletContext().getRealPath("/image");
-		int sizeLimit = 1024*1024*15;
+    	//String savePath = request.getServletContext().getRealPath("image");
+    	String savePath="C:\\Users\\young\\git\\semiprj_toron-in\\src\\main\\webapp\\image";
+    	int sizeLimit = 1024*1024*15;
 		MultipartRequest multi = new MultipartRequest(request, savePath, sizeLimit, "utf-8",  new DefaultFileRenamePolicy());
     	
 		String fileName = multi.getFilesystemName("m_file");
+		
 		System.out.println(savePath); //경로
 		System.out.println(fileName);
 		

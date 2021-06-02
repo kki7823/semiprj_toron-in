@@ -73,7 +73,7 @@
 					
 					<!-- 두번째 li -->
 					<%
-						for(int i=1; i<4; i++){
+						for(int i=1; i<5; i++){
 					%>
 					
 					<li class="list-group-item d-flex justify-content-between lh-sm">

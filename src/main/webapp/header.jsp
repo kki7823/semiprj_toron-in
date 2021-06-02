@@ -16,12 +16,17 @@
     <!--custom css-->
     <link href="css/style.css" type="text/css" rel="stylesheet">
     <style type="text/css">
-	 	
+
 	 	@font-face {
 		    font-family: 'MaplestoryOTFLight';
 		    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/MaplestoryOTFLight.woff') format('woff');
 		    font-weight: normal;
 		    font-style: normal;
+		}
+		
+		.nav>li>a:hover{
+			font-size:1.2em;
+			font-weight:bold;
 		}
 	 	
 	</style>
@@ -64,7 +69,7 @@
         <div id="main_navbox" class="col-10">
             <ul id="main_nav" class="nav">
                 <li class="nav-item">
-                    <a class="nav-link active" id="nav_all" aria-current="page" href="#"><font color="gray">전체</font></a>
+                    <a class="nav-link active" id="nav_all" aria-current="page" href="#"><font color="gray"><b>전체</b></font></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="List?cat=1"><font color="#fb8c00"><b>사회</b></font></a>

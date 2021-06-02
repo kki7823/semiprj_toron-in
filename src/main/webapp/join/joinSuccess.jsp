@@ -33,14 +33,14 @@
 			<div class="row g-3">
 				<div id="member_photo_box">
 					<!-- 파일 구현 후 수정 -->
-					<img id="member_photo" src="../image/default.jpg" />
+					<img id="member_photo" src="image/${member.getPhoto() }" />
 				</div>
 				<div></div>
 				
 				<div class="col-sm-6">
 					<span>아이디</span><span style="color: darkred;">&nbsp;*</span><br />
 					<input type="text" name="id" class="form-control" id="join_idbar"
-						placeholder="영문소문자/숫자, 4~16자" value="${member.getId()}" required="required"
+						placeholder="영문소문자/숫자, 4~16자" value="${member.getId() }" required="required"
 						style="display: inline" />
 
 				</div>

@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <html>
 <head>
     <!--Bootstrap-->
@@ -11,7 +11,7 @@
             crossorigin="anonymous"></script>
 
     <!--custom css-->
-    <link href="css/style.css" type="text/css" rel="stylesheet">
+    <link href="css/style.css?hh" type="text/css" rel="stylesheet">
     <title>글목록</title>
 </head>
 <body>
@@ -25,6 +25,7 @@
                     <tr>
                         <th id="listV_tb_num" scope="col">번호</th>
                         <th id="listV_tb_type" scope="col">종류</th>
+                        <th id="listV_tb_cate" scope="col">카테고리</th>
                         <th id="listV_tb_title" scope="col">제목</th>
                         <th id="listV_tb_id" scope="col">작성자</th>
                         <th id="listV_tb_date" scope="col">작성일</th>
@@ -34,12 +35,14 @@
                     <tbody>
                     <%--for문 작성--%>
                     <c:forEach var="list" items="${requestScope.sList}" begin="0" end="${requestScope.sList.size()}">
+                    	
                         <tr>
                             <th scope="row">${list.no}</th>
                             <td>${list.type}</td>
+                            <td>${list.category}</td>
                             <td><a href="ListDetail?type=${list.type}&no=${list.no}&category_num=${requestScope.category_num}">${list.title}</a></td>
                             <td>${list.id}</td>
-                            <td>${list.w_date}</td>
+                            <td>${fn:substring(list.w_date,0,10)}</td>
                             <td>${list.hit}</td>
                         </tr>
                     </c:forEach>

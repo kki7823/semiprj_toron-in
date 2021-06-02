@@ -1,8 +1,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"
          pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <%@ page import="com.toron.dto.*, com.toron.dao.*" %>
 <%@ page import="java.util.*, java.sql.*" %>
+<%@ page import="java.text.ParseException, java.text.SimpleDateFormat, java.text.DateFormat, java.util.Date" %>
 
 <%
 	ListDAO dao = ListDAO.getInstance();
@@ -47,7 +51,8 @@
             <thead>
             <tr>
                 <th id="main_list_tb_num" scope="col">번호</th>
-                <th id="main_list_tb_type" scope="col">구분</th>
+                <th id="main_list_tb_type" scope="col">종류</th>
+                <th id="main_list_tb_cate" scope="col">카테고리</th>
                 <th id="main_list_tb_title" scope="col">제목</th>
                 <th id="main_list_tb_id" scope="col">작성자</th>
                 <th id="main_list_tb_date" scope="col">작성일</th>
@@ -58,15 +63,18 @@
             
             <%
             	for(int i=0; i<5; i++){
-            %>
-            
+            		String fromW_date=newest_list.get(i).getW_date();
+            		String toW_date=fromW_date.substring(0, 10);
+           %>
+            	
             <tr>
                 <th scope="row"><%=i+1 %></th>
                 <td><%=newest_list.get(i).getType() %></td>
+                <td><%=newest_list.get(i).getCategory() %></td>
                 <td><a href="ListDetail?type=<%=newest_list.get(i).getType() %>&no=<%=newest_list.get(i).getNo() %>&category_num=<%=categorys[i] %>" 
                 style="color: green; text-decoration: none;"><%=newest_list.get(i).getTitle() %></a></td>
                 <td><%=newest_list.get(i).getId() %></td>
-                <td><%=newest_list.get(i).getW_date() %></td>
+                <td><%=toW_date %></td>
                 <td><%=newest_list.get(i).getHit() %></td>
             </tr>
             

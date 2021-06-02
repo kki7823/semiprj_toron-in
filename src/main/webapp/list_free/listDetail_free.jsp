@@ -32,15 +32,23 @@
             <!--Start of mainbox-->
             <div id="listD_mainbox" class="col">
                 <div id="listD_titlebox">
+                
+                <span id="listD_typeNcate">${sessionScope.sList.type } > ${sessionScope.sList.category }</span>
+                <br /><br />
+                
                 <span id="listD_title" style="width: 500px;">${sessionScope.sList.title}
                 </span>
                     <span id="listD_wdate" style="width: 140px;">작성일 ${sessionScope.sList.w_date}</span>
+                    
                     <div id="listD_profile" class="d-flex align-items-center text-center">
-                        <div class="profile_box">
-                            <img class="profile_photo" alt="profile" src="../images/user_profile/sample1.jpeg"/>
-                        </div>
-                        <span id="listD_profile_id">${sessionScope.sList.id}</span><!--아이디 들가는 곳-->
+                    	<a href="../member/memberProfile.jsp" style="display : block;">
+	                        <div class="profile_box">
+	                            <img class="profile_photo" alt="profile" src="../images/user_profile/sample1.jpeg"/>
+	                        </div>
+	                        <span id="listD_profile_id">${sessionScope.sList.id}</span><!--아이디 들가는 곳-->
+                        </a>
                     </div>
+                    
                 </div>
                 <div id="listD_contentsbox">
                     <p id="listD_contents">

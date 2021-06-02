@@ -32,16 +32,24 @@
             <!--Start of mainbox-->
             <div id="listD_mainbox_y" class="col">
                 <div id="listD_titlebox">
+                
+                <span id="listD_typeNcate">${sessionScope.sList.type } > ${sessionScope.sList.category }</span>
+                <br />
+                
                 <span id="listD_title" style="width: 500px;">
                     ${sessionScope.sList.title}
                 </span>
                     <span id="listD_wdate" style="width: 140px;">작성일 ${sessionScope.sList.w_date}</span>
+                   
                     <div id="listD_profile" class="d-flex align-items-center text-center">
-                        <div class="profile_box">
-                            <img class="profile_photo" alt="profile" src="../images/user_profile/sample1.jpeg"/>
-                        </div>
-                        <span id="listD_profile_id">${sessionScope.sList.id}</span><!--닉네임 들가는 곳-->
+                       <a href="../member/memberProfile.jsp" style="display : block;">
+	                        <div class="profile_box">
+	                            <img class="profile_photo" alt="profile" src="../images/user_profile/sample1.jpeg"/>
+	                        </div>
+	                        <span id="listD_profile_id">${sessionScope.sList.id}</span><!--닉네임 들가는 곳-->
+                    	</a>
                     </div>
+                    
                 </div>
                 <!--말풍선 넣는곳-->
                 <c:forEach var="commList" items="${commList}" begin="0" end="${commList.size()}">
