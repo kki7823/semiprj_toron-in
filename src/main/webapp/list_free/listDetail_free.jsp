@@ -19,7 +19,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
             crossorigin="anonymous"></script>
-    <link href="../css/style1.css?122" rel="stylesheet" type="text/css">
+    <link href="../css/style1.css?122a2" rel="stylesheet" type="text/css">
     <script src="../js/comment.js" type="text/javascript"></script>
     <title>상세보기-자유</title>
 </head>
@@ -34,6 +34,13 @@
                 <div id="listD_titlebox">
                 <span id="listD_title" style="width: 500px;">${sessionScope.sList.title}
                 </span>
+                    <!--글 수정 삭제 버튼-->
+                    <c:if test="${sessionScope.loginUser.id eq sessionScope.sList.id}">
+                        <div id="listD_editbox">
+                            <button class="btn btn-primary btn-sm" onclick="location.href='listEdit_free_2.jsp'">수정</button>
+                            <button class="btn btn-primary btn-sm" onclick="location.href='../ListEdit?no=${sessionScope.sList.no}'">삭제</button>
+                        </div>
+                    </c:if>
                     <span id="listD_wdate" style="width: 140px;">작성일 ${sessionScope.sList.w_date}</span>
                     <div id="listD_profile" class="d-flex align-items-center text-center">
                         <div class="profile_box">
@@ -47,43 +54,49 @@
                         ${sessionScope.sList.content}
                     </p>
                 </div>
+                <c:if test="${sessionScope.sList.upload ne null}">
+                    <img src="../images/list_image/${sessionScope.sList.upload}" alt="123"/>
+                </c:if>
                 <h4>comment</h4>
                 <hr class="my-4"/>
-                <c:forEach var="commList" items="${commList}" begin="0" end="${commList.size()}">
-                    <div id="listD_commentbox">
-                        <div class="comment_free">
-                            <div class="profile_box">
-                                <img class="profile_photo" alt="profile" src="../images/user_profile/sample1.jpeg"
-                                     height="85px" width="90px"/>
-                            </div>
-                            <div class="comment_id">
-                                    ${commList.id}
-                            </div>
-                            <form action="../CommentUpdate" method="get">
+                <div id="listD_comment_container">
+                    <c:forEach var="commList" items="${commList}" begin="0" end="${commList.size()}">
+                        <div id="listD_commentbox">
+                            <div class="comment_free">
+                                <div class="profile_box">
+                                    <img class="profile_photo" alt="profile" src="../images/user_profile/sample1.jpeg"
+                                         height="85px" width="90px"/>
+                                </div>
+                                <div class="comment_id">
+                                        ${commList.id}
+                                </div>
+                                <form action="../CommentUpdate" method="get">
                                 <textarea name="comment" id="comment-${commList.commnetNo}" class="comment"
                                           readonly="readonly"
                                           style="resize: none">${commList.comment}</textarea>
-                                <input name="commentno" type="text" value="${commList.commnetNo}" hidden="hidden"/>
-                                    <%--                            <c:if test="${commList.id eq sessionScope.id}">--%>
-                                    <%--                                    로그인 id == 댓글 id 인 경우에만 버튼 활성화 --%>
-                                    <%--                            </c:if>--%>
-                                <div class="comment_btnbox">
-                                    <button id="comment_btn_edit-${commList.commnetNo}" type="button"
-                                            class="btn btn-primary btn-sm" onclick="editComment(${commList.commnetNo})">
-                                        수정
-                                    </button>
-                                    <button id="comment_btn_editconf-${commList.commnetNo}"
-                                            class="btn btn-primary btn-sm" type="submit" style="display: none">완료
-                                    </button>
-                                    <button class="btn btn-primary btn-sm"
-                                            onclick="location.href='../Comment?action=del&commentNo=${commList.commnetNo}'">
-                                        삭제
-                                    </button>
-                                </div>
-                            </form>
+
+                                    <input name="commentno" type="text" value="${commList.commnetNo}" hidden="hidden"/>
+                                    <c:if test="${sessionScope.loginUser.id eq commList.id}">
+                                        <div class="comment_btnbox">
+                                            <button id="comment_btn_edit-${commList.commnetNo}" type="button"
+                                                    class="btn btn-primary btn-sm"
+                                                    onclick="editComment(${commList.commnetNo})">수정
+                                            </button>
+                                            <button id="comment_btn_editconf-${commList.commnetNo}"
+                                                    class="btn btn-primary btn-sm" type="submit" style="display: none">
+                                                완료
+                                            </button>
+                                            <button class="btn btn-primary btn-sm" type="button"
+                                                    onclick="location.href='../Comment?action=del&commentNo=${commList.commnetNo}'">
+                                                삭제
+                                            </button>
+                                        </div>
+                                    </c:if>
+                                </form>
+                            </div>
                         </div>
-                    </div>
-                </c:forEach>
+                    </c:forEach>
+                </div>
                 <div id="listD_commentInbox" class="rounded" style="border: 1pt solid slategrey">
                     <h5 class="text-start" style="margin: 10px">댓글등록</h5>
                     <form name="comment_from" action="../Comment" method="post">
@@ -97,12 +110,16 @@
                 </div>
                 <div id="listD_buttonbox">
                     <hr class="my-4"/>
-                    <button class="btn btn-primary btn-sm" type="submit" style="margin-right: 20px;">목록으로</button>
+                    <button class="btn btn-primary btn-sm" onclick="window.location=document.referrer;"
+                            style="margin-right: 20px;">목록으로
+                    </button>
                 </div>
             </div>
         </div> <!--End of mainbox-->
     </div>
-    <script>loginLock_free(${sessionScope.loginUser.id})</script>
+    <script>
+        loginLock_free("${sessionScope.loginUser.id}");
+    </script>
 </body>
 </html>
 <%-- 프로필 사진 업데이트 하는 방법--%>

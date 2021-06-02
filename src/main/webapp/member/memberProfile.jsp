@@ -144,8 +144,6 @@
                         <label class="form-check-label" for="ect">기타</label>
                     </div>
                 </div>
-
-
             </div>
             <!-- End of join_mainbox -->
             <div id="join_buttonbox">

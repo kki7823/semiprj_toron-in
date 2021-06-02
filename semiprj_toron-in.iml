@@ -39,5 +39,6 @@
     <orderEntry type="library" name="Maven: taglibs:standard:1.1.2" level="project" />
     <orderEntry type="library" name="Maven: jstl:jstl:1.2" level="project" />
     <orderEntry type="library" name="cos" level="project" />
+    <orderEntry type="library" name="jquery-latest" level="application" />
   </component>
 </module>

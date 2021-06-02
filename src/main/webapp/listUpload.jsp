@@ -10,19 +10,21 @@
             crossorigin="anonymous"></script>
     <link href="css/style1.css?ver=s2a2 " rel="stylesheet" type="text/css">
     <script src="js/list.js" type="text/javascript"></script>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
     <title>글쓰기</title>
 </head>
 <body>
     <div id="container" class="container-lg" style="border: 1pt solid">
         <div id="listU_mainbox" class="container-lg">
-            <form id="listU_from" action="ListUpdate" method="post">
-                <div id="listU_titleheader" class="py-5 text-center" style="border: 1pt solid">
-                    <h2>글작성</h2>
-                    <hr class="my-4">
-                </div>
+            <div id="listU_titleheader" class="py-5 text-center" style="border: 1pt solid">
+                <h2>글작성</h2>
+                <hr class="my-4">
+            </div>
+            <form name="listU_from" action="ListUpload" method="post" enctype="multipart/form-data">
                 <div id="listU_row1" class="row" style="border: 1pt solid">
                     <div id="listU_formatbox" class="col" style="border: 1pt solid">
                         <span>양식&nbsp;</span>
+                        <input type="text" name="list_id" value="${sessionScope.loginUser.id}" hidden="hidden">
                         <select name="list_type" id="listU_format" class="form-select" aria-label="listU_format"
                                 onchange="hiddenContents()">
                             <option value="0" selected>토론 양식</option>
@@ -53,14 +55,26 @@
                     <textarea name="list_contents" id="listU_contentsarea" class="form-control" rows="20"></textarea>
                 </div>
                 <div id="listU_upload" style="border: 1pt solid">
-                    <span>파일 첨부</span>
+                    <span>이미지 첨부</span>
                     <input name="list_upload" class="form-control" type="file" id="listU_uploadbar"/>
+                    <div class="list_img"><img id="listU_upload_img" src=""/></div>
+                    <script>
+                        $("#listU_uploadbar").change(function () {
+                            if (this.files && this.files[0]) {
+                                var reader = new FileReader;
+                                reader.onload = function (data) {
+                                    $(".list_img img").attr("src", data.target.result).width(500);
+                                }
+                                reader.readAsDataURL(this.files[0]);
+                            }
+                        });
+                    </script>
+                </div>
+                <div id="listU_buttonbox" class="col">
+                    <button class="btn btn-primary btn-lg" onclick="checkParam()">저장</button>
+                    <button class="btn btn-primary btn-lg" onclick="window.location=document.referrer;">취소</button>
                 </div>
             </form>
-            <div id="listU_buttonbox" class="col">
-                <button class="btn btn-primary btn-lg" onclick="checkParam()">저장</button>
-                <button class="btn btn-primary btn-lg">취소</button>
-            </div>
         </div>
     </div>
 </body>

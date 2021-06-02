@@ -10,8 +10,13 @@ import java.io.PrintWriter;
 
 @WebServlet(name = "CommentServlet_yesno", value = "/CommentYn")
 public class CommentServletYn extends HttpServlet {
+
+    public CommentServletYn() {
+    }
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         response.setCharacterEncoding("UTF-8");
         CommentDAO commDAO = CommentDAO.getInstance();
         String action = request.getParameter("action");
@@ -23,6 +28,7 @@ public class CommentServletYn extends HttpServlet {
             response.setContentType("text/html; charset=UTF-8");
             result = commDAO.deleteCommentYn(commetNo);
             if (result > 0) {
+                System.out.println("안됀다");
                 out.println("<script>alert('댓글이 삭제 되었습니다.'); location.href='list_yesno/listDetail_yesno.jsp';</script>");
                 out.flush();
             } else {

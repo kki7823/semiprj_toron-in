@@ -15,9 +15,13 @@ public class ListBean {
     public ListBean() {
     }
 
-    public int getNo() { return no; }
+    public int getNo() {
+        return no;
+    }
 
-    public void setNo(int no) { this.no = no; }
+    public void setNo(int no) {
+        this.no = no;
+    }
 
     public String getType() {
         return type;
@@ -75,9 +79,7 @@ public class ListBean {
         this.hit = hit;
     }
 
-    public String getUpload() {
-        return upload;
-    }
+    public String getUpload() { return upload; }
 
     public void setUpload(String upload) {
         this.upload = upload;

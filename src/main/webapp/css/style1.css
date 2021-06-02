@@ -306,6 +306,11 @@
     width: 790px;
 }
 
+#listU_upload_img{
+    display: block;
+    margin : 10px auto;
+}
+
 #listU_buttonbox {
     float: right;
 }
@@ -315,14 +320,20 @@
 #listD_container {
     text-align: center;
     width: 1400px;
-    height: 1500px;
     border: 1pt solid;
+    padding: 30px;
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 #listD_mainbox {
     width: 1000px;
-    height: 1200px;
     margin-top: 50px;
+}
+
+#listD_editbox{
+    display: inline;
+    float: right;
 }
 
 
@@ -404,6 +415,9 @@
     text-align: left;
 }
 
+#listD_comment_container{
+}
+
 #listD_contentsbox {
     margin-top: 14px;
 }
@@ -417,7 +431,7 @@
 #listD_commentInbox {
     width: 970px;
     text-align: right;
-    margin: 0 auto;
+    margin: 30px auto 0;
 }
 
 #listD_commentIn {

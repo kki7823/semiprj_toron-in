@@ -14,6 +14,7 @@
     <!--custom css-->
     <link href="css/style1.css" type="text/css" rel="stylesheet">
     <title>글목록</title>
+    <script src="js/list.js" type="text/javascript"></script>
 </head>
 <body>
     <div id="listV_container" class="container-xxl">
@@ -38,7 +39,7 @@
                         <tr>
                             <th scope="row">${list.no}</th>
                             <td>${list.type}</td>
-                            <td><a href="ListDetail?type=${list.type}&no=${list.no}">${list.title}</a></td>
+                            <td><a href="ListDetail?type=${list.type}&no=${list.no}&category_num=${requestScope.category_num}">${list.title}</a></td>
                             <td>${list.id}</td>
                             <td>${list.w_date}</td>
                             <td>${list.hit}</td>
@@ -48,7 +49,7 @@
                 </table><!--End of listV_table-->
                 <div id="listV_buttonbox">
                     <hr class="my-4"/>
-                    <button class="btn btn-primary btn-sm" onclick="location.href='listUpload.jsp'">글작성</button>
+                    <button class="btn btn-primary btn-sm" onclick=uploadLock("${sessionScope.loginUser.id}")>글작성</button>
                 </div>
             </div>
         </div>

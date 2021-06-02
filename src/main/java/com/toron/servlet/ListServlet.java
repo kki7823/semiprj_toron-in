@@ -23,8 +23,13 @@ public class ListServlet extends HttpServlet {
         ArrayList<ListBean> selectList = new ArrayList<>();
         ListDAO lDAO = ListDAO.getInstance();
 
-        String category = null;
-        switch (request.getParameter("cat")) {
+        //안된다~~~~~
+        //목록으로 가기위해서 카테고리 숫자 변수 따로 만듦(1,2,3.. 저장)
+        String category_num = request.getParameter("cat");
+
+        //dao수행 위해 카테고리 한글 저장
+        String category;
+        switch (category_num) {
             case "0":
                 selectList=lDAO.selectListAll();
                 break;
@@ -52,6 +57,9 @@ public class ListServlet extends HttpServlet {
                 //기타
                 break;
         }
+        //목록으로 가기 위해서 저장해놓음 , 확인 콘솔창 메시지
+        request.setAttribute("category_num", category_num);
+        System.out.println("ListServlet의 "+category_num);
 
         request.setAttribute("sList",selectList);
         RequestDispatcher dispatcher = request.getRequestDispatcher("listView.jsp");

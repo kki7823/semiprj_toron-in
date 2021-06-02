@@ -52,8 +52,10 @@
                                     <div class="balloon_yes">
                                         <div class="balloon_id">${commList.id} 님:</div>
                                             ${commList.comment} <br/>
-                                        <a id="listD_button_del" href="../CommentYn?action=del&commentNo=${commList.commnetNo}">×</a>
-<%--                                        <button id="listD_button_del" onclick="location.href='../CommentYn?action=del&commentNo=${commList.commnetNo}'">삭제</button>--%>
+                                        <c:if test="${sessionScope.loginUser.id eq commList.id}">
+                                        <a id="listD_button_del"
+                                           href="../CommentYn?action=del&commentNo=${commList.commnetNo}">×</a>
+                                        </c:if>
                                     </div>
                                 </div>
                             </div>
@@ -65,7 +67,10 @@
                                     <div class="balloon_no">
                                         <div class="balloon_id">${commList.id} 님:</div>
                                             ${commList.comment} <br/>
-                                        <a id="listD_button_del" href="../CommentYn?action=del&commentNo=${commList.commnetNo}">×</a>
+                                        <c:if test="${sessionScope.loginUser.id eq commList.id}">
+                                            <a id="listD_button_del"
+                                               href="../CommentYn?action=del&commentNo=${commList.commnetNo}">×</a>
+                                        </c:if>
                                     </div>
                                 </div>
                             </div>
@@ -81,7 +86,7 @@
                             <input type="radio" name="yesno" value="no"/>반대
                         </div>
                         <textarea name="comment_i" id="listD_commentIn_y" rows="4"></textarea>
-                                <input name="comment_id" type="text" value="${sessionScope.loginUser.id}" hidden="hidden">
+                        <input name="comment_id" type="text" value="${sessionScope.loginUser.id}" hidden="hidden">
                         <input name="comment_postno" type="text" value="${sessionScope.sList.no}"
                                hidden="hidden">
                         <button class="btn btn-outline-secondary btn-lg" type="submit" style="margin: 10px">등록
@@ -90,7 +95,8 @@
                 </form>
                 <div id="listD_buttonbox">
                     <hr class="my-4"/>
-                    <button class="btn btn-primary btn-sm" type="submit" style="margin-right: 20px;">목록으로
+                    <button class="btn btn-primary btn-sm" onclick="location.href='../List?cat=3'"
+                            style="margin-right: 20px;">목록으로
                     </button>
                 </div>
             </div> <!--End of mainbox-->

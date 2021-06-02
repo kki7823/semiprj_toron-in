@@ -2,16 +2,6 @@
          pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page import="com.toron.dto.*" %>
-<%@ page import="javax.servlet.*, java.io.*"%>
-<%
-    MemberBean member=new MemberBean();
-    member=(MemberBean)session.getAttribute("loginUser");
-
-    if(member != null){%>
-<script>
-    alert("로그인되었습니다.");
-</script>
-<%} %>
 <html>
 <head>
     <!--Bootstrap-->
@@ -52,9 +42,7 @@
             <div id="main_newestbox">
                 <jsp:include page="newestList.jsp"/>
             </div>
-
         </div>
-
     </div>
 
     <div id="footer_container">

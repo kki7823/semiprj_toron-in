@@ -33,7 +33,7 @@
 <body>
     <div id="main_header_top" class="row">
         <div id="main_logobox" class="col">
-            <img src="image/discuss.png" alt="logo" height="90px" width="90px"/>
+            <img src="images/discuss.png" alt="logo" height="90px" width="90px"/>
         </div>
 
         <!-- 검색 창 -->
@@ -62,12 +62,11 @@
         <%} %>
     </div>
 
-
     <div id="main_header_bottom" class="row" style="background-color:#f2f2df;">
         <div id="main_navbox" class="col-10">
             <ul id="main_nav" class="nav">
                 <li class="nav-item">
-                    <a class="nav-link active" id="nav_all" aria-current="page" href="#"><font
+                    <a class="nav-link active" id="nav_all" aria-current="page" href="List?cat=0"><font
                             color="gray">전체</font></a>
                 </li>
                 <li class="nav-item">

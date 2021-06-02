@@ -1,6 +1,7 @@
 package com.toron.dao;
 
 import com.toron.dto.ListBean;
+import com.toron.dto.ListSum_id;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -49,14 +50,13 @@ public class ListDAO extends DAO {
     // 찬반토론 작성글 insert
     public int insertPost_yn(ListBean listBean) {
         try {
-            String query = "insert into tbllist_yesno (no,type,category,title,id,upload) values (seqlist.nextval,?,?,?,?,?)";
+            String query = "insert into tbllist_yesno (no,type,category,title,id) values (seqlist.nextval,?,?,?,?)";
             conn = getConnection();
             pstmt = conn.prepareStatement(query);
             pstmt.setString(1, listBean.getType());
             pstmt.setString(2, listBean.getCategory());
             pstmt.setString(3, listBean.getTitle());
             pstmt.setString(4, listBean.getId());
-            pstmt.setString(5, listBean.getUpload());
             result = pstmt.executeUpdate();
             System.out.println("찬반글 삽입 완료");
 
@@ -204,6 +204,7 @@ public class ListDAO extends DAO {
             t_list_one.setId(rs.getString("id"));
             t_list_one.setW_date(rs.getString("w_date"));
             t_list_one.setHit(rs.getInt("hit"));
+            t_list_one.setUpload(rs.getString("upload"));
             t_list_one.setGood(rs.getInt("good"));
 
         } catch (SQLException e) {
@@ -338,6 +339,185 @@ public class ListDAO extends DAO {
         }
 
         return c_list;
+    }
+
+    /**조회수 증가 메소드 (Free ver.)**/
+    public void updateHit_free(int no) {
+        String sql = "update tbllist_free set hit=hit+1 where no=?";
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+
+        try {
+            conn=getConnection();
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, no);
+
+            pstmt.executeUpdate();
+        } catch (Exception e) {
+            System.err.println("ListDAO - updateHit_free ERR: " + e.getMessage());
+        } finally {
+            closeConnection(conn, pstmt);
+        }
+
+    }
+
+    /**조회수 증가 메소드 (yesno ver.)**/
+    public void updateHit_yserno(int no) {
+        String sql = "update tbllist_yesno set hit=hit+1 where no=?";
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+
+        try {
+            conn=getConnection();
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, no);
+
+            pstmt.executeUpdate();
+        } catch (Exception e) {
+            System.err.println("ListDAO - updateHit_yserno ERR: " + e.getMessage());
+        } finally {
+            closeConnection(conn, pstmt);
+        }
+
+    }
+
+    /****best.jsp에서 사용하는 인기글(조회수 기준) 메소드****/
+    public ArrayList<ListBean> selectListByHit(){
+        Connection conn = null;
+        Statement stmt = null;
+        ResultSet rs = null;
+
+        String query ="select no, type, category, title, id, hit from tbllist_free \n" +
+                "union \n" +
+                "select no, type, category, title, id, hit from tbllist_yesno \n" +
+                "order by hit desc";
+
+        ArrayList<ListBean> best_list = new ArrayList<ListBean>();
+
+        try {
+            conn = getConnection();
+            stmt = conn.createStatement();
+            rs = stmt.executeQuery(query);
+
+            while (rs.next()) {
+                ListBean b_list_one = new ListBean();
+                b_list_one.setNo(rs.getInt("no"));
+                b_list_one.setType(rs.getString("type"));
+                b_list_one.setCategory(rs.getString("category"));
+                b_list_one.setTitle(rs.getString("title"));
+                b_list_one.setId(rs.getString("id"));
+                b_list_one.setHit(rs.getInt("hit"));
+
+                best_list.add(b_list_one);
+            }
+        } catch (SQLException e) {
+            System.err.println("ListDAO - selectListByHit SQL ERR: " + e.getMessage());
+
+        } finally {
+            closeConnection(conn, pstmt, rs);
+        }
+
+        return best_list;
+    }
+
+    /**newestList.jsp에서 사용하는 최신글 메소드**/
+    public ArrayList<ListBean> selectList_newest() {
+        Connection conn = null;
+        Statement stmt = null;
+        ResultSet rs = null;
+        String query = "SELECT NO,TYPE,category,title,ID,W_DATE,hit FROM TBLLIST_FREE \n" +
+                "UNION \n" +
+                "SELECT NO,TYPE,category,title,ID,W_DATE,hit FROM TBLLIST_YESNO \n" +
+                "order by w_date desc";
+
+        ArrayList<ListBean> newest_list = new ArrayList<ListBean>();
+
+        try {
+            conn = getConnection();
+            stmt = conn.createStatement();
+            rs = stmt.executeQuery(query);
+
+            while (rs.next()) {
+                ListBean n_list_one = new ListBean();
+                n_list_one.setNo(rs.getInt("no"));
+                n_list_one.setType(rs.getString("type"));
+                n_list_one.setCategory(rs.getString("category"));
+                n_list_one.setTitle(rs.getString("title"));
+                n_list_one.setId(rs.getString("id"));
+                n_list_one.setW_date(rs.getString("w_date"));
+                n_list_one.setHit(rs.getInt("hit"));
+
+                newest_list.add(n_list_one);
+            }
+        } catch (SQLException e) {
+            System.err.println("ListDAO - selectList_newest SQL ERR: " + e.getMessage());
+
+        } finally {
+            closeConnection(conn, pstmt, rs);
+        }
+
+        return newest_list;
+    }
+
+    /**utill/hotKeyword.jsp에서 사용하는 토론왕(글 작성 개수 기준) 메소드**/
+    public ArrayList<ListSum_id> bestUser(){
+        Connection conn = null;
+        Statement stmt = null;
+        ResultSet rs = null;
+        String query ="select id, count(id) as list_sum \n" +
+                "from tbllist_free \n" +
+                "group by id \n" +
+                "union \n" +
+                "select id, count(id) as list_sum \n" +
+                "from tbllist_yesno \n" +
+                "group by id";
+
+        ArrayList<ListSum_id> m_list = new ArrayList<ListSum_id>();
+
+        try {
+            conn = getConnection();
+            stmt = conn.createStatement();
+            rs = stmt.executeQuery(query);
+
+            while (rs.next()) {
+                ListSum_id n_list_one = new ListSum_id();
+                n_list_one.setId(rs.getString("id"));
+                n_list_one.setListSum(rs.getInt("list_sum"));
+
+                m_list.add(n_list_one);
+            }
+
+        } catch (SQLException e) {
+            System.err.println("ListDAO - bestUser ERR: " + e.getMessage());
+
+        } finally {
+            closeConnection(conn, pstmt, rs);
+        }
+
+        return m_list;
+    }
+
+    //글삭제
+    public int deleteList_free (int no) {
+        String sql = "DELETE  FROM TBLLIST_FREE WHERE NO = ?";
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        int result = 0;
+
+        try {
+            conn=getConnection();
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, no);
+
+            result = pstmt.executeUpdate();
+
+        } catch (Exception e) {
+            System.err.println("ListDAO - updateHit_yserno ERR: " + e.getMessage());
+        } finally {
+            closeConnection(conn, pstmt);
+        }
+
+        return result;
     }
 }
 
