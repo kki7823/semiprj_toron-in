@@ -29,7 +29,7 @@
 	<form action="IdCheckServlet" method="get" name="join">
 		아이디&nbsp;&nbsp;<input type="text" name="userId" value="${userId }" />
 		
-		<input type="submit" class="btn btn-success" value="중복체크" onclick="return idCheck()"/>
+		<input type="submit" class="btn btn-success" value="중복체크" />
 		<br />
 		
 		<c:if test="${result ==1 }">
