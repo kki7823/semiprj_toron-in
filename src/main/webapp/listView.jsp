@@ -13,12 +13,25 @@
     <!--custom css-->
     <link href="css/style.css?hh" type="text/css" rel="stylesheet">
     <title>글목록</title>
+    <style type="text/css">
+    	#listV_table>tbody>tr>td>a:hover{
+    		font-weight:bold;
+    	}
+    </style>
 </head>
 <body>
-    <div id="listV_container" class="container-xxl">
+<div id="header_container">
+        <!-- header -->
+        <jsp:include page="header.jsp"/>
+    </div>
+    
+    <div style="background-color:#e9f2e9;">
+    <div id="listV_container" class="container-xxl" style="padding:20px;">
         <div id="listV_mainrow" class="row">
             <jsp:include page="listNav.jsp"/>
-            <div id="listV_mainbox" class="col">
+            <div id="listV_mainbox" class="col" style="background-color:white; border: 3px solid #8e9c90; border-radius:20px; margin-left:20px; padding:20px;">
+                <span class="fs-4"><font color="green"; style="font-family:'MaplestoryOTFLight';"><b>&nbsp;&nbsp;&nbsp;&nbsp;List</b></font></span>
+                
                 <!--Start of listV_table-->
                 <table id="listV_table" class="table table-hover">
                     <thead>
@@ -40,7 +53,7 @@
                             <th scope="row">${list.no}</th>
                             <td>${list.type}</td>
                             <td>${list.category}</td>
-                            <td><a href="ListDetail?type=${list.type}&no=${list.no}&category_num=${requestScope.category_num}">${list.title}</a></td>
+                            <td><a style="color: green; text-decoration: none; " href="ListDetail?type=${list.type}&no=${list.no}&category_num=${requestScope.category_num}">${list.title}</a></td>
                             <td>${list.id}</td>
                             <td>${fn:substring(list.w_date,0,10)}</td>
                             <td>${list.hit}</td>
@@ -50,10 +63,16 @@
                 </table><!--End of listV_table-->
                 <div id="listV_buttonbox">
                     <hr class="my-4"/>
-                    <button class="btn btn-primary btn-sm" onclick="location.href='listUpload.jsp'">글작성</button>
+                    <button class="btn btn-success" onclick="location.href='listUpload.jsp'">글작성</button>
                 </div>
             </div>
         </div>
+    </div>
+    </div><!-- 이게 끝이다!! -->
+    
+     <div id="footer_container">
+        <!-- footer -->
+        <jsp:include page="footer.jsp"/>
     </div>
 </body>
 </html>

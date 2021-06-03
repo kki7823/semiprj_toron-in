@@ -243,11 +243,11 @@
 }
 
 #listV_tb_num {
-    width: 50px; 
+    width: 70px; 
 }
 
 #listV_tb_title {
-    width: 820px;
+    width: 800px;
 }
 
 #listV_tb_type {
@@ -255,7 +255,7 @@
 }
 
 #listV_tb_cate{
-	width: 100px;
+	width: 120px;
 }
 
 #listV_tb_id {
@@ -267,7 +267,7 @@
 }
 
 #listV_tb_hit {
-    width: 100px;
+    width: 90px;
 }
 
 #listV_buttonbox {
@@ -281,6 +281,8 @@
     width: 1000px;
     height: 1200px;
     margin-top: 50px;
+    text-align : center;
+
 }
 
 #listU_mainbox > div {
@@ -308,16 +310,16 @@
 
 #listU_titlebar {
     display: inline;
-    width: 790px;
+  	width: 950px;
 }
 
 #listU_uploadbar {
     display: inline;
-    width: 790px;
+    width: 950px;
 }
 
 #listU_buttonbox {
-    float: right;
+	display : inline-block;
 }
 
 

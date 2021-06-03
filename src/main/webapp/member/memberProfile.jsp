@@ -32,7 +32,7 @@
             crossorigin="anonymous"></script>
 
     <!--custom css-->
-    <link href="../css/style.css?n" type="text/css" rel="stylesheet">
+    <link href="../css/style.css?nd" type="text/css" rel="stylesheet">
     <meta charset="UTF-8">
     <title>memberProfile</title>
 </head>
@@ -43,7 +43,7 @@
         <jsp:include page="../header.jsp"/>
     </div>
     
-	<div class="container-lg" style="background-color:white; margin-top:35px;">
+	<div class="container-lg" style="background-color:white; margin-top:55px; border: 3px solid #8e9c90; border-radius:20px;">
 	<div id="memberP_con" class="container-lg" style="margin-top:20px; padding:30px;">
 		<div id="memP_title">
 			<h2>개인정보</h2>
@@ -235,7 +235,7 @@
 							<td><%=m_list_one.getCategory() %></td>
                 
 							<!-- 여기에 해당 글로 갈 수 있게 링크-->
-							<td><a style="color: green; text-decoration: none;" href="ListDetail?type=<%=m_list_one.getType() %>&no=<%=m_list_one.getNo() %>&category_num=<%=categorys[i] %>"><%=m_list_one.getTitle() %></a></td>
+							<td><a href="../ListDetail?type=<%=m_list_one.getType() %>&no=<%=m_list_one.getNo() %>&category_num=<%=categorys[i] %>" style="color: green; text-decoration: none;"><%=m_list_one.getTitle() %></a></td>
 							
 							<td><%=m_list_one.getW_date()%></td>
 							<td><%=m_list_one.getHit() %></td>
