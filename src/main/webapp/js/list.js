@@ -5,7 +5,7 @@ function checkParam() {
     var type = document.getElementById('listU_format').selectedIndex;
 
     if (listT.options[type].value === '0') {
-        // alert("토론양식이 선택되지 않았습니다.");
+        alert("토론양식이 선택되지 않았습니다.");
         alert(listT.options[type].innerText);
         document.getElementById('listU_format').focus();
         return;

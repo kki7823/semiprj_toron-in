@@ -24,10 +24,13 @@ public class JoinServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
 
         /**파일 업로드**/
-        String savePath = request.getServletContext().getRealPath("/images");
+        //String savePath = request.getServletContext().getRealPath("image");
+        String savePath = request.getSession().getServletContext().getRealPath("images/user_profile");
         int sizeLimit = 1024*1024*15;
         MultipartRequest multi = new MultipartRequest(request, savePath, sizeLimit, "utf-8",  new DefaultFileRenamePolicy());
+
         String fileName = multi.getFilesystemName("m_file");
+
         System.out.println(savePath); //경로
         System.out.println(fileName);
 
@@ -61,6 +64,7 @@ public class JoinServlet extends HttpServlet {
         request.setAttribute("member", member);
         request.setAttribute("userId", userId);
 
+        response.setCharacterEncoding("UTF-8");
         RequestDispatcher rd=request.getRequestDispatcher("join/joinSuccess.jsp");
         rd.forward(request, response);
 

@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.toron.dao.MemberDAO;
 
@@ -22,7 +23,7 @@ public class IdCheckServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //아이디 중복확인 클릭 -> 중복확인용 새 창 -> id 값 get방식으로 넘어옴
         String userId=request.getParameter("userId");
-
+        HttpSession session = request.getSession();
         MemberDAO dao=MemberDAO.getInstance();
         int result;
 
@@ -39,6 +40,8 @@ public class IdCheckServlet extends HttpServlet {
 
         RequestDispatcher rd=request.getRequestDispatcher("join/idCheck.jsp");
         rd.forward(request, response);
+
+//        response.sendRedirect("/semiprj_toron_in/join/idCheck.jsp");
     }
 
     /**

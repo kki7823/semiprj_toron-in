@@ -17,23 +17,23 @@
             integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
             crossorigin="anonymous"></script>
 
-    <link href="../css/style1.css?ver=2222" rel="stylesheet" type="text/css">
+    <link href="../css/style1.css?ver=2122" rel="stylesheet" type="text/css">
     <title>로그인</title>
 </head>
-<body>
+<body style="background-color:#e9f2e9;">
     <div id="container" class="container-lg">
         <div id="login_form">
             <form action="../Login" method="post">
-                <img class="mb-4" src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="Logo" width="72" height="57">
+                <img class="mb-4" src="/semiprj_toron_in/images/discuss.png" alt="Logo" width="130" height="130">
                 <h1 id="login_title" class="h3 mb-3 fw-normal">로그인</h1>
 
                 <div id="login_idbox" class="form-floating">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="아이디" name="login_id">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="아이디" name="login_id" style="margin: 10px">
                     <label for="floatingInput">아이디</label>
                 </div>
                 <div id="login_pwbox" class="form-floating">
                     <input type="password" class="form-control" id="floatingPassword" placeholder="비밀번호"
-                           name="login_pw">
+                           name="login_pw" style="margin: 10px">
                     <label for="floatingPassword">비밀번호</label>
                 </div>
 
@@ -42,10 +42,15 @@
                         <input type="checkbox" value="remember-me"> 아이디 기억하기
                     </label>
                 </div>
-                <input type="submit" id="login_button" class="w-100 btn btn-lg btn-primary" value="로그인"/>
-                <p class="mt-5 mb-3 text-muted">© 2017–2021</p>
+                <input type="submit" id="login_button" class="w-100 btn btn-lg btn-success" value="로그인"/>
+                <p class="mt-5 mb-3 text-muted">토론in 김경일 - 이영</p>
             </form>
         </div>
     </div>
+    <div id="footer_container">
+        <!-- footer -->
+        <jsp:include page="../footer.jsp"/>
+    </div>
+
 </body>
 </html>

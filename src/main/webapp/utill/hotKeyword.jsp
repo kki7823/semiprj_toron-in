@@ -30,7 +30,7 @@
             crossorigin="anonymous"></script>
 
 
-    <link href="../css/style.css" type="text/css" rel="stylesheet">
+    <link href="../css/style1.css" type="text/css" rel="stylesheet">
     <style type="text/css">
         .bg-primary {background-color: #e8c992!important;}
     </style>
@@ -73,7 +73,7 @@
 
                         <!-- 두번째 li -->
                         <%
-                            for(int i=1; i<4; i++){
+                            for(int i=1; i<5; i++){
                         %>
 
                         <li class="list-group-item d-flex justify-content-between lh-sm">

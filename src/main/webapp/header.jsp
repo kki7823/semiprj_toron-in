@@ -15,7 +15,7 @@
             crossorigin="anonymous"></script>
 
     <!--custom css-->
-    <link href="css/style1.css" type="text/css" rel="stylesheet">
+    <link href="css/style1.css?!111" type="text/css" rel="stylesheet">
     <style type="text/css">
 
         @font-face {
@@ -25,6 +25,11 @@
             font-style: normal;
         }
 
+        .nav > li > a:hover {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
     </style>
 
     <meta charset="UTF-8">
@@ -32,20 +37,22 @@
 </head>
 <body>
     <div id="main_header_top" class="row">
-        <div id="main_logobox" class="col">
-            <img src="images/discuss.png" alt="logo" height="90px" width="90px"/>
+        <div id="main_logobox" class="col" style="position: relative; bottom: 0px; left: 20px">
+            <img src="/semiprj_toron_in/images/discuss1.png" alt="logo" height="130px" width="250"
+                 onclick="location.href='/semiprj_toron_in/main.jsp'"/>
         </div>
 
         <!-- 검색 창 -->
-        <div id="main_searchbox" class="col-6">
+        <div id="main_searchbox" class="col-6" style="position: relative;">
             <form action="Search" method="post">
-                <input name="search" type="search" id="form1" size="50"/>
-                <button type="submit" class="btn btn-success">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="18" fill="currentColor" class="bi bi-search"
-                 viewBox="0 0 16 16">
-                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
-            </svg>
-            </button>
+                <input name="search" type="search" id="form1" size="50" style="height: 40px; border: 2px green solid"/>
+                <button type="submit" class="btn btn-success" style="position: relative; bottom: 2px">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="26" fill="currentColor"
+                         class="bi bi-search"
+                         viewBox="0 0 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
+                    </svg>
+                </button>
             </form>
         </div>
         <!-- 미니 -->
@@ -62,50 +69,54 @@
         <%} %>
     </div>
 
-    <div id="main_header_bottom" class="row" style="background-color:#f2f2df;">
-        <div id="main_navbox" class="col-10">
+    <div id="main_header_bottom" style="background-color:#f2f2df;">
+        <div id="main_navbox">
             <ul id="main_nav" class="nav">
                 <li class="nav-item">
-                    <a class="nav-link active" id="nav_all" aria-current="page" href="List?cat=0"><font
+                    <a class="nav-link active" id="nav_all" aria-current="page"
+                       href="/semiprj_toron_in/List?cat=0"><font
                             color="gray">전체</font></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="List?cat=1"><font color="#fb8c00"><b>사회</b></font></a>
+                    <a class="nav-link" href="/semiprj_toron_in/List?cat=1"><font color="#fb8c00"><b>사회</b></font></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="List?cat=2"><font color="#4db6ac"><b>건강</b></font></a>
+                    <a class="nav-link" href="/semiprj_toron_in/List?cat=2"><font color="#4db6ac"><b>건강</b></font></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="List?cat=3"><font color="#fb8c00"><b>연애</b></font></a>
+                    <a class="nav-link" href="/semiprj_toron_in/List?cat=3"><font color="#fb8c00"><b>연애</b></font></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="List?cat=4"><font color="#4db6ac"><b>학업</b></font></a>
+                    <a class="nav-link" href="/semiprj_toron_in/List?cat=4"><font color="#4db6ac"><b>학업</b></font></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="List?cat=5"><font color="#fb8c00"><b>직장</b></font></a>
+                    <a class="nav-link" href="/semiprj_toron_in/List?cat=5"><font color="#fb8c00"><b>직장</b></font></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="List?cat=99"><font color="#4db6ac"><b>기타</b></font></a>
+                    <a class="nav-link" href="/semiprj_toron_in/List?cat=99"><font color="#4db6ac"><b>기타</b></font></a>
                 </li>
             </ul>
         </div>
-        <div id="main_loginbox" class="d-flex justify-content-evenly align-items-center col">
+        <div id="main_loginbox">
             <%
                 if (member == null) {
             %>
-            <input class="btn btn-success" type="button" value="로그인" onclick="location.href='login/loginForm.jsp'"/>
+            <input class="btn btn-success " type="button" value="로그인"
+                   onclick="location.href='/semiprj_toron_in/login/loginForm.jsp'"
+                   style="width: 90px;"/>
             <%} else {%>
-            <input class="btn btn-success" type="button" value="로그아웃" onclick="location.href='Login'"/>
+            <input class="btn btn-success " type="button" value="로그아웃" onclick="location.href='/semiprj_toron_in/Login'"
+                   style="  width: 90px; "/>
             <%} %>
-            <input class="btn btn-success" type="submit" value="회원가입" onclick="location.href='join/joinForm.jsp'"/>
+            <input class="btn btn-success" type="submit" value="회원가입"
+                   onclick="location.href='/semiprj_toron_in/join/joinForm.jsp'"
+                   style=" width: 90px;"/>
         </div>
     </div>
     <div id="main_body" class="row">
         <div id="main_sidebox" class="col">
-
         </div>
         <div id="main_" class="col">
-
         </div>
     </div>
 </body>

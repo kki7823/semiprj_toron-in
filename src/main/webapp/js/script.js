@@ -77,27 +77,61 @@ function ckeckJoin(){
         join.userId.focus();
         return false;
     }
+
+    /**비밀번호 유효성 검사**/
+    var pw = document.join.userPwd.value;
+    var num = pw.search(/[0-9]/g);
+    var eng = pw.search(/[a-z]/ig);
+    var spe = pw.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
+
+    if (pw.length < 10 || pw.length > 20) {
+        alert("비밀번호를 10자리 ~ 20자리 이내로 입력해야합니다.");
+        return false;
+    } else if (pw.search(/\s/) != -1) {
+        alert("비밀번호는 공백 없이 입력해주세요.");
+        return false;
+    } else if ((num < 0 && eng < 0) || (eng < 0 && spe < 0)
+        || (spe < 0 && num < 0)) {
+        alert("비밀번호는 영문,숫자, 특수문자 중 2가지 이상을 혼합하여 입력해야합니다.");
+        return false;
+    }
+
     document.join.submit();
 }
 
-/**아이디 중복확인**/
+/** 아이디 중복확인* */
 // 아이디 중복확인 클릭 시 함수
 function idCheck(){
+    // 로그인 서블릿에 get방식으로 정보 전달하여 작업
+    // var url = "../IdCheck?userId=" + document.join.userId.value;
+
+    var regulid = /^[a-zA-Z0-9]{4,12}$/;
     if (document.join.userId.value == "") {
         alert("아이디를 입력 해주세요.");
         document.join.userId.focus();
         return;
     }
-    // 로그인 서블릿에 get방식으로 정보 전달하여 작업
+
+    if(!regulid.test(document.join.userId.value)){
+        alert("아이디는 영문 대소문자와 숫자 4~12자리로 입력해야합니다.");
+        document.join.userId.focus();
+        return false;
+    }
+
     var url = "../IdCheck?userId=" + document.join.userId.value;
     window.open(url, "_blank_1", "toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=450, height=200");
 }
 
-// 아이디 중복확인 새 창에서 중복확인 완료된 아이디 사용 버튼 클릭시
+
+// 아이디 중복확인 새 창에서 중복확인 완료된 아이디 버튼 클릭시
 function idok(userId) {
+    // var id = opener.join.userId.value;
+    // var hidden_id = opener.join.hidden_idCheck.value;
     opener.join.userId.value = document.join.userId.value;
     opener.join.hidden_idCheck.value = document.join.userId.value;
-    self.close();
+    // self.close();
+
+    window.close();
 }
 
 /**우편번호 찾기**/

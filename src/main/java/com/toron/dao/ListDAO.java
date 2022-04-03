@@ -74,9 +74,10 @@ public class ListDAO extends DAO {
         Connection conn = null;
         Statement stmt = null;
         ResultSet rs = null;
-        String query = "SELECT NO,TYPE,title,ID,W_DATE,hit FROM TBLLIST_FREE\n" +
+        String query = "SELECT NO,TYPE,category,title,ID,W_DATE,hit FROM TBLLIST_FREE\n" +
                 "UNION \n" +
-                "SELECT NO,TYPE,title,ID,W_DATE,hit FROM TBLLIST_YESNO";
+                "SELECT NO,TYPE,category,title,ID,W_DATE,hit FROM TBLLIST_YESNO\n"+
+                "ORDER BY w_date desc";
 
         ArrayList<ListBean> m_list = new ArrayList<ListBean>();
 
@@ -89,6 +90,7 @@ public class ListDAO extends DAO {
                 ListBean m_list_one = new ListBean();
                 m_list_one.setNo(rs.getInt("no"));
                 m_list_one.setType(rs.getString("type"));
+                m_list_one.setCategory(rs.getString("category"));
                 m_list_one.setTitle(rs.getString("title"));
                 m_list_one.setId(rs.getString("id"));
                 m_list_one.setW_date(rs.getString("w_date"));
@@ -148,9 +150,9 @@ public class ListDAO extends DAO {
         conn = null;
         pstmt = null;
         rs = null;
-        String query = "SELECT NO,TYPE,title,ID,W_DATE,hit FROM TBLLIST_FREE WHERE category=?\n" +
+        String query = "SELECT NO,TYPE,category,title,ID,W_DATE,hit FROM TBLLIST_FREE WHERE category=?\n" +
                 "UNION \n" +
-                "SELECT NO,TYPE,title,ID,W_DATE,hit FROM TBLLIST_YESNO WHERE category=?";
+                "SELECT NO,TYPE,category,title,ID,W_DATE,hit FROM TBLLIST_YESNO WHERE category=?";
         ArrayList<ListBean> c_list = new ArrayList<ListBean>();
 
         try {
@@ -165,6 +167,7 @@ public class ListDAO extends DAO {
 
                 c_list_one.setNo(rs.getInt("no"));
                 c_list_one.setType(rs.getString("type"));
+                c_list_one.setCategory(rs.getString("category"));
                 c_list_one.setTitle(rs.getString("title"));
                 c_list_one.setId(rs.getString("id"));
                 c_list_one.setW_date(rs.getString("w_date"));

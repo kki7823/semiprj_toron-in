@@ -5,6 +5,7 @@ import java.sql.*;
 public class DAO {
     private final String ORACLE_DRIVER = "oracle.jdbc.driver.OracleDriver";
     private final String ORACLE_URL = "jdbc:oracle:thin:@13.124.230.151:1521:XE";
+//    private final String ORACLE_URL = "jdbc:oracle:thin:@172.31.45.120:1521:XE";
     private final String ORACLE_USER = "yama";
     private final String ORACLE_PW = "0202";
 

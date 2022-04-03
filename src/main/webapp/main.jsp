@@ -16,7 +16,7 @@
             crossorigin="anonymous"></script>
 
     <!--custom css-->
-    <link href="css/style1.css?l1g" type="text/css" rel="stylesheet">
+    <link href="css/style1.css?f1ssㄴas" type="text/css" rel="stylesheet">
     <meta charset="UTF-8">
     <title>메인페이지</title>
 
@@ -27,7 +27,7 @@
         <jsp:include page="header.jsp"/>
     </div>
 
-    <div class="container-lg">
+    <div class="container-lg" style="text-align: center">
         <!-- 실시간 인기검색어 / best5 -->
         <div id="utill">
             <div id="main_hotK">
@@ -48,7 +48,6 @@
     <div id="footer_container">
         <!-- footer -->
         <jsp:include page="footer.jsp"/>
-
     </div>
 
 </body>

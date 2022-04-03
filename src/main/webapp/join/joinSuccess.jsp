@@ -22,8 +22,7 @@
     </script>
 </head>
 <body>
-    <!-- ${member.getPhoto()} -->
-
+    <!-- ${requestScope.member.photo} -->
     <div id="memberP_con" class="container-lg">
         <div id="memP_title">
             <h2>개인 정보 확인</h2>
@@ -33,21 +32,21 @@
             <div class="row g-3">
                 <div id="member_photo_box">
                     <!-- 파일 구현 후 수정 -->
-                    <img id="member_photo" src="../image/default.jpg" />
+                    <img id="member_photo" width="200px" height="200px"  src="/semiprj_toron_in/images/user_profile/${requestScope.member.photo }" />
                 </div>
                 <div></div>
 
                 <div class="col-sm-6">
                     <span>아이디</span><span style="color: darkred;">&nbsp;*</span><br />
                     <input type="text" name="id" class="form-control" id="join_idbar"
-                           placeholder="영문소문자/숫자, 4~16자" value="${member.getId()}" required="required"
+                           placeholder="영문소문자/숫자, 4~16자" value="${requestScope.member.id }" required="required"
                            style="display: inline" />
 
                 </div>
 
                 <div class="col-sm-6">
                     <span>닉네임</span><span style="color: darkred;">&nbsp;*</span>
-                    <input type="text" name="nick" class="form-control" id="join_nickbar" value="${member.getNick()}"
+                    <input type="text" name="nick" class="form-control" id="join_nickbar" value="${requestScope.member.nick}"
                            required="required" />
                     <div class="invalid-feedback">Valid name is required.</div>
                 </div>
@@ -55,7 +54,7 @@
 
                 <div class="col-sm-6">
                     <span>이름</span><span style="color: darkred;">&nbsp;*</span>
-                    <input type="text" name="name" class="form-control" id="join_namebar" value="${member.getName()}"
+                    <input type="text" name="name" class="form-control" id="join_namebar" value="${requestScope.member.name}"
                            required="required" />
                     <div class="invalid-feedback">Valid name is required.</div>
                 </div>
@@ -63,21 +62,21 @@
 
                 <div class="col-sm-6">
                     <span>전화번호</span> <span style="color: darkred;">&nbsp;*</span>
-                    <input type="text" name="phone" class="form-control" id="join_phonebar" value="${member.getPhone()}" required="required" />
+                    <input type="text" name="phone" class="form-control" id="join_phonebar" value="${requestScope.member.phone}" required="required" />
                     <div class="invalid-feedback">Valid name is required.</div>
                 </div>
 
                 <div class="col-sm-6">
                     <span>비밀번호</span><span style="color: darkred;">&nbsp;*</span>
                     <input type="password" name="pwd" class="form-control" id="join_pwbar"
-                           placeholder="영문 대소문자/숫자/특수문자 중 2가지 이상 조합, 10자~16자" value="${member.getPwd()}"
+                           placeholder="영문 대소문자/숫자/특수문자 중 2가지 이상 조합, 10자~16자" value="${requestScope.member.pwd}"
                            required="required" />
                     <div class="invalid-feedback">Valid password is required.</div>
                 </div>
                 <div class="col-sm-6">
                     <span>비밀번호 확인</span><span style="color: darkred;">&nbsp;*</span>
                     <input type="password" name="pwd2" class="form-control" id="join_pwbar2"
-                           placeholder="영문 대소문자/숫자/특수문자 중 2가지 이상 조합, 10자~16자" value="${member.getPwd()}"
+                           placeholder="영문 대소문자/숫자/특수문자 중 2가지 이상 조합, 10자~16자" value="${requestScope.member.pwd}"
                            required="required" />
                     <div class="invalid-feedback">Valid password is required.</div>
                 </div>
@@ -85,14 +84,14 @@
                 <div style="width: 800px;" class="col-sm-6">
                     <span>이메일</span> <span style="color: darkred;">&nbsp;*</span>
                     <input type="email" name="email" class="form-control" id="join_emailbar" placeholder="email@example.com"
-                           value="${member.getEmail()}" required="required" />
+                           value="${requestScope.member.email}" required="required" />
                     <div class="invalid-feedback">Valid name is required.</div>
                 </div>
 
                 <div class="col-sm-6">
                     <span>우편번호</span><span style="color: darkred;">&nbsp;*</span><br />
                     <input type="text" name="zipcode" class="form-control" id="join_postalbar"
-                           value="${member.getZipcode()}" required="required"
+                           value="${requestScope.member.zipcode}" required="required"
                            style="display: inline" />
 
                     <div class="invalid-feedback">Valid name is required.</div>
@@ -101,7 +100,7 @@
                 <div class="col-sm-6">
                     <span>주소</span><span style="color: darkred;">&nbsp;*</span>
                     <input type="text" name="address" class="form-control" id="join_addressbar"
-                           value="${member.getAddress()}" required="required" />
+                           value="${requestScope.member.address}" required="required" />
                     <div class="invalid-feedback">Valid name is required.</div>
                 </div>
                 <%

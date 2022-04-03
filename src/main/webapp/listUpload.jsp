@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8"%>
 <html>
 <head>
     <!--Bootstrap-->
@@ -8,22 +8,22 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
             crossorigin="anonymous"></script>
-    <link href="css/style1.css?ver=s2a2 " rel="stylesheet" type="text/css">
+    <link href="css/style1.css?bjssgowa " rel="stylesheet" type="text/css">
     <script src="js/list.js" type="text/javascript"></script>
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <title>글쓰기</title>
 </head>
 <body>
-    <div id="container" class="container-lg" style="border: 1pt solid">
-        <div id="listU_mainbox" class="container-lg">
-            <div id="listU_titleheader" class="py-5 text-center" style="border: 1pt solid">
-                <h2>글작성</h2>
+    <div id="container" class="container-lg">
+        <div id="listU_mainbox" class="container-lg" style="background-color:#f2f2df;">
+            <div id="listU_titleheader" class="py-5 text-center">
+                <h2><font color="gray">글작성</font></h2>
                 <hr class="my-4">
             </div>
             <form name="listU_from" action="ListUpload" method="post" enctype="multipart/form-data">
-                <div id="listU_row1" class="row" style="border: 1pt solid">
-                    <div id="listU_formatbox" class="col" style="border: 1pt solid">
-                        <span>양식&nbsp;</span>
+                <div id="listU_row1" class="row" style="padding: 10px;">
+
+                    <div id="listU_formatbox" class="col">
                         <input type="text" name="list_id" value="${sessionScope.loginUser.id}" hidden="hidden">
                         <select name="list_type" id="listU_format" class="form-select" aria-label="listU_format"
                                 onchange="hiddenContents()">
@@ -32,8 +32,8 @@
                             <option value="2">찬반토론</option>
                         </select>
                     </div>
-                    <div id="listU_categorybox" class="col" style="border: 1pt solid">
-                        <span>카테고리&nbsp;</span>
+
+                    <div id="listU_categorybox" class="col">
                         <select name="list_category" id="listU_category" class="form-select"
                                 aria-label="listU_category">
                             <option value="0" selected>카테고리</option>
@@ -45,17 +45,14 @@
                         </select>
                     </div>
                 </div>
-                <div id="listU_titlebox" style="border: 1pt solid">
-                    <span>제목 </span>
+                <div id="listU_titlebox" style="text-align:left; margin-left:10px;">
                     <input name="list_title" id="listU_titlebar" type="text" class="form-control" placeholder="제목"
                            required="required"/>
                 </div>
-                <div id="listU_contentsbox">
-                    <span>내용</span>
-                    <textarea name="list_contents" id="listU_contentsarea" class="form-control" rows="20"></textarea>
+                <div id="listU_contentsbox" style="margin-left:10px; margin-top:15px; margin-right:10px;">
+                    <textarea placeholder="내용을 입력하시오" name="list_contents" id="listU_contentsarea" class="form-control" rows="20" style="resize:none;"></textarea>
                 </div>
-                <div id="listU_upload" style="border: 1pt solid">
-                    <span>이미지 첨부</span>
+                <div id="listU_upload" style="margin-top: 15px; margin-left:10px;">
                     <input name="list_upload" class="form-control" type="file" id="listU_uploadbar"/>
                     <div class="list_img"><img id="listU_upload_img" src=""/></div>
                     <script>
@@ -70,12 +67,16 @@
                         });
                     </script>
                 </div>
-                <div id="listU_buttonbox" class="col">
-                    <button class="btn btn-primary btn-lg" onclick="checkParam()">저장</button>
-                    <button class="btn btn-primary btn-lg" onclick="window.location=document.referrer;">취소</button>
+                <div id="listU_buttonbox" class="col" style="margin-top:15px;">
+                    <button class="btn btn-success" style="width: 100px; height:50px;" onclick="checkParam()">저장</button>
+                    <button class="btn btn-success" style="width: 100px; height:50px;" onclick="window.location=document.referrer;">취소</button>
                 </div>
             </form>
         </div>
+    </div>
+    <div id="footer_container">
+        <!-- footer -->
+        <jsp:include page="footer.jsp"/>
     </div>
 </body>
 </html>

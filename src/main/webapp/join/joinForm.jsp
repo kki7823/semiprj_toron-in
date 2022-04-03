@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
-<%@ page import="com.oreilly.servlet.MultipartRequest"%>
+<%@ page import="com.oreilly.servlet.MultipartRequest" %>
 <html>
 <head>
     <!--Bootstrap-->
@@ -13,24 +13,27 @@
             integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
             crossorigin="anonymous"></script>
 
-    <link href="../css/style1.css?v" rel="stylesheet" type="text/css">
+    <link href="../css/style1.css?vzdd1" rel="stylesheet" type="text/css">
     <script src="../js/script.js" type="text/javascript"></script>
     <meta charset="UTF-8">
     <title>회원가입</title>
 </head>
-<body>
+<body style=" background-color: #f2f2df">
     <div id="join_container" class="container-lg">
         <div id="join_title" class="py-5 text-center">
-            <h2>회원 가입</h2>
+            <h1 style="color: grey">회원 가입</h1>
             <hr class="my-4">
         </div>
-        <form action="../Join" id="join_form" name="join" method="post" class="needs-validation" enctype="multipart/form-data">
-            <div id="join_mainbox" class="row g-3" >
-                <div id="join_idbox" class="col-sm-6" >
+        <form action="../Join" id="join_form" name="join" method="post" class="needs-validation"
+              enctype="multipart/form-data">
+            <div id="join_mainbox" class="row g-3">
+                <div id="join_idbox" class="col-sm-6">
                     <span>아이디</span><span style="color:darkred;">&nbsp;*</span><br/>
-                    <input type="text" name="userId" class="form-control" id="join_idbar" placeholder="영문소문자/숫자, 4~16자" required="required" style="display: inline"/>
-                    <!--  중복확인 여부 확인용--><input type="hidden" name="hidden_idCheck" />
-                    <input type="button" class="btn btn-primary" style="margin-bottom: 3px" value="아이디 중복 확인" onclick="idCheck()" />
+                    <input type="text" name="userId" class="form-control" id="join_idbar" placeholder="영문대소문자/숫자, 4~12자"
+                           required="required" style="display: inline"/>
+                    <!--  중복확인 여부 확인용--><input type="hidden" name="hidden_idCheck" value="테스트"/>
+                    <input type="button" class="btn btn-success" style="margin-bottom: 3px" value="아이디 중복 확인"
+                           onclick="idCheck()"/>
 
                     <div class="invalid-feedback">
                         Valid id is required.
@@ -40,7 +43,7 @@
                 <div id="join_pwbox" class="col-sm-6">
                     <span>비밀번호</span><span style="color:darkred;">&nbsp;*</span>
                     <input type="password" name="userPwd" class="form-control" id="join_pwbar"
-                           placeholder="영문 대소문자/숫자/특수문자 중 2가지 이상 조합, 10자~16자" required="required"/>
+                           placeholder="영문 대소문자/숫자/특수문자 중 2가지 이상 조합, 10자~20자" required="required"/>
                     <div class="invalid-feedback">
                         Valid password is required.
                     </div>
@@ -72,7 +75,8 @@
 
                 <div id="join_phone" class="col-sm-6">
                     <span>전화번호</span><span style="color:darkred;">&nbsp;*</span>
-                    <input type="text" name="phone" class="form-control" id="join_phonebar" placeholder="000-0000-0000" required="required"/>
+                    <input type="text" name="phone" class="form-control" id="join_phonebar" placeholder="000-0000-0000"
+                           required="required"/>
                     <div class="invalid-feedback">
                         Valid name is required.
                     </div>
@@ -80,7 +84,8 @@
 
                 <div id="join_email" class="col-sm-6">
                     <span>이메일</span><span style="color:darkred;">&nbsp;*</span>
-                    <input type="email" name="email" class="form-control" id="join_emailbar" placeholder="email@example.com" required="required"/>
+                    <input type="email" name="email" class="form-control" id="join_emailbar"
+                           placeholder="email@example.com" required="required"/>
                     <div class="invalid-feedback">
                         Valid name is required.
                     </div>
@@ -88,8 +93,10 @@
 
                 <div id="join_postal" class="col-sm-6">
                     <span>우편번호</span><span style="color:darkred;">&nbsp;*</span><br/>
-                    <input type="text" name="zipcode" class="form-control" id="join_postalbar" required="required" style="display: inline"/>
-                    <input type="button" class="btn btn-primary" style="margin-bottom: 3px" value="우편번호 찾기"onclick="zipCheck()">
+                    <input type="text" name="zipcode" class="form-control" id="join_postalbar" required="required"
+                           style="display: inline"/>
+                    <input type="button" class="btn btn-success" style="margin-bottom: 3px" value="우편번호 찾기"
+                           onclick="zipCheck()">
                     <div class="invalid-feedback">
                         Valid name is required.
                     </div>
@@ -138,18 +145,22 @@
 
             </div>  <!-- End of join_mainbox -->
             <div id="join_buttonbox" class="col-sm-6">
-                <button type="submit" class="btn btn-primary btn-lg" onclick="return ckeckJoin()">확인</button>
-                <input type="button" class="btn btn-primary btn-lg" value="취소">
+                <button type="submit" class="btn btn-success btn-lg" style="width: 200px" onclick="return ckeckJoin()">확인</button>
+                <input type="button" class="btn btn-success btn-lg" style="width: 200px" value="취소" onclick="window.location=document.referrer;"/>
             </div>
             <hr class="my-4">
 
         </form>
     </div>
 
-    <footer class="my-5 pt-5 text-muted text-center text-small">
-        <p class="mb-1">토론In 회원가입 : Updated by 김경일</p>
-        <ul class="list-inline">
-        </ul>
-    </footer>
+<%--    <footer class="my-5 pt-5 text-muted text-center text-small">--%>
+<%--        <p class="mb-1">토론In 회원가입 : Updated by 김경일</p>--%>
+<%--        <ul class="list-inline">--%>
+<%--        </ul>--%>
+<%--    </footer>--%>
+    <div id="footer_container">
+        <!-- footer -->
+        <jsp:include page="../footer.jsp"/>
+    </div>
 </body>
 </html>

@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /* 공통 */
 #container {
-    height: 1660px;
+    /*height: 1660px;*/
     width: 1300px;
     overflow: hidden;
 }
@@ -13,21 +13,22 @@
     height: auto;
 }
 
-
 /**메인**/
 #utill {
-    margin-left: 30px;
-    margin-top: 30px;
-    width: 1200px;
+    margin: 20px auto 0;
+    width: 1300px;
     height: 430px;
     background-color: white;
     border-radius: 10px;
+    padding: 10px;
+    border: 2px solid #8e9c90;
 }
 
 #main_hotK {
     matgin-top: 50px;
     margin-left: 20px;
     display: inline-block;
+    width: 300px;
 }
 
 #main_best5 {
@@ -36,23 +37,26 @@
 }
 
 #main_newestbox {
-    margin-top: 30px;
-    margin-bottom: 40px;
     background-color: white;
     border-radius: 10px;
+    width: 1300px;
+    display: block;
+    margin: 20px auto;
+    padding: 30px;
+    border: 2px solid #8e9c90;
 }
 
 
 /**헤더**/
 #header_container {
-    border: 1pt solid;
+    /*border: 1pt solid;*/
     background-color: #8FBC8F;
 }
 
 #main_header_top {
     margin-top: 30px;
-    border: 2pt solid;
     border-color: #8e9c90;
+
 }
 
 #main_searchbox {
@@ -71,12 +75,24 @@
 }
 
 #main_header_bottom {
-    border: 1pt solid;
-    border-color: #8e9c90;
+    border: 1pt solid #8e9c90;
+    width: auto;
+}
+
+#main_navbox {
+    width: 500px;
+    display: inline-block;
+    height: 50px;
+    margin-top: 9px;
+
 }
 
 #main_loginbox {
-    text-align: right;
+    text-align: center;
+    display: inline-block;
+    width: 300px;
+    float: right;
+    margin-top: 10px;
 }
 
 #main_profile_photo {
@@ -93,7 +109,6 @@
 
 /**마이페이지**/
 #myList_container {
-    height: 200px;
     width: 1300px;
     margin-top: 100px;
 
@@ -116,7 +131,6 @@
 
 /**푸터**/
 #footer_container {
-    height: 200px;
     background-color: #8FBC8F;
 }
 
@@ -128,14 +142,14 @@
 
 /**best.jsp**/
 #best_container {
-    width: 700px;
+    width: 900px;
     background-color: white;
 }
 
 /**hotKeyword.jsp**/
 #hotK_container {
     background-color: white;
-    width: 400px;
+    /*width: 300px;*/
     height: 300px;
 }
 
@@ -155,7 +169,7 @@
 /******************************************/
 /* Login */
 #login_form {
-    margin: 300px auto;
+    margin: 170px auto;
     width: 500px;
     height: 500px;
     text-align: center;
@@ -206,7 +220,9 @@
 
 #join_buttonbox {
     margin: 0 auto;
-    text-align: center;
+    /*text-align: center;*/
+    position: relative;
+    left: 25px;
 }
 
 #join_buttonbox > button {
@@ -227,8 +243,6 @@
 /* listView */
 #listV_mainbox {
     width: 1400px;
-    height: 1200px;
-    margin-top: 50px;
 }
 
 #listV_table {
@@ -237,15 +251,19 @@
 }
 
 #listV_tb_num {
-    width: 100px;
+    width: 70px;
 }
 
 #listV_tb_title {
-    width: 820px;
+    width: 800px;
 }
 
 #listV_tb_type {
     width: 100px;
+}
+
+#listV_tb_cate{
+    width: 120px;
 }
 
 #listV_tb_id {
@@ -253,11 +271,11 @@
 }
 
 #listV_tb_date {
-    width: 140px;
+    width: 160px;
 }
 
 #listV_tb_hit {
-    width: 100px;
+    width: 90px;
 }
 
 #listV_buttonbox {
@@ -269,8 +287,9 @@
 /* listUpload */
 #listU_mainbox {
     width: 1000px;
-    height: 1200px;
     margin-top: 50px;
+    text-align : center;
+    padding: 20px;
 }
 
 #listU_mainbox > div {
@@ -298,21 +317,16 @@
 
 #listU_titlebar {
     display: inline;
-    width: 790px;
+    width: 950px;
 }
 
 #listU_uploadbar {
     display: inline;
-    width: 790px;
-}
-
-#listU_upload_img{
-    display: block;
-    margin : 10px auto;
+    width: 950px;
 }
 
 #listU_buttonbox {
-    float: right;
+    display : inline-block;
 }
 
 
@@ -320,18 +334,33 @@
 #listD_container {
     text-align: center;
     width: 1400px;
-    border: 1pt solid;
-    padding: 30px;
-    margin-bottom: 20px;
-    margin-top: 20px;
+    /*height: 1500px;*/
 }
 
 #listD_mainbox {
     width: 1000px;
-    margin-top: 50px;
 }
 
-#listD_editbox{
+
+/* listDetail */
+#listD_container {
+    text-align: center;
+    width: 1400px;
+    padding: 30px;
+    margin-bottom: 20px;
+    margin-top: 55px;
+}
+
+#listD_mainbox {
+    padding: 20px;
+    width: 960px;
+    margin-left: 20px;
+    border-radius: 20px;
+    border: 3px solid #8e9c90;
+    background-color: white;
+}
+
+#listD_editbox {
     display: inline;
     float: right;
 }
@@ -340,14 +369,19 @@
 /* listD - yes no */
 #listD_mainbox_y {
     width: 850px;
-    height: 1200px;
-    margin-top: 50px;
+    margin-left: 20px;
+    border-radius: 20px;
+    border: 3px solid #8e9c90;
+    background-color: white;
+    padding: 20px;
 }
 
 #listD_commentInbox_y {
-    width: 831px;
+    width: 800px;
     text-align: right;
-    margin-top: 40px;
+    margin: 40px auto;
+    display: block;
+    border: 1pt solid slategrey;
 }
 
 #listD_commentIn_y {
@@ -360,8 +394,13 @@
 }
 
 #listD_yesno_nav {
-    margin-top: 50px;
+    margin-left: 20px;
+    background-color: #9BCCC0; /**수정함*/
+    width: 200px;
+    border: 3px solid #8e9c90;
+    border-radius: 20px;
 }
+
 
 #listD_commentInTitle_y {
     margin: 10px;
@@ -377,8 +416,8 @@
 #listD_button_del {
     float: right;
     position: relative;
-    left: 9px;
-    bottom: 22px;
+    left: 20px;
+    bottom: 12px;
     border: none;
 }
 
@@ -399,12 +438,16 @@
 
 #listD_profile {
     width: 200px;
-    height: 51px;
+    height: 60px;
     display: inline-block;
-    border: 1pt solid;
+    border: 2px solid #8e9c90;
+    border-radius: 10px;
     float: right;
     position: relative;
-    bottom: 55px;
+    bottom: 148px;
+    background-color: #F4D0C7;
+
+
 }
 
 #listD_profile_id {
@@ -415,7 +458,8 @@
     text-align: left;
 }
 
-#listD_comment_container{
+#listD_comment_container {
+
 }
 
 #listD_contentsbox {
@@ -424,12 +468,12 @@
 
 #listD_commentbox {
     text-align: left;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 #listD_commentInbox {
-    width: 970px;
+    width: 930px;
     text-align: right;
     margin: 30px auto 0;
 }
@@ -452,7 +496,7 @@
 /* 1. 말풍선 찬성 */
 .balloon_yes {
     position: relative;
-    background: #88b7d5;
+    background: #90ADE1;
 }
 
 .balloon_yes:after {
@@ -465,9 +509,10 @@
     position: absolute;
     pointer-events: none;
     border-color: rgba(136, 183, 213, 0);
-    border-right-color: #88b7d5;
+    border-right-color: #90ADE1;
     border-width: 10px;
     margin-top: -10px;
+
 }
 
 .balloon_yes {
@@ -475,17 +520,17 @@
     margin-left: 10px;
     width: 368px;
     /*height: 118px;*/
-    left: 5px;
     text-align: left;
     border-radius: 10px;
     word-wrap: break-word;
     word-break: break-all;
+    padding: 10px;
 }
 
 /* 2. 말풍선 반대 */
 .balloon_no {
     position: relative;
-    background: #f0a8ed;
+    background: #E59393;
 }
 
 .balloon_no:after {
@@ -498,7 +543,7 @@
     position: absolute;
     pointer-events: none;
     border-color: rgba(240, 168, 237, 0);
-    border-left-color: #f0a8ed;
+    border-left-color: #E59393;
     border-width: 9px;
     margin-top: -9px;
 }
@@ -508,11 +553,12 @@
     /*position: fixed;*/
     width: 368px;
     /*height: 118px;*/
-    left: 440px;
+    left: 430px;
     text-align: left;
     border-radius: 10px;
     word-wrap: break-word;
     word-break: break-all;
+    padding: 10px;
 }
 
 .balloon_id {
@@ -538,8 +584,11 @@
 }
 
 .comment_free {
-    background-color: lightblue;
-    height: 190px;
+    background-color: #8FBC8F;
+    height: 175px;
+    border-radius: 20px;
+    border: 2px solid #8e9c90;
+    padding: 10px;
 }
 
 .comment_id {
@@ -551,12 +600,16 @@
 .comment {
     background-color: #f2f2df;
     border: 1pt solid slategray;
-    width: 960px;
+    width: 900px;
     height: 100px;
+    resize: none;
+    display: block;
     margin: 0 auto;
+
 }
 
 .comment_btnbox {
     float: right;
     margin: 5px;
+    display: inline-block;
 }

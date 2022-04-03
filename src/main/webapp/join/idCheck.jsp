@@ -17,8 +17,7 @@
 
     <meta charset="UTF-8">
     <title>idcheck.jsp</title>
-
-    <script src="js/script.js" type="text/javascript"></script>
+    <script src="/semiprj_toron_in/js/script.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -27,23 +26,25 @@
     <hr class="my-4">
 
     <form action="IdCheck" method="get" name="join">
-        아이디&nbsp;&nbsp;<input type="text" name="userId" value="${userId }"/>
+        아이디&nbsp;&nbsp;<input type="text" id="idcheck_id" name="userId" value="${requestScope.userId }"/>
 
-        <input type="submit" class="btn btn-success" value="중복체크"/>
+        <input type="submit" class="btn btn-success" value="중복체크" onclick="idCheck()"/>
         <br/>
 
-        <c:if test="${result ==1}">
-            <script type="text/javascript">
-                opener.document.join.userId.value = "";
-            </script>
-            ${userId} 는 이미 사용중인 아이디입니다.
-        </c:if>
-
-        <c:if test="${result ==0}">
-            ${userId} 는 사용가능한 아이디입니다.
-            <input type="button" class="btn btn-success" style="margin-top: 5px" value="사용"
-                   onclick="idok('${userId}')"/>
-        </c:if>
+        <c:choose>
+            <c:when test="${requestScope.result eq 1 }">
+                <script type="text/javascript">
+                    opener.document.join.userId.value = "";
+                </script>
+                ${userId } 는 이미 사용중인 아이디입니다.
+            </c:when>
+            <c:when test="${requestScope.result eq 0 }">
+                ${userId } 는 사용가능한 아이디입니다.
+                <input type="hidden" name="avail_id" value="${requestScope.userId}" >
+                <input type="button" class="btn btn-success" style="margin-top: 5px" value="사용"
+                       onclick="idok('${requestScope.userId }')"/>
+            </c:when>
+        </c:choose>
     </form>
 </body>
 
